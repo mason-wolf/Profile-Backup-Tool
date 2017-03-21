@@ -83,10 +83,10 @@ namespace ProfileBackupTool
             using (Process p = new Process())
             {
                 p.StartInfo.FileName = "xcopy";
-                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.CreateNoWindow = false;
                 p.StartInfo.UseShellExecute = false;
                 p.StartInfo.RedirectStandardOutput = true;
-                p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c";
                 p.Start();
                 try

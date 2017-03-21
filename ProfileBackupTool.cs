@@ -58,7 +58,7 @@ namespace ProfileBackupTool
                     DeviceList.SelectedIndex = 0;
                     ProgressBar.Visible = true;
                 });
-                MessageBox.Show(target + Properties.Settings.Default.SourceDirectory + Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
+                MessageBox.Show(target + Properties.Settings.Default.SourceDirectory + " " + Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
                 DirectoryTools.PerformBackup(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
          //       DirectoryTools.PerformBackup(target + "\\c$\\Users", backupServer);
                 StatusBar.Text = "Complete.";
