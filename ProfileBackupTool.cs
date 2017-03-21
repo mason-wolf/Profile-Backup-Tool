@@ -34,8 +34,7 @@ namespace ProfileBackupTool
         Thread DirectorySizeCalculator;
         Stopwatch StopWatch;
         System.Windows.Forms.Timer Timer;
-        string SourceDirectory = Properties.Settings.Default.SourceDirectory;
-        string DestinationDirectory = Properties.Settings.Default.DestinationDirectory;
+
 
         private void ProfileBackupTool_Load(object sender, EventArgs e)
         {
@@ -50,7 +49,7 @@ namespace ProfileBackupTool
             {
                 if (Properties.Settings.Default.CalculateProfileSizes)
                 {
-                    DirectoryTools.ApplyAllFiles(target + SourceDirectory, DirectoryTools.ProcessDirectorySizes);
+                    DirectoryTools.ApplyAllFiles(target + Properties.Settings.Default.SourceDirectory, DirectoryTools.ProcessDirectorySizes);
                //     DirectoryTools.ApplyAllFiles(target + "\\c$\\Users\\", DirectoryTools.ProcessDirectorySizes);
                 }
                 StatusBar.Text = "Performing backup...";
@@ -61,11 +60,9 @@ namespace ProfileBackupTool
                 });
 
                 string backupServer = Properties.Settings.Default.DefaultServer;
-                DirectoryTools.PerformBackup(target + SourceDirectory, backupServer + DestinationDirectory);
+                DirectoryTools.PerformBackup(target + Properties.Settings.Default.SourceDirectory, backupServer + Properties.Settings.Default.DestinationDirectory);
          //       DirectoryTools.PerformBackup(target + "\\c$\\Users", backupServer);
                 StatusBar.Text = "Complete.";
-
-                ProgressBar.Visible = false;
 
                 this.Invoke((MethodInvoker)delegate
                 {
@@ -115,9 +112,9 @@ namespace ProfileBackupTool
 
                 int profileCount = 0;
 
-                foreach (string target in DeviceList.Items)
-                {
-                  string[] directories = Directory.GetDirectories(target + SourceDirectory);
+            foreach (string target in DeviceList.Items)
+            { 
+                  string[] directories = Directory.GetDirectories(target + Properties.Settings.Default.SourceDirectory);
                 //  string[] directories = Directory.GetDirectories(target + "\\c$\\Users");
 
                 foreach (string path in directories)

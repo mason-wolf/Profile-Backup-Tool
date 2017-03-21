@@ -15,6 +15,7 @@ namespace ProfileBackupTool
         public Preferences()
         {
             InitializeComponent();
+
             if(Properties.Settings.Default.CalculateProfileSizes)
             {
                 CalculateProfileSizesOption.Checked = true;
@@ -23,6 +24,9 @@ namespace ProfileBackupTool
             {
                 CalculateProfileSizesOption.Checked = false;
             }
+
+            BackupDirectoryField.Text = Properties.Settings.Default.SourceDirectory;
+            DestinationDirectoryField.Text = Properties.Settings.Default.DestinationDirectory;
         }
 
         private void ApplyDirectoriesButton_Click(object sender, EventArgs e)
