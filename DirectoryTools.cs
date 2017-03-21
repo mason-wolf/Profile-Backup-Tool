@@ -88,7 +88,6 @@ namespace ProfileBackupTool
                 p.StartInfo.RedirectStandardOutput = true;
                 p.StartInfo.RedirectStandardError = true;
 
-                MessageBox.Show("\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c");
                 p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c";
                 p.Start();
                 try
@@ -117,9 +116,9 @@ namespace ProfileBackupTool
                         }
                     }
                 }
-                catch
+                catch (Exception BackupException)
                 {
-
+                    MessageBox.Show(BackupException.ToString());
                 }
                 p.Close();
                 p.Dispose();
@@ -144,9 +143,9 @@ namespace ProfileBackupTool
                 {
                     ApplyAllFiles(subDirectory, fileAction);
                 }
-                catch
+                catch(Exception AAF)
                 {
-
+                    MessageBox.Show(AAF.ToString());
                 }
             }
         }
