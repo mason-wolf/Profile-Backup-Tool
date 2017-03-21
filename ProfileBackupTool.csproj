@@ -59,6 +59,12 @@
       <DependentUpon>Connections.cs</DependentUpon>
     </Compile>
     <Compile Include="DirectoryTools.cs" />
+    <Compile Include="Preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Preferences.Designer.cs">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProfileBackupTool.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Connections.resx">
       <DependentUpon>Connections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preferences.resx">
+      <DependentUpon>Preferences.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfileBackupTool.resx">
       <DependentUpon>ProfileBackupTool.cs</DependentUpon>

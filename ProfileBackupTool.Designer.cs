@@ -66,6 +66,7 @@
             this.AddMachineButton = new System.Windows.Forms.Button();
             this.RemoveDeviceButton = new System.Windows.Forms.Button();
             this.ConnectionButton = new System.Windows.Forms.Button();
+            this.PreferencesButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -159,6 +160,7 @@
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
             this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
+            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -404,11 +406,27 @@
             this.ConnectionButton.UseVisualStyleBackColor = true;
             this.ConnectionButton.Click += new System.EventHandler(this.ConnectionButton_Click);
             // 
+            // PreferencesButton
+            // 
+            this.PreferencesButton.FlatAppearance.BorderSize = 0;
+            this.PreferencesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PreferencesButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PreferencesButton.Image = ((System.Drawing.Image)(resources.GetObject("PreferencesButton.Image")));
+            this.PreferencesButton.Location = new System.Drawing.Point(617, 27);
+            this.PreferencesButton.Name = "PreferencesButton";
+            this.PreferencesButton.Size = new System.Drawing.Size(27, 23);
+            this.PreferencesButton.TabIndex = 20;
+            this.PreferencesButton.TabStop = false;
+            this.PreferencesButton.Tag = "";
+            this.PreferencesButton.UseVisualStyleBackColor = true;
+            this.PreferencesButton.Click += new System.EventHandler(this.PreferencesButton_Click);
+            // 
             // ProfileBackupTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 492);
+            this.Controls.Add(this.PreferencesButton);
             this.Controls.Add(this.ConnectionButton);
             this.Controls.Add(this.RemoveDeviceButton);
             this.Controls.Add(this.AddMachineButton);
@@ -484,6 +502,7 @@
         private System.Windows.Forms.Button AddMachineButton;
         private System.Windows.Forms.Button RemoveDeviceButton;
         private System.Windows.Forms.Button ConnectionButton;
+        private System.Windows.Forms.Button PreferencesButton;
     }
 }
 

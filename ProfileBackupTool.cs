@@ -34,6 +34,8 @@ namespace ProfileBackupTool
         Thread DirectorySizeCalculator;
         Stopwatch StopWatch;
         System.Windows.Forms.Timer Timer;
+        string SourceDirectory = Properties.Settings.Default.SourceDirectory;
+        string DestinationDirectory = Properties.Settings.Default.DestinationDirectory;
 
         private void ProfileBackupTool_Load(object sender, EventArgs e)
         {
@@ -46,7 +48,11 @@ namespace ProfileBackupTool
 
             foreach (string target in targets)
             {
-                DirectoryTools.ApplyAllFiles(target + "\\c$\\Users\\Public", DirectoryTools.ProcessDirectorySizes);
+                if (Properties.Settings.Default.CalculateProfileSizes)
+                {
+                    DirectoryTools.ApplyAllFiles(target + SourceDirectory, DirectoryTools.ProcessDirectorySizes);
+               //     DirectoryTools.ApplyAllFiles(target + "\\c$\\Users\\", DirectoryTools.ProcessDirectorySizes);
+                }
                 StatusBar.Text = "Performing backup...";
 
                 this.Invoke((MethodInvoker)delegate {
@@ -55,7 +61,8 @@ namespace ProfileBackupTool
                 });
 
                 string backupServer = Properties.Settings.Default.DefaultServer;
-                DirectoryTools.PerformBackup(target + "\\c$\\Users\\Public", backupServer);
+                DirectoryTools.PerformBackup(target + SourceDirectory, backupServer + DestinationDirectory);
+         //       DirectoryTools.PerformBackup(target + "\\c$\\Users", backupServer);
                 StatusBar.Text = "Complete.";
 
                 this.Invoke((MethodInvoker)delegate
@@ -96,27 +103,28 @@ namespace ProfileBackupTool
 
         private void StartTransferButton_Click(object sender, EventArgs e)
         {
-            StatusBar.Text = "Calculating size of profile(s)...";
-            StatusBar.Visible = true;
-            StopButton.Enabled = true;
-            StartTransferButton.Enabled = false;
 
-            ProcessedFilesContainer.Text = "0";
+                StatusBar.Text = "Calculating size of profile(s)...";
+                StatusBar.Visible = true;
+                StopButton.Enabled = true;
+                StartTransferButton.Enabled = false;
 
-            int profileCount = 0;
+                ProcessedFilesContainer.Text = "0";
 
-            foreach (string target in DeviceList.Items)
-            {
-                    string[] directories = Directory.GetDirectories(target + "\\c$\\Users\\Public");
+                int profileCount = 0;
 
-                    foreach (string path in directories)
+                foreach (string target in DeviceList.Items)
+                {
+                  string[] directories = Directory.GetDirectories(target + SourceDirectory);
+                //  string[] directories = Directory.GetDirectories(target + "\\c$\\Users");
+
+                foreach (string path in directories)
                     {
                         profileCount++;
                         ProfileCountContainer.Text = profileCount.ToString();
                     }
 
-            }
-
+                }
             DirectoryTools DirectoryTools = new DirectoryTools(TotalSizeContainer, FileTransferContainer, ProcessedFilesContainer);
 
             ProfileLabel.Visible = true;
@@ -201,6 +209,18 @@ namespace ProfileBackupTool
         {
             Connections Connections = new Connections();
             Connections.Show();
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Preferences Preferences = new Preferences();
+            Preferences.Show();
+        }
+
+        private void PreferencesButton_Click(object sender, EventArgs e)
+        {
+            Preferences Preferences = new Preferences();
+            Preferences.Show();
         }
     }
 }

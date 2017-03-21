@@ -34,5 +34,41 @@ namespace ProfileBackupTool.Properties {
                 this["DefaultServer"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SourceDirectory {
+            get {
+                return ((string)(this["SourceDirectory"]));
+            }
+            set {
+                this["SourceDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DestinationDirectory {
+            get {
+                return ((string)(this["DestinationDirectory"]));
+            }
+            set {
+                this["DestinationDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CalculateProfileSizes {
+            get {
+                return ((bool)(this["CalculateProfileSizes"]));
+            }
+            set {
+                this["CalculateProfileSizes"] = value;
+            }
+        }
     }
 }

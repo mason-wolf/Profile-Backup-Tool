@@ -38,6 +38,7 @@
             // 
             // DeviceName
             // 
+            this.DeviceName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.DeviceName.Location = new System.Drawing.Point(24, 73);
             this.DeviceName.Name = "DeviceName";
             this.DeviceName.Size = new System.Drawing.Size(310, 20);

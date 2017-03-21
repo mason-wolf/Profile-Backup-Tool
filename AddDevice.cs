@@ -34,13 +34,14 @@ namespace ProfileBackupTool
             {
                 /// TODO: Change test directory name
 
-                File.Open(ComputerName + "\\c$\\users\\dummy.txt", FileMode.Create).Close();
+                File.Open(ComputerName + "\\c$\\users\\public\\dummy.txt", FileMode.Create).Close();
                 main.DeviceList.Items.Add(ComputerName);
                 main.StartTransferButton.Enabled = true;
                 this.Close();
             }
-            catch 
+            catch (Exception InvalidPath)
             {
+                MessageBox.Show(InvalidPath.ToString());
                 MessageBox.Show("Unable to reach target machine. Check permissions and ensure name is valid.");
                 ConnectionStatus.Text = " Invalid computer name or insufficient privilages on target.";
                 ConnectionStatus.ForeColor = Color.Red;

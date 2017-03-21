@@ -50,6 +50,7 @@
             // 
             // ServerAddressField
             // 
+            this.ServerAddressField.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ServerAddressField.Location = new System.Drawing.Point(211, 39);
             this.ServerAddressField.Name = "ServerAddressField";
             this.ServerAddressField.Size = new System.Drawing.Size(176, 20);
