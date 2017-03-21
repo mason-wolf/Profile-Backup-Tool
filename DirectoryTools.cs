@@ -86,7 +86,8 @@ namespace ProfileBackupTool
                 p.StartInfo.CreateNoWindow = true;
                 p.StartInfo.UseShellExecute = false;
                 p.StartInfo.RedirectStandardOutput = true;
-                p.StartInfo.RedirectStandardError = false;
+                p.StartInfo.RedirectStandardError = true;
+
                 MessageBox.Show("\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c");
                 p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c";
                 p.Start();
