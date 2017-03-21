@@ -34,7 +34,7 @@ namespace ProfileBackupTool
             {
                 /// TODO: Change test directory name
 
-                File.Open(ComputerName + "\\c$\\users\\Mason.LAPTOP-RJFK2H6N\\dummy.txt", FileMode.Create).Close();
+                File.Open(ComputerName + "\\c$\\users\\dummy.txt", FileMode.Create).Close();
                 main.DeviceList.Items.Add(ComputerName);
                 main.StartTransferButton.Enabled = true;
                 this.Close();

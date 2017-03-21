@@ -380,7 +380,7 @@
             this.RemoveDeviceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveDeviceButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.RemoveDeviceButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveDeviceButton.Image")));
-            this.RemoveDeviceButton.Location = new System.Drawing.Point(552, 28);
+            this.RemoveDeviceButton.Location = new System.Drawing.Point(552, 29);
             this.RemoveDeviceButton.Name = "RemoveDeviceButton";
             this.RemoveDeviceButton.Size = new System.Drawing.Size(27, 23);
             this.RemoveDeviceButton.TabIndex = 18;
@@ -395,7 +395,7 @@
             this.ConnectionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConnectionButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ConnectionButton.Image = ((System.Drawing.Image)(resources.GetObject("ConnectionButton.Image")));
-            this.ConnectionButton.Location = new System.Drawing.Point(698, 1);
+            this.ConnectionButton.Location = new System.Drawing.Point(585, 27);
             this.ConnectionButton.Name = "ConnectionButton";
             this.ConnectionButton.Size = new System.Drawing.Size(27, 23);
             this.ConnectionButton.TabIndex = 19;
