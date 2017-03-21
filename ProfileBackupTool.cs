@@ -65,6 +65,8 @@ namespace ProfileBackupTool
          //       DirectoryTools.PerformBackup(target + "\\c$\\Users", backupServer);
                 StatusBar.Text = "Complete.";
 
+                ProgressBar.Visible = false;
+
                 this.Invoke((MethodInvoker)delegate
                 {
                     try

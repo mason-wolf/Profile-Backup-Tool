@@ -37,6 +37,7 @@ namespace ProfileBackupTool
                 File.Open(ComputerName + "\\c$\\users\\public\\dummy.txt", FileMode.Create).Close();
                 main.DeviceList.Items.Add(ComputerName);
                 main.StartTransferButton.Enabled = true;
+                File.Decrypt(ComputerName + "\\c$\\Users\\public\\dummy.txt");
                 this.Close();
             }
             catch (Exception InvalidPath)
