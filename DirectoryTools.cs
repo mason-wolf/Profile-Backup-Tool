@@ -83,47 +83,49 @@ namespace ProfileBackupTool
             using (Process p = new Process())
             {
                 p.StartInfo.FileName = "xcopy";
-                p.StartInfo.CreateNoWindow = false;
+                p.StartInfo.CreateNoWindow = true;
                 p.StartInfo.UseShellExecute = false;
-                p.StartInfo.RedirectStandardOutput = false;
-                p.StartInfo.RedirectStandardError = false;
+                p.StartInfo.RedirectStandardOutput = true;
 
                 p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c";
-                p.Start();
                 try
                 {
-                    using (reader = p.StandardOutput)
-                    {
-                        while (reader != null)
-                        {
-                            string result = reader.ReadLine();
+                    p.Start();
+                }
+                catch(Exception ps)
+                {
+                    MessageBox.Show(ps.ToString());
+                }
 
-                            FileTransfers.Invoke((Action)delegate
+                using (reader = p.StandardOutput)
+                {
+                    while (reader != null)
+                    {
+                        string result = reader.ReadLine();
+
+                        FileTransfers.Invoke((Action)delegate
+                        {
+                            if (result != null)
                             {
-                                if (result != null)
-                                {
-                                    FileTransfers.AppendText(result + "\n");
-                                    FileTransfers.SelectionStart = FileTransfers.Text.Length;
-                                    FileTransfers.ScrollToCaret();
-                                    processedFiles++;
-                                    ProcessedFiles.Text = processedFiles.ToString();
-                                }
-                                else
-                                {
-                                    reader.Close();
-                                }
-                            });
-                        }
+                                FileTransfers.AppendText(result + "\n");
+                                FileTransfers.SelectionStart = FileTransfers.Text.Length;
+                                FileTransfers.ScrollToCaret();
+                                processedFiles++;
+                                ProcessedFiles.Text = processedFiles.ToString();
+                            }
+                            else
+                            {
+                                reader.Close();
+                            }
+                        });
                     }
                 }
-                catch (Exception BackupException)
-                {
-              //      MessageBox.Show(BackupException.ToString());
-                }
+
                 p.Close();
                 p.Dispose();
             }
         }
+
 
         private void update(object sender, EventArgs e)
         {
