@@ -88,14 +88,9 @@ namespace ProfileBackupTool
                 p.StartInfo.RedirectStandardOutput = true;
 
                 p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c";
-                try
-                {
+
                     p.Start();
-                }
-                catch(Exception ps)
-                {
-                    MessageBox.Show(ps.ToString());
-                }
+
 
                 using (reader = p.StandardOutput)
                 {
