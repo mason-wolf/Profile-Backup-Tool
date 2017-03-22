@@ -88,10 +88,10 @@ namespace ProfileBackupTool
                 p.StartInfo.RedirectStandardOutput = true;
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardInput = true;
-             //   string profileExemptionDate = "/d:01-01-2016";
+                string profileExemptionDate = "/d:01-01-2016";
                 string exclusionList = "/EXCLUDE:config\\exclusions.txt";
 
-                p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + exclusionList;
+                p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + exclusionList + profileExemptionDate;
                 p.Start();
 
                 try
