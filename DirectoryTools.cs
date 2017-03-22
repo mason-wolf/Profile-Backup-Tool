@@ -147,9 +147,9 @@ namespace ProfileBackupTool
                 {
                     ApplyAllFiles(subDirectory, fileAction);
                 }
-                catch(Exception AAF)
+                catch
                 {
-                    MessageBox.Show(AAF.ToString());
+
                 }
             }
         }
