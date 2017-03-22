@@ -33,6 +33,7 @@ namespace ProfileBackupTool
         {
             Properties.Settings.Default.SourceDirectory = BackupDirectoryField.Text;
             Properties.Settings.Default.DestinationDirectory = DestinationDirectoryField.Text;
+            Properties.Settings.Default.Save();
             this.Close();
         }
 
@@ -46,12 +47,19 @@ namespace ProfileBackupTool
             if(CalculateProfileSizesOption.Checked)
             {
                 Properties.Settings.Default.CalculateProfileSizes = true;
+                Properties.Settings.Default.Save();
             }
             else
             {
                 Properties.Settings.Default.CalculateProfileSizes = false;
+                Properties.Settings.Default.Save();
             }
         }
 
+        private void SetDefaultDirectoriesButton_Click(object sender, EventArgs e)
+        {
+            BackupDirectoryField.Text = "\\c$\\Users";
+            DestinationDirectoryField.Text = Environment.MachineName;
+        }
     }
 }

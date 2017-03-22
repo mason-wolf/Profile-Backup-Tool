@@ -32,7 +32,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.SetDefaultDirectoriesButton = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.DestinationDirectoryField = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ApplyDirectoriesButton = new System.Windows.Forms.Button();
@@ -55,13 +54,12 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(436, 208);
+            this.tabControl1.Size = new System.Drawing.Size(436, 199);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.SetDefaultDirectoriesButton);
-            this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.DestinationDirectoryField);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.ApplyDirectoriesButton);
@@ -70,29 +68,20 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(428, 182);
+            this.tabPage1.Size = new System.Drawing.Size(428, 173);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Directories";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // SetDefaultDirectoriesButton
             // 
-            this.SetDefaultDirectoriesButton.Location = new System.Drawing.Point(234, 138);
+            this.SetDefaultDirectoriesButton.Location = new System.Drawing.Point(234, 123);
             this.SetDefaultDirectoriesButton.Name = "SetDefaultDirectoriesButton";
             this.SetDefaultDirectoriesButton.Size = new System.Drawing.Size(75, 23);
             this.SetDefaultDirectoriesButton.TabIndex = 6;
             this.SetDefaultDirectoriesButton.Text = "Default";
             this.SetDefaultDirectoriesButton.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(277, 106);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(124, 17);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Use Computer Name";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.SetDefaultDirectoriesButton.Click += new System.EventHandler(this.SetDefaultDirectoriesButton_Click);
             // 
             // DestinationDirectoryField
             // 
@@ -112,7 +101,7 @@
             // 
             // ApplyDirectoriesButton
             // 
-            this.ApplyDirectoriesButton.Location = new System.Drawing.Point(326, 138);
+            this.ApplyDirectoriesButton.Location = new System.Drawing.Point(326, 123);
             this.ApplyDirectoriesButton.Name = "ApplyDirectoriesButton";
             this.ApplyDirectoriesButton.Size = new System.Drawing.Size(75, 23);
             this.ApplyDirectoriesButton.TabIndex = 2;
@@ -186,7 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 234);
+            this.ClientSize = new System.Drawing.Size(470, 224);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Preferences";
@@ -206,7 +195,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button SetDefaultDirectoriesButton;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox DestinationDirectoryField;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ApplyDirectoriesButton;

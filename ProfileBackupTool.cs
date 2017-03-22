@@ -58,8 +58,8 @@ namespace ProfileBackupTool
                     DeviceList.SelectedIndex = 0;
                     ProgressBar.Visible = true;
                 });
-           //     DirectoryTools.PerformBackup(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
-                DirectoryTools.PerformBackup(target + "\\c$\\Users", Properties.Settings.Default.DefaultServer);
+                DirectoryTools.PerformBackup(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
+          //      DirectoryTools.PerformBackup(target + "\\c$\\Users", Properties.Settings.Default.DefaultServer);
                 StatusBar.Text = "Complete.";
 
                 this.Invoke((MethodInvoker)delegate
