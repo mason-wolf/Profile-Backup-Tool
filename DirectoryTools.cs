@@ -88,39 +88,41 @@ namespace ProfileBackupTool
                 p.StartInfo.RedirectStandardOutput = true;
 
                 p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c";
-
-                    p.Start();
-
-
-                using (reader = p.StandardOutput)
+                p.Start();
+                try
                 {
-                    while (reader != null)
+                    using (reader = p.StandardOutput)
                     {
-                        string result = reader.ReadLine();
-
-                        FileTransfers.Invoke((Action)delegate
+                        while (reader != null)
                         {
-                            if (result != null)
+                            string result = reader.ReadLine();
+
+                            FileTransfers.Invoke((Action)delegate
                             {
-                                FileTransfers.AppendText(result + "\n");
-                                FileTransfers.SelectionStart = FileTransfers.Text.Length;
-                                FileTransfers.ScrollToCaret();
-                                processedFiles++;
-                                ProcessedFiles.Text = processedFiles.ToString();
-                            }
-                            else
-                            {
-                                reader.Close();
-                            }
-                        });
+                                if (result != null)
+                                {
+                                    FileTransfers.AppendText(result + "\n");
+                                    FileTransfers.SelectionStart = FileTransfers.Text.Length;
+                                    FileTransfers.ScrollToCaret();
+                                    processedFiles++;
+                                    ProcessedFiles.Text = processedFiles.ToString();
+                                }
+                                else
+                                {
+                                    reader.Close();
+                                }
+                            });
+                        }
                     }
                 }
-
+                catch 
+                {
+              //      MessageBox.Show(BackupException.ToString());
+                }
                 p.Close();
                 p.Dispose();
             }
         }
-
 
         private void update(object sender, EventArgs e)
         {
