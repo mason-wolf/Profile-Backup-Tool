@@ -70,5 +70,17 @@ namespace ProfileBackupTool.Properties {
                 this["CalculateProfileSizes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseCustomDestination {
+            get {
+                return ((bool)(this["UseCustomDestination"]));
+            }
+            set {
+                this["UseCustomDestination"] = value;
+            }
+        }
     }
 }

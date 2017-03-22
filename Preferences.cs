@@ -27,6 +27,11 @@ namespace ProfileBackupTool
 
             BackupDirectoryField.Text = Properties.Settings.Default.SourceDirectory;
             DestinationDirectoryField.Text = Properties.Settings.Default.DestinationDirectory;
+            if(Properties.Settings.Default.UseCustomDestination == true)
+            {
+                DestinationDirectoryField.Enabled = true;
+                CustomDirectoryOption.Checked = false;
+            }
         }
 
         private void ApplyDirectoriesButton_Click(object sender, EventArgs e)
@@ -60,6 +65,22 @@ namespace ProfileBackupTool
         {
             BackupDirectoryField.Text = "\\c$\\Users";
             DestinationDirectoryField.Text = Environment.MachineName;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!CustomDirectoryOption.Checked)
+            {
+                DestinationDirectoryField.Enabled = true;
+                Properties.Settings.Default.UseCustomDestination = true;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                DestinationDirectoryField.Enabled = false;
+                Properties.Settings.Default.UseCustomDestination = false;
+                Properties.Settings.Default.Save();
+            }
         }
     }
 }

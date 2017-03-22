@@ -42,6 +42,7 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.CalculateProfileSizesOption = new System.Windows.Forms.CheckBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.CustomDirectoryOption = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -54,11 +55,12 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(436, 199);
+            this.tabControl1.Size = new System.Drawing.Size(436, 252);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.CustomDirectoryOption);
             this.tabPage1.Controls.Add(this.SetDefaultDirectoriesButton);
             this.tabPage1.Controls.Add(this.DestinationDirectoryField);
             this.tabPage1.Controls.Add(this.label2);
@@ -68,14 +70,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(428, 173);
+            this.tabPage1.Size = new System.Drawing.Size(428, 226);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Directories";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // SetDefaultDirectoriesButton
             // 
-            this.SetDefaultDirectoriesButton.Location = new System.Drawing.Point(234, 123);
+            this.SetDefaultDirectoriesButton.Location = new System.Drawing.Point(229, 188);
             this.SetDefaultDirectoriesButton.Name = "SetDefaultDirectoriesButton";
             this.SetDefaultDirectoriesButton.Size = new System.Drawing.Size(75, 23);
             this.SetDefaultDirectoriesButton.TabIndex = 6;
@@ -85,6 +87,7 @@
             // 
             // DestinationDirectoryField
             // 
+            this.DestinationDirectoryField.Enabled = false;
             this.DestinationDirectoryField.Location = new System.Drawing.Point(174, 68);
             this.DestinationDirectoryField.Name = "DestinationDirectoryField";
             this.DestinationDirectoryField.Size = new System.Drawing.Size(227, 20);
@@ -101,7 +104,7 @@
             // 
             // ApplyDirectoriesButton
             // 
-            this.ApplyDirectoriesButton.Location = new System.Drawing.Point(326, 123);
+            this.ApplyDirectoriesButton.Location = new System.Drawing.Point(326, 188);
             this.ApplyDirectoriesButton.Name = "ApplyDirectoriesButton";
             this.ApplyDirectoriesButton.Size = new System.Drawing.Size(75, 23);
             this.ApplyDirectoriesButton.TabIndex = 2;
@@ -112,11 +115,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 71);
+            this.label1.Location = new System.Drawing.Point(10, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.Size = new System.Drawing.Size(146, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Destination Directory:";
+            this.label1.Text = "Custom Destination Directory:";
             // 
             // BackupDirectoryField
             // 
@@ -171,12 +174,26 @@
             this.CalculateProfileSizesOption.UseVisualStyleBackColor = true;
             this.CalculateProfileSizesOption.CheckedChanged += new System.EventHandler(this.CalculateProfileSizesOption_CheckedChanged);
             // 
+            // CustomDirectoryOption
+            // 
+            this.CustomDirectoryOption.AutoSize = true;
+            this.CustomDirectoryOption.Checked = true;
+            this.CustomDirectoryOption.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CustomDirectoryOption.Location = new System.Drawing.Point(229, 111);
+            this.CustomDirectoryOption.Name = "CustomDirectoryOption";
+            this.CustomDirectoryOption.Size = new System.Drawing.Size(172, 17);
+            this.CustomDirectoryOption.TabIndex = 7;
+            this.CustomDirectoryOption.Text = "Create directory for each target";
+            this.CustomDirectoryOption.UseVisualStyleBackColor = true;
+            this.CustomDirectoryOption.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Preferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 224);
+            this.ClientSize = new System.Drawing.Size(470, 276);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Preferences";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -205,5 +222,6 @@
         private System.Windows.Forms.Button ApplyTransferSettingsButton;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox CalculateProfileSizesOption;
+        private System.Windows.Forms.CheckBox CustomDirectoryOption;
     }
 }

@@ -50,7 +50,6 @@ namespace ProfileBackupTool
                 if (Properties.Settings.Default.CalculateProfileSizes)
                 {
                     DirectoryTools.ApplyAllFiles(target + Properties.Settings.Default.SourceDirectory, DirectoryTools.ProcessDirectorySizes);
-               //     DirectoryTools.ApplyAllFiles(target + "\\c$\\Users\\", DirectoryTools.ProcessDirectorySizes);
                 }
                 StatusBar.Text = "Performing backup...";
 
@@ -58,8 +57,16 @@ namespace ProfileBackupTool
                     DeviceList.SelectedIndex = 0;
                     ProgressBar.Visible = true;
                 });
-                DirectoryTools.PerformBackup(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
-          //      DirectoryTools.PerformBackup(target + "\\c$\\Users", Properties.Settings.Default.DefaultServer);
+
+                if(Properties.Settings.Default.UseCustomDestination == true)
+                {
+                    DirectoryTools.PerformBackup(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
+                }
+                else
+                {
+                    DirectoryTools.PerformBackup(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + target.Remove(0, 2));
+                }
+
                 StatusBar.Text = "Complete.";
 
                 this.Invoke((MethodInvoker)delegate
