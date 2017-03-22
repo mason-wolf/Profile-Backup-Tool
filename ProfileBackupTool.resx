@@ -208,12 +208,12 @@
   </data>
   <data name="PreferencesButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAADZSURBVDhPpZK7EYMwEEQpgRIowTWQ04MDaiGnAkJCBxRA
-        CSQUQE5ARnq+p0E2EuJn38wb/XYXISkSkb8ITt7h2/FqnudEeSmygnGySPYDVBQrU1mWkqapIcsyGceR
-        kEl5oDsKqHxz3/fOTtAdBXzMYM20hNFHdzmgKAoZhsGYGbOuJMEAXeD/nQCwZmAd7SZgMXdN0zjmNZyN
-        arZncMPMLZir9ANa38xY59dUSvgdcEgBc6fEi35TTgBfyPPcmOu6PjVTfsCTEHaibXtmppwAW1eMtpyA
-        35DoDYD5Lehpfo5+AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAANlJREFUOE+lkrsRgzAQRCmBEijBNZDTgwNqIacCQkIHFEAJJBRATkBGer6nQTYS
+        4mffzBv9dhchKRKRvwhO3uHb8Wqe50R5KbKCcbJI9gNUFCtTWZaSpqkhyzIZx5GQSXmgOwqofHPf985O
+        0B0FfMxgzbSE0Ud3OaAoChmGwZgZs64kwQBd4P+dALBmYB3tJmAxd03TOOY1nI1qtmdww8wtmKv0A1rf
+        zFjn11RK+B1wSAFzp8SLflNOAF/I89yY67o+NVN+wJMQdqJte2amnABbV4y2nIDfkOgNgPkt6Gl+jn4A
+        AAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

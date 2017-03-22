@@ -69,6 +69,7 @@ namespace ProfileBackupTool
             try
             {
                 File.Open(ServerAddress + "dummy.txt", FileMode.Create).Close();
+                File.Delete(ServerAddress + "dummy.txt");
                 ConnectionsList.Items.Add(ServerAddress);
                 File.AppendAllText("config\\connections.txt", ServerAddress + Environment.NewLine);
  

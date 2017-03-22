@@ -82,5 +82,17 @@ namespace ProfileBackupTool.Properties {
                 this["UseCustomDestination"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CopyAll {
+            get {
+                return ((bool)(this["CopyAll"]));
+            }
+            set {
+                this["CopyAll"] = value;
+            }
+        }
     }
 }

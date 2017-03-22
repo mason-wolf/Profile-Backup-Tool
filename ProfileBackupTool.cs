@@ -21,14 +21,6 @@ namespace ProfileBackupTool
         public ProfileBackupTool()
         {
             InitializeComponent();
-            ToolTip AddMachineToolTip = new ToolTip();
-            AddMachineToolTip.SetToolTip(AddMachineButton, "Add new target machine.");
-
-            ToolTip RemoveMachineToolTip = new ToolTip();
-            RemoveMachineToolTip.SetToolTip(RemoveDeviceButton, "Remove target machine.");
-
-            ToolTip ConnectionsToolTip = new ToolTip();
-            ConnectionsToolTip.SetToolTip(ConnectionButton, "Modify backup server connection settings.");
         }
 
         Thread DirectorySizeCalculator;
@@ -36,38 +28,44 @@ namespace ProfileBackupTool
         System.Windows.Forms.Timer Timer;
 
 
-        private void ProfileBackupTool_Load(object sender, EventArgs e)
-        {
-            AddMachineButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
-        }
-
-        void CalculateDirectorySize(string[] targets)
+       private void InitiateTransfer(string[] targets)
         {
             DirectoryTools DirectoryTools = new DirectoryTools(TotalSizeContainer, FileTransferContainer, ProcessedFilesContainer);
 
             foreach (string target in targets)
             {
+                // If CalculateProfileSizes setting is enabled, determine transfer size before initiating backup.
+
                 if (Properties.Settings.Default.CalculateProfileSizes)
                 {
-                    DirectoryTools.ApplyAllFiles(target + Properties.Settings.Default.SourceDirectory, DirectoryTools.ProcessDirectorySizes);
+                    DirectoryTools.CalculateProfileSizes(target + Properties.Settings.Default.SourceDirectory, DirectoryTools.ProcessDirectorySizes);
                 }
+
                 StatusBar.Text = "Performing backup...";
+
+                // Select the first item in the target panel, increments after each thread is finished to indicate
+                // which target is being worked on.
 
                 this.Invoke((MethodInvoker)delegate {
                     DeviceList.SelectedIndex = 0;
                     ProgressBar.Visible = true;
                 });
 
+                // By default the destination in the backup location is the target's host name.
+                // Optionally a custom destination can be specified. 
+
                 if(Properties.Settings.Default.UseCustomDestination == true)
                 {
-                    DirectoryTools.PerformBackup(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
+                    DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
                 }
                 else
                 {
-                    DirectoryTools.PerformBackup(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + target.Remove(0, 2));
+                    DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + target.Remove(0, 2));
                 }
 
                 StatusBar.Text = "Complete.";
+
+                // Show progress after each task is performed, move on to the next item in the panel.
 
                 this.Invoke((MethodInvoker)delegate
                 {
@@ -95,7 +93,7 @@ namespace ProfileBackupTool
 
         }
 
-        string[] RetrieveDeviceList()
+        private string[] RetrieveDeviceList()
         {
             string[] DeviceListItems = new string[DeviceList.Items.Count];
             for(int i = 0; i < DeviceList.Items.Count; i++)
@@ -117,10 +115,11 @@ namespace ProfileBackupTool
 
                 int profileCount = 0;
 
+            // Count how many directories are found.
+
             foreach (string target in DeviceList.Items)
             { 
                   string[] directories = Directory.GetDirectories(target + Properties.Settings.Default.SourceDirectory);
-                //  string[] directories = Directory.GetDirectories(target + "\\c$\\Users");
 
                 foreach (string path in directories)
                     {
@@ -129,6 +128,7 @@ namespace ProfileBackupTool
                     }
 
                 }
+
             DirectoryTools DirectoryTools = new DirectoryTools(TotalSizeContainer, FileTransferContainer, ProcessedFilesContainer);
 
             ProfileLabel.Visible = true;
@@ -148,7 +148,7 @@ namespace ProfileBackupTool
             StopWatch = new Stopwatch();
             StopWatch.Start();
             
-            DirectorySizeCalculator = new Thread(() => CalculateDirectorySize(RetrieveDeviceList()));
+            DirectorySizeCalculator = new Thread(() => InitiateTransfer(RetrieveDeviceList()));
             DirectorySizeCalculator.Start();
 
         }
@@ -195,7 +195,19 @@ namespace ProfileBackupTool
 
         private void newSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var NewSessionConfirmation = MessageBox.Show("Start a new session? All current operations will be interrupted.",
+                "New Session", MessageBoxButtons.YesNo);
 
+            if (NewSessionConfirmation == DialogResult.Yes)
+            {
+                ProfileBackupTool ProfileBackupTool = new ProfileBackupTool();
+                ProfileBackupTool.Show();
+                this.Close();
+            }
+            else
+            {
+
+            }
         }
 
         private void connectionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -225,6 +237,30 @@ namespace ProfileBackupTool
         {
             Preferences Preferences = new Preferences();
             Preferences.Show();
+        }
+
+
+        private void ProfileBackupTool_Load(object sender, EventArgs e)
+        {
+            AddMachineButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            RemoveDeviceButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            ConnectionButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            PreferencesButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+
+
+            ToolTip AddMachineToolTip = new ToolTip();
+            AddMachineToolTip.SetToolTip(AddMachineButton, "Add new target machine.");
+
+            ToolTip RemoveMachineToolTip = new ToolTip();
+            RemoveMachineToolTip.SetToolTip(RemoveDeviceButton, "Remove target machine.");
+
+            ToolTip ConnectionsToolTip = new ToolTip();
+            ConnectionsToolTip.SetToolTip(ConnectionButton, "Modify backup server connection settings.");
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -107,6 +107,7 @@
             // 
             // saveReportToolStripMenuItem
             // 
+            this.saveReportToolStripMenuItem.Enabled = false;
             this.saveReportToolStripMenuItem.Name = "saveReportToolStripMenuItem";
             this.saveReportToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.saveReportToolStripMenuItem.Text = "Save Report";
@@ -118,12 +119,15 @@
             // 
             // backupModeToolStripMenuItem
             // 
+            this.backupModeToolStripMenuItem.Checked = true;
+            this.backupModeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.backupModeToolStripMenuItem.Name = "backupModeToolStripMenuItem";
             this.backupModeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.backupModeToolStripMenuItem.Text = "Backup Mode";
             // 
             // restorationModeToolStripMenuItem
             // 
+            this.restorationModeToolStripMenuItem.Enabled = false;
             this.restorationModeToolStripMenuItem.Name = "restorationModeToolStripMenuItem";
             this.restorationModeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.restorationModeToolStripMenuItem.Text = "Restoration Mode";
@@ -138,6 +142,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 

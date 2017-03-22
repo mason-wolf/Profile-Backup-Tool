@@ -66,16 +66,13 @@ namespace ProfileBackupTool
 
             FileInfo info = new FileInfo(@path);
             totalSize += info.Length;
-            //   string previousString = Regex.Replace(ProfileSizes.Text.ToString(), "[^0-9]", "");
-            //   previousSize = Convert.ToInt64(previousString);
-            //    totalSize += previousSize;
             ProfileSizes.Invoke((Action)delegate
             {
                 ProfileSizes.Text = SizeSuffix(totalSize);
             });
         }
 
-        public void PerformBackup(string SolutionDirectory, string TargetDirectory)
+        public void PerformTransfer(string SolutionDirectory, string TargetDirectory)
         {
             StreamReader reader;
             int processedFiles = 0;
@@ -91,7 +88,15 @@ namespace ProfileBackupTool
                 string profileExemptionDate = "/d:01-01-2016";
                 string exclusionList = "/EXCLUDE:config\\exclusions.txt";
 
-                p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + exclusionList + profileExemptionDate;
+                if(Properties.Settings.Default.CopyAll == true)
+                {
+                    p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c "  + profileExemptionDate;
+                }
+                else
+                {
+                    p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + exclusionList + profileExemptionDate;
+                }
+
                 p.Start();
 
                 try
@@ -122,19 +127,14 @@ namespace ProfileBackupTool
                 }
                 catch 
                 {
-              //      MessageBox.Show(BackupException.ToString());
+
                 }
                 p.Close();
                 p.Dispose();
             }
         }
 
-        private void update(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ApplyAllFiles(string folder, Action<string> fileAction)
+        public void CalculateProfileSizes(string folder, Action<string> fileAction)
         {
             foreach (string file in Directory.GetFiles(folder))
             {
@@ -145,7 +145,7 @@ namespace ProfileBackupTool
             {
                 try
                 {
-                    ApplyAllFiles(subDirectory, fileAction);
+                   CalculateProfileSizes(subDirectory, fileAction);
                 }
                 catch
                 {
