@@ -38,7 +38,7 @@ namespace ProfileBackupTool
 
                 using (Process p = new Process())
                 {
-                    p.StartInfo.FileName = "reset";
+                    p.StartInfo.FileName = "C:\\Windows\\System32\\Reset.exe";
                     p.StartInfo.Arguments = "Session Console Server:/" + target.Remove(0, 2);
                     p.StartInfo.CreateNoWindow = true;
                     p.StartInfo.RedirectStandardInput = true;
