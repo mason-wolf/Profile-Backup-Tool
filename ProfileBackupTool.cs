@@ -39,12 +39,35 @@ namespace ProfileBackupTool
                 using (Process p = new Process())
                 {
                     p.StartInfo.FileName = "powershell.exe";
-                    p.StartInfo.Arguments = "Reset Session Console Server:/" + target.Remove(0, 2);
+                    p.StartInfo.Arguments = "Reset Session Console Server:/" + target.Remove(0, 3);
                     p.StartInfo.CreateNoWindow = true;
                     p.StartInfo.RedirectStandardInput = true;
+                    p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
                     p.Start();
-                }
+
+                    using (StreamReader sr = p.StandardOutput)
+                    {
+                        while(sr != null)
+                        {
+                            string result = sr.ReadLine();
+
+                                FileTransferContainer.Invoke((Action)delegate
+                                {
+                                    try
+                                    {
+                                        FileTransferContainer.AppendText(result);
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                });
+                            }
+
+                        }
+                    }
+
 
                 // If CalculateProfileSizes setting is enabled, determine transfer size before initiating backup.
 
