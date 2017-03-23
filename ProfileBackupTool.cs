@@ -46,7 +46,7 @@ namespace ProfileBackupTool
                             RemoteSessionTerminator.StartInfo.FileName = "powershell";
                             RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
                             RemoteSessionTerminator.StartInfo.UseShellExecute = false;
-                            RemoteSessionTerminator.StartInfo.Arguments = "Reset Session Console /Server:" + target;
+                            RemoteSessionTerminator.StartInfo.Arguments = "Reset Session Console /Server:" + target.Remove(0, 2);
                             RemoteSessionTerminator.Start();
                         }
                     }
