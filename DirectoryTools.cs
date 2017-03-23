@@ -154,31 +154,7 @@ namespace ProfileBackupTool
 
             foreach (string subDirectory in Directory.GetDirectories(folder))
             {
-                try
-                {
                    CalculateProfileSizes(subDirectory, fileAction);
-                }
-                catch(UnauthorizedAccessException)
-                {
-                    //    MessageBox.Show("Access denied: " + tracker);
-
-                    File.AppendAllText("config\\errorlog.txt", "Access Denied: " + tracker + Environment.NewLine);
-
-                    if (Properties.Settings.Default.ShowErrors)
-                    {
-                        FileTransfers.Invoke((Action)delegate
-                        {
-                            FileTransfers.AppendText("Access Denied: " + tracker + "\n\n");
-                            FileTransfers.SelectionStart = FileTransfers.Text.Length;
-                            FileTransfers.ScrollToCaret();
-                        });
-                    }
-
-                }
-                finally
-                {
-
-                }
             }
         }
     }
