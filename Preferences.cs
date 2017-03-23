@@ -26,15 +26,6 @@ namespace ProfileBackupTool
                 CalculateProfileSizesOption.Checked = false;
             }
 
-            if (Properties.Settings.Default.ForceUserLogoff)
-            {
-                ForceUserLogoffOption.Checked = true;
-            }
-            else
-            {
-                ForceUserLogoffOption.Checked = false;
-            }
-
             BackupDirectoryField.Text = Properties.Settings.Default.SourceDirectory;
             DestinationDirectoryField.Text = Properties.Settings.Default.DestinationDirectory;
 
@@ -195,18 +186,5 @@ namespace ProfileBackupTool
             }
         }
 
-        private void ForceUserLogoffOption_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ForceUserLogoffOption.Checked)
-            {
-                Properties.Settings.Default.ForceUserLogoff = true;
-                Properties.Settings.Default.Save();
-            }
-            else
-            {
-                Properties.Settings.Default.ForceUserLogoff = false;
-                Properties.Settings.Default.Save();
-            }
-        }
     }
 }

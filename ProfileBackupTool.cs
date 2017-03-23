@@ -36,18 +36,15 @@ namespace ProfileBackupTool
             foreach (string target in targets)
             {
 
-                    if (Properties.Settings.Default.ForceUserLogoff)
-                    {
-                        using (Process RemoteSessionTerminator = new Process())
-                        {
-                        RemoteSessionTerminator.StartInfo.FileName = "powershell.exe";
-                        RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
-                        RemoteSessionTerminator.StartInfo.UseShellExecute = false;
-                        RemoteSessionTerminator.StartInfo.RedirectStandardInput = true;
-                        RemoteSessionTerminator.StartInfo.Arguments = "Reset Session Console /server:" + target.Remove(0, 2);
-                        RemoteSessionTerminator.Start();
-                        }
-                    }
+                using (Process p = new Process())
+                {
+                    p.StartInfo.FileName = "powershell.exe";
+                    p.StartInfo.Arguments = "Reset Session Console Server:/" + target.Remove(0, 2);
+                    p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.RedirectStandardInput = true;
+                    p.StartInfo.UseShellExecute = false;
+                    p.Start();
+                }
 
                 // If CalculateProfileSizes setting is enabled, determine transfer size before initiating backup.
 
@@ -55,11 +52,6 @@ namespace ProfileBackupTool
                 {
                     DirectoryTools.CalculateProfileSizes(target + Properties.Settings.Default.SourceDirectory, DirectoryTools.ProcessDirectorySizes);
                 }
-
-
-
-           //     RemoteSessionTerminator.Close();
-           //     RemoteSessionTerminator.Dispose();
 
                 StatusBar.Text = "Performing backup...";
 
