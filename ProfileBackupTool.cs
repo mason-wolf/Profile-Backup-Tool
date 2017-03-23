@@ -25,7 +25,7 @@ namespace ProfileBackupTool
 
         Thread DirectorySizeCalculator;
         Stopwatch StopWatch;
-        Process RemoteSessionTerminator;
+      //  Process RemoteSessionTerminator;
         System.Windows.Forms.Timer Timer;
 
 
@@ -42,25 +42,7 @@ namespace ProfileBackupTool
                     DirectoryTools.CalculateProfileSizes(target + Properties.Settings.Default.SourceDirectory, DirectoryTools.ProcessDirectorySizes);
                 }
 
-                try
-                {
-                    if (Properties.Settings.Default.ForceUserLogoff)
-                    {
-                        using (RemoteSessionTerminator = new Process())
-                        {
-                            RemoteSessionTerminator.StartInfo.FileName = "powershell";
-                            RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
-                            RemoteSessionTerminator.StartInfo.UseShellExecute = false;
-                            RemoteSessionTerminator.StartInfo.Arguments = "Reset Session Console /Server:" + target;
-                            RemoteSessionTerminator.Start();
-                        }
-                    }
-                }
 
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
 
            //     RemoteSessionTerminator.Close();
            //     RemoteSessionTerminator.Dispose();
