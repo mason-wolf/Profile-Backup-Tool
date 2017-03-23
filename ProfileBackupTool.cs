@@ -48,9 +48,6 @@ namespace ProfileBackupTool
                             RemoteSessionTerminator.StartInfo.Arguments = "Session Console /Server:" + target.Remove(0, 2);
                             RemoteSessionTerminator.Start();
                         }
-
-                        RemoteSessionTerminator.Close();
-                        RemoteSessionTerminator.Dispose();
                     }
                 }
                 catch
