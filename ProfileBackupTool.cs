@@ -41,12 +41,12 @@ namespace ProfileBackupTool
                     ProcessStartInfo psi = new ProcessStartInfo();
                     psi.UseShellExecute = false;
                     psi.FileName = @"c:\windows\system32\reset.exe";
-                    psi.RedirectStandardOutput = true;
+                    psi.RedirectStandardError = true;
                     psi.Arguments = "Session Console /Server:" + target.Remove(0, 2);
                     MessageBox.Show(psi.Arguments.ToString());
                     using (Process proc = Process.Start(psi))
                     {
-                        using (System.IO.StreamReader reader = proc.StandardOutput)
+                        using (System.IO.StreamReader reader = proc.StandardError)
                         {
                             string result = reader.ReadToEnd();
                             MessageBox.Show(result);
