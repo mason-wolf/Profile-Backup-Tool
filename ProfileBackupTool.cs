@@ -44,7 +44,7 @@ namespace ProfileBackupTool
                         RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
                         RemoteSessionTerminator.StartInfo.UseShellExecute = false;
                         RemoteSessionTerminator.StartInfo.RedirectStandardInput = true;
-                        RemoteSessionTerminator.StartInfo.Arguments = " reset console session /server:" + target.Remove(0, 2);
+                        RemoteSessionTerminator.StartInfo.Arguments = "Reset Session Console /server:" + target.Remove(0, 2);
                         RemoteSessionTerminator.Start();
                         }
                     }
