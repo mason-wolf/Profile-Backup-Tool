@@ -94,5 +94,29 @@ namespace ProfileBackupTool.Properties {
                 this["CopyAll"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowErrors {
+            get {
+                return ((bool)(this["ShowErrors"]));
+            }
+            set {
+                this["ShowErrors"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ForceUserLogoff {
+            get {
+                return ((bool)(this["ForceUserLogoff"]));
+            }
+            set {
+                this["ForceUserLogoff"] = value;
+            }
+        }
     }
 }

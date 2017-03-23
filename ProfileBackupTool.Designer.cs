@@ -211,7 +211,9 @@
             this.FileTransferContainer.ReadOnly = true;
             this.FileTransferContainer.Size = new System.Drawing.Size(399, 377);
             this.FileTransferContainer.TabIndex = 1;
-            this.FileTransferContainer.Text = "";
+            this.FileTransferContainer.Text = "1. Ensure backup server connection is specified. Navigate to Edit-->Connections.\n" +
+    "2. Add target computer(s) in the right pane by selecting Tools-->Add Device. \n3." +
+    " Click Start";
             // 
             // DeviceList
             // 

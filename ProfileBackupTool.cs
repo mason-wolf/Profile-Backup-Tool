@@ -25,6 +25,7 @@ namespace ProfileBackupTool
 
         Thread DirectorySizeCalculator;
         Stopwatch StopWatch;
+        Process RemoteSessionTerminator;
         System.Windows.Forms.Timer Timer;
 
 
@@ -40,6 +41,21 @@ namespace ProfileBackupTool
                 {
                     DirectoryTools.CalculateProfileSizes(target + Properties.Settings.Default.SourceDirectory, DirectoryTools.ProcessDirectorySizes);
                 }
+
+                if (Properties.Settings.Default.ForceUserLogoff)
+                {
+                    using (RemoteSessionTerminator = new Process())
+                    {
+                        RemoteSessionTerminator.StartInfo.FileName = "powershell";
+                        RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
+                        RemoteSessionTerminator.StartInfo.UseShellExecute = false;
+                        RemoteSessionTerminator.StartInfo.Arguments = "Reset Session Console /Server:" + target;
+                        RemoteSessionTerminator.Start();
+                    }
+                }
+
+                RemoteSessionTerminator.Close();
+                RemoteSessionTerminator.Dispose();
 
                 StatusBar.Text = "Performing backup...";
 
@@ -105,7 +121,7 @@ namespace ProfileBackupTool
 
         private void StartTransferButton_Click(object sender, EventArgs e)
         {
-
+            FileTransferContainer.Clear();
                 StatusBar.Text = "Calculating size of profile(s)...";
                 StatusBar.Visible = true;
                 StopButton.Enabled = true;

@@ -63,13 +63,19 @@ namespace ProfileBackupTool
 
         public void ProcessDirectorySizes(string path)
         {
-
-            FileInfo info = new FileInfo(@path);
-            totalSize += info.Length;
-            ProfileSizes.Invoke((Action)delegate
+            try
             {
-                ProfileSizes.Text = SizeSuffix(totalSize);
-            });
+                FileInfo info = new FileInfo(@path);
+                totalSize += info.Length;
+                ProfileSizes.Invoke((Action)delegate
+                {
+                    ProfileSizes.Text = SizeSuffix(totalSize);
+                });
+            }
+            catch
+            {
+
+            }
         }
 
         public void PerformTransfer(string SolutionDirectory, string TargetDirectory)
@@ -87,6 +93,8 @@ namespace ProfileBackupTool
                 p.StartInfo.RedirectStandardInput = true;
                 string profileExemptionDate = "/d:01-01-2016";
                 string exclusionList = "/EXCLUDE:config\\exclusions.txt";
+
+                // If CopyAll option is enabled, the exclusion list will not be read.
 
                 if(Properties.Settings.Default.CopyAll == true)
                 {
@@ -134,10 +142,13 @@ namespace ProfileBackupTool
             }
         }
 
+        public string tracker;
+
         public void CalculateProfileSizes(string folder, Action<string> fileAction)
         {
             foreach (string file in Directory.GetFiles(folder))
             {
+                tracker = file;
                 fileAction(file);
             }
 
@@ -147,8 +158,21 @@ namespace ProfileBackupTool
                 {
                    CalculateProfileSizes(subDirectory, fileAction);
                 }
-                catch
+                catch(UnauthorizedAccessException)
                 {
+                    //    MessageBox.Show("Access denied: " + tracker);
+
+                    File.AppendAllText("config\\errorlog.txt", "Access Denied: " + tracker + Environment.NewLine);
+
+                    if (Properties.Settings.Default.ShowErrors)
+                    {
+                        FileTransfers.Invoke((Action)delegate
+                        {
+                            FileTransfers.AppendText("Access Denied: " + tracker + "\n\n");
+                            FileTransfers.SelectionStart = FileTransfers.Text.Length;
+                            FileTransfers.ScrollToCaret();
+                        });
+                    }
 
                 }
             }

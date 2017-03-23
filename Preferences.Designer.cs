@@ -31,6 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Preferences));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ExclusionField = new System.Windows.Forms.TextBox();
+            this.CopyAllOption = new System.Windows.Forms.CheckBox();
+            this.RemoveExclusionButton = new System.Windows.Forms.Button();
+            this.AddExclusionButton = new System.Windows.Forms.Button();
+            this.ExclusionsLabel = new System.Windows.Forms.Label();
+            this.ExclusionsList = new System.Windows.Forms.ListBox();
             this.CustomDirectoryOption = new System.Windows.Forms.CheckBox();
             this.SetDefaultDirectoriesButton = new System.Windows.Forms.Button();
             this.DestinationDirectoryField = new System.Windows.Forms.TextBox();
@@ -39,16 +45,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BackupDirectoryField = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.ApplyTransferSettingsButton = new System.Windows.Forms.Button();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.ForceUserLogoffOption = new System.Windows.Forms.CheckBox();
             this.CalculateProfileSizesOption = new System.Windows.Forms.CheckBox();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.ExclusionsList = new System.Windows.Forms.ListBox();
-            this.ExclusionsLabel = new System.Windows.Forms.Label();
-            this.AddExclusionButton = new System.Windows.Forms.Button();
-            this.RemoveExclusionButton = new System.Windows.Forms.Button();
-            this.CopyAllOption = new System.Windows.Forms.CheckBox();
-            this.ExclusionField = new System.Windows.Forms.TextBox();
+            this.ShowErrorsOption = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -86,6 +91,61 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Directories";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ExclusionField
+            // 
+            this.ExclusionField.Location = new System.Drawing.Point(226, 205);
+            this.ExclusionField.Name = "ExclusionField";
+            this.ExclusionField.Size = new System.Drawing.Size(175, 20);
+            this.ExclusionField.TabIndex = 13;
+            // 
+            // CopyAllOption
+            // 
+            this.CopyAllOption.AutoSize = true;
+            this.CopyAllOption.Location = new System.Drawing.Point(238, 139);
+            this.CopyAllOption.Name = "CopyAllOption";
+            this.CopyAllOption.Size = new System.Drawing.Size(64, 17);
+            this.CopyAllOption.TabIndex = 12;
+            this.CopyAllOption.Text = "Copy All";
+            this.CopyAllOption.UseVisualStyleBackColor = true;
+            this.CopyAllOption.CheckedChanged += new System.EventHandler(this.CopyAllOption_CheckedChanged);
+            // 
+            // RemoveExclusionButton
+            // 
+            this.RemoveExclusionButton.Location = new System.Drawing.Point(275, 231);
+            this.RemoveExclusionButton.Name = "RemoveExclusionButton";
+            this.RemoveExclusionButton.Size = new System.Drawing.Size(59, 23);
+            this.RemoveExclusionButton.TabIndex = 11;
+            this.RemoveExclusionButton.Text = "Remove";
+            this.RemoveExclusionButton.UseVisualStyleBackColor = true;
+            this.RemoveExclusionButton.Click += new System.EventHandler(this.RemoveExclusionButton_Click);
+            // 
+            // AddExclusionButton
+            // 
+            this.AddExclusionButton.Location = new System.Drawing.Point(226, 231);
+            this.AddExclusionButton.Name = "AddExclusionButton";
+            this.AddExclusionButton.Size = new System.Drawing.Size(43, 23);
+            this.AddExclusionButton.TabIndex = 10;
+            this.AddExclusionButton.Text = "Add";
+            this.AddExclusionButton.UseVisualStyleBackColor = true;
+            this.AddExclusionButton.Click += new System.EventHandler(this.AddExclusionButton_Click);
+            // 
+            // ExclusionsLabel
+            // 
+            this.ExclusionsLabel.AutoSize = true;
+            this.ExclusionsLabel.Location = new System.Drawing.Point(226, 189);
+            this.ExclusionsLabel.Name = "ExclusionsLabel";
+            this.ExclusionsLabel.Size = new System.Drawing.Size(60, 13);
+            this.ExclusionsLabel.TabIndex = 9;
+            this.ExclusionsLabel.Text = "Exclusions:";
+            // 
+            // ExclusionsList
+            // 
+            this.ExclusionsList.FormattingEnabled = true;
+            this.ExclusionsList.Location = new System.Drawing.Point(13, 113);
+            this.ExclusionsList.Name = "ExclusionsList";
+            this.ExclusionsList.Size = new System.Drawing.Size(196, 212);
+            this.ExclusionsList.TabIndex = 8;
             // 
             // CustomDirectoryOption
             // 
@@ -155,20 +215,65 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ShowErrorsOption);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.ApplyTransferSettingsButton);
-            this.tabPage2.Controls.Add(this.checkBox3);
+            this.tabPage2.Controls.Add(this.ForceUserLogoffOption);
             this.tabPage2.Controls.Add(this.CalculateProfileSizesOption);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(428, 226);
+            this.tabPage2.Size = new System.Drawing.Size(428, 341);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Transfer Settings";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(171, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "mm-dd-yyy";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(217, 105);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(21, 20);
+            this.textBox3.TabIndex = 6;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(190, 105);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(21, 20);
+            this.textBox2.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(135, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Transfer files no older than:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(163, 105);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(21, 20);
+            this.textBox1.TabIndex = 3;
+            // 
             // ApplyTransferSettingsButton
             // 
-            this.ApplyTransferSettingsButton.Location = new System.Drawing.Point(347, 183);
+            this.ApplyTransferSettingsButton.Location = new System.Drawing.Point(332, 301);
             this.ApplyTransferSettingsButton.Name = "ApplyTransferSettingsButton";
             this.ApplyTransferSettingsButton.Size = new System.Drawing.Size(75, 23);
             this.ApplyTransferSettingsButton.TabIndex = 2;
@@ -176,15 +281,16 @@
             this.ApplyTransferSettingsButton.UseVisualStyleBackColor = true;
             this.ApplyTransferSettingsButton.Click += new System.EventHandler(this.ApplyTransferSettingsButton_Click);
             // 
-            // checkBox3
+            // ForceUserLogoffOption
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(22, 60);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(105, 17);
-            this.checkBox3.TabIndex = 1;
-            this.checkBox3.Text = "Force user logoff";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.ForceUserLogoffOption.AutoSize = true;
+            this.ForceUserLogoffOption.Location = new System.Drawing.Point(22, 60);
+            this.ForceUserLogoffOption.Name = "ForceUserLogoffOption";
+            this.ForceUserLogoffOption.Size = new System.Drawing.Size(105, 17);
+            this.ForceUserLogoffOption.TabIndex = 1;
+            this.ForceUserLogoffOption.Text = "Force user logoff";
+            this.ForceUserLogoffOption.UseVisualStyleBackColor = true;
+            this.ForceUserLogoffOption.CheckedChanged += new System.EventHandler(this.ForceUserLogoffOption_CheckedChanged);
             // 
             // CalculateProfileSizesOption
             // 
@@ -199,60 +305,16 @@
             this.CalculateProfileSizesOption.UseVisualStyleBackColor = true;
             this.CalculateProfileSizesOption.CheckedChanged += new System.EventHandler(this.CalculateProfileSizesOption_CheckedChanged);
             // 
-            // ExclusionsList
+            // ShowErrorsOption
             // 
-            this.ExclusionsList.FormattingEnabled = true;
-            this.ExclusionsList.Location = new System.Drawing.Point(13, 113);
-            this.ExclusionsList.Name = "ExclusionsList";
-            this.ExclusionsList.Size = new System.Drawing.Size(196, 212);
-            this.ExclusionsList.TabIndex = 8;
-            // 
-            // ExclusionsLabel
-            // 
-            this.ExclusionsLabel.AutoSize = true;
-            this.ExclusionsLabel.Location = new System.Drawing.Point(226, 189);
-            this.ExclusionsLabel.Name = "ExclusionsLabel";
-            this.ExclusionsLabel.Size = new System.Drawing.Size(60, 13);
-            this.ExclusionsLabel.TabIndex = 9;
-            this.ExclusionsLabel.Text = "Exclusions:";
-            // 
-            // AddExclusionButton
-            // 
-            this.AddExclusionButton.Location = new System.Drawing.Point(226, 231);
-            this.AddExclusionButton.Name = "AddExclusionButton";
-            this.AddExclusionButton.Size = new System.Drawing.Size(43, 23);
-            this.AddExclusionButton.TabIndex = 10;
-            this.AddExclusionButton.Text = "Add";
-            this.AddExclusionButton.UseVisualStyleBackColor = true;
-            this.AddExclusionButton.Click += new System.EventHandler(this.AddExclusionButton_Click);
-            // 
-            // RemoveExclusionButton
-            // 
-            this.RemoveExclusionButton.Location = new System.Drawing.Point(275, 231);
-            this.RemoveExclusionButton.Name = "RemoveExclusionButton";
-            this.RemoveExclusionButton.Size = new System.Drawing.Size(59, 23);
-            this.RemoveExclusionButton.TabIndex = 11;
-            this.RemoveExclusionButton.Text = "Remove";
-            this.RemoveExclusionButton.UseVisualStyleBackColor = true;
-            this.RemoveExclusionButton.Click += new System.EventHandler(this.RemoveExclusionButton_Click);
-            // 
-            // CopyAllOption
-            // 
-            this.CopyAllOption.AutoSize = true;
-            this.CopyAllOption.Location = new System.Drawing.Point(238, 139);
-            this.CopyAllOption.Name = "CopyAllOption";
-            this.CopyAllOption.Size = new System.Drawing.Size(64, 17);
-            this.CopyAllOption.TabIndex = 12;
-            this.CopyAllOption.Text = "Copy All";
-            this.CopyAllOption.UseVisualStyleBackColor = true;
-            this.CopyAllOption.CheckedChanged += new System.EventHandler(this.CopyAllOption_CheckedChanged);
-            // 
-            // ExclusionField
-            // 
-            this.ExclusionField.Location = new System.Drawing.Point(226, 205);
-            this.ExclusionField.Name = "ExclusionField";
-            this.ExclusionField.Size = new System.Drawing.Size(175, 20);
-            this.ExclusionField.TabIndex = 13;
+            this.ShowErrorsOption.AutoSize = true;
+            this.ShowErrorsOption.Location = new System.Drawing.Point(174, 24);
+            this.ShowErrorsOption.Name = "ShowErrorsOption";
+            this.ShowErrorsOption.Size = new System.Drawing.Size(83, 17);
+            this.ShowErrorsOption.TabIndex = 8;
+            this.ShowErrorsOption.Text = "Show Errors";
+            this.ShowErrorsOption.UseVisualStyleBackColor = true;
+            this.ShowErrorsOption.CheckedChanged += new System.EventHandler(this.ShowErrorsOption_CheckedChanged);
             // 
             // Preferences
             // 
@@ -285,9 +347,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox BackupDirectoryField;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button ApplyTransferSettingsButton;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox ForceUserLogoffOption;
         private System.Windows.Forms.CheckBox CalculateProfileSizesOption;
         private System.Windows.Forms.CheckBox CustomDirectoryOption;
         private System.Windows.Forms.Label ExclusionsLabel;
@@ -296,5 +357,11 @@
         private System.Windows.Forms.Button RemoveExclusionButton;
         private System.Windows.Forms.Button AddExclusionButton;
         private System.Windows.Forms.TextBox ExclusionField;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox ShowErrorsOption;
     }
 }
