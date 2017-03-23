@@ -48,26 +48,6 @@ namespace ProfileBackupTool
 
                     p.Start();
 
-                    using (StreamReader sr = p.StandardOutput)
-                    {
-                        while(sr != null)
-                        {
-                            string result = sr.ReadLine();
-
-                                FileTransferContainer.Invoke((Action)delegate
-                                {
-                                    try
-                                    {
-                                        FileTransferContainer.AppendText(result);
-                                    }
-                                    catch
-                                    {
-
-                                    }
-                                });
-                            }
-
-                        }
                     }
 
 
