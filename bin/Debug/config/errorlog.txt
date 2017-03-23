@@ -2043,3 +2043,21 @@ Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\WER\ReportArchive\
 Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\WER\ReportArchive\Critical_Microsoft.Micros_1820e6b9e027db86ec2567713552d4aa96d74951_e127e73b_19cd4d3c\Report.wer
 Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\WER\ReportArchive\Critical_Microsoft.Micros_1820e6b9e027db86ec2567713552d4aa96d74951_e127e73b_19cd4d3c\Report.wer
 Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\WER\ReportArchive\Critical_Microsoft.Micros_1820e6b9e027db86ec2567713552d4aa96d74951_e127e73b_19cd4d3c\Report.wer
+Access Denied: \\WOLFDEN\c$\Users\All Users\Apple Computer\iTunes\SC Info\SC Info.txt
+Access Denied: \\WOLFDEN\c$\Users\All Users\Dell\UpdatePackage\Log\Audio_Driver_956D8_WN32_6.0.1.7908_A06.txt
+Access Denied: \\WOLFDEN\c$\Users\All Users\Dell\UpdatePackage\Log\Audio_Driver_956D8_WN32_6.0.1.7908_A06.txt
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\corecon\1.0\addons\Microsoft.SQLCE.3.5.xsl
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Device Stage\Task\{e35be42d-f742-4d96-a50a-1775fb1a7a42}\en-US\resource.xml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\NetFramework\BreadcrumbStore\System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Phone Tools\CoreCon\12.0\addons\VSGraphicsRemote_Devices_14.0.xsl
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Phone Tools\CoreCon\12.0\addons\VSGraphicsRemote_Devices_14.0.xsl
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\SmartCard\Reader\Images\E55FA0F4F9280FF39B7D2865DE7F99C6F2C86126C3F5506DF391167EBEB233E1.bmp
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\AppxProvisioning.xml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\GameExplorer\{B555E432-582C-4FAF-8043-51AFC3C7B48F}\PlayTasks\0\Launch.lnk
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\GameExplorer\{B555E432-582C-4FAF-8043-51AFC3C7B48F}\PlayTasks\0\Launch.lnk
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\Start Menu\Programs\Blend for Visual Studio 2015.lnk
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\Start Menu\Programs\Blend for Visual Studio 2015.lnk
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\Start Menu\Programs\Blend for Visual Studio 2015.lnk
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\Start Menu\Programs\Blend for Visual Studio 2015.lnk
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\Start Menu\Programs\Blend for Visual Studio 2015.lnk
+Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\Start Menu\Programs\Blend for Visual Studio 2015.lnk

@@ -142,6 +142,7 @@ namespace ProfileBackupTool
             }
         }
 
+        public string tracker;
 
         public void CalculateProfileSizes(string folder, Action<string> fileAction)
         {
@@ -149,7 +150,7 @@ namespace ProfileBackupTool
             {
                 foreach (string file in Directory.GetFiles(folder))
                 {
-
+                    tracker = file;
                     fileAction(file);
                 }
 
@@ -160,7 +161,17 @@ namespace ProfileBackupTool
             }
             catch
             {
+                if(Properties.Settings.Default.ShowErrors)
+                {
 
+                  FileTransfers.Invoke((Action) delegate
+                    {
+                        FileTransfers.AppendText("Access Denied: " + tracker + "\n\n");
+                        FileTransfers.SelectionStart = FileTransfers.Text.Length;
+                        FileTransfers.ScrollToCaret();
+                    });
+                }
+                File.AppendAllText("config\\errorlog.txt", "Access Denied: " + tracker + Environment.NewLine);
             }
         }
     }
