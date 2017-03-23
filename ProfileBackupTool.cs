@@ -36,16 +36,16 @@ namespace ProfileBackupTool
             foreach (string target in targets)
             {
 
-
                     if (Properties.Settings.Default.ForceUserLogoff)
                     {
                         using (Process RemoteSessionTerminator = new Process())
                         {
-                            RemoteSessionTerminator.StartInfo.FileName = "powershell.exe";
-                            RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
-                            RemoteSessionTerminator.StartInfo.UseShellExecute = false;
-                            RemoteSessionTerminator.StartInfo.Arguments = " reset console session /server:" + target.Remove(0, 2);
-                            RemoteSessionTerminator.Start();
+                        RemoteSessionTerminator.StartInfo.FileName = "powershell.exe";
+                        RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
+                        RemoteSessionTerminator.StartInfo.UseShellExecute = false;
+                        RemoteSessionTerminator.StartInfo.RedirectStandardInput = true;
+                        RemoteSessionTerminator.StartInfo.Arguments = " reset console session /server:" + target.Remove(0, 2);
+                        RemoteSessionTerminator.Start();
                         }
                     }
 
