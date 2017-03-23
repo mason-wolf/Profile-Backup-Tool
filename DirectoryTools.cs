@@ -142,13 +142,12 @@ namespace ProfileBackupTool
             }
         }
 
-        public string tracker;
 
         public void CalculateProfileSizes(string folder, Action<string> fileAction)
         {
             foreach (string file in Directory.GetFiles(folder))
             {
-                tracker = file;
+    
                 fileAction(file);
             }
 
