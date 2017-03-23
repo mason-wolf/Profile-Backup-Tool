@@ -25,7 +25,7 @@ namespace ProfileBackupTool
 
         Thread DirectorySizeCalculator;
         Stopwatch StopWatch;
-        Process RemoteSessionTerminator;
+
         System.Windows.Forms.Timer Timer;
 
 
@@ -36,24 +36,18 @@ namespace ProfileBackupTool
             foreach (string target in targets)
             {
 
-                try
-                {
+
                     if (Properties.Settings.Default.ForceUserLogoff)
                     {
-                        using (RemoteSessionTerminator = new Process())
+                        using (Process RemoteSessionTerminator = new Process())
                         {
-                            RemoteSessionTerminator.StartInfo.FileName = "reset";
+                            RemoteSessionTerminator.StartInfo.FileName = "powershell.exe";
                             RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
                             RemoteSessionTerminator.StartInfo.UseShellExecute = false;
-                            RemoteSessionTerminator.StartInfo.Arguments = "Session Console /Server:" + target.Remove(0, 2);
+                            RemoteSessionTerminator.StartInfo.Arguments = " reset console session /server:" + target.Remove(0, 2);
                             RemoteSessionTerminator.Start();
                         }
                     }
-                }
-                catch
-                {
-
-                }
 
                 // If CalculateProfileSizes setting is enabled, determine transfer size before initiating backup.
 
