@@ -67,6 +67,7 @@
             this.RemoveDeviceButton = new System.Windows.Forms.Button();
             this.ConnectionButton = new System.Windows.Forms.Button();
             this.PreferencesButton = new System.Windows.Forms.Button();
+            this.removeDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -170,7 +171,8 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addDeviceToolStripMenuItem});
+            this.addDeviceToolStripMenuItem,
+            this.removeDeviceToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(47, 20);
             this.toolStripMenuItem1.Text = "Tools";
@@ -178,7 +180,7 @@
             // addDeviceToolStripMenuItem
             // 
             this.addDeviceToolStripMenuItem.Name = "addDeviceToolStripMenuItem";
-            this.addDeviceToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.addDeviceToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.addDeviceToolStripMenuItem.Text = "Add Device";
             this.addDeviceToolStripMenuItem.Click += new System.EventHandler(this.addDeviceToolStripMenuItem_Click_1);
             // 
@@ -193,12 +195,14 @@
             // 
             // backupHistoryToolStripMenuItem
             // 
+            this.backupHistoryToolStripMenuItem.Enabled = false;
             this.backupHistoryToolStripMenuItem.Name = "backupHistoryToolStripMenuItem";
             this.backupHistoryToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.backupHistoryToolStripMenuItem.Text = "Backup History";
             // 
             // restorationHistoryToolStripMenuItem
             // 
+            this.restorationHistoryToolStripMenuItem.Enabled = false;
             this.restorationHistoryToolStripMenuItem.Name = "restorationHistoryToolStripMenuItem";
             this.restorationHistoryToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.restorationHistoryToolStripMenuItem.Text = "Restoration History";
@@ -428,6 +432,13 @@
             this.PreferencesButton.UseVisualStyleBackColor = true;
             this.PreferencesButton.Click += new System.EventHandler(this.PreferencesButton_Click);
             // 
+            // removeDeviceToolStripMenuItem
+            // 
+            this.removeDeviceToolStripMenuItem.Name = "removeDeviceToolStripMenuItem";
+            this.removeDeviceToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.removeDeviceToolStripMenuItem.Text = "Remove Device";
+            this.removeDeviceToolStripMenuItem.Click += new System.EventHandler(this.removeDeviceToolStripMenuItem_Click);
+            // 
             // ProfileBackupTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,6 +521,7 @@
         private System.Windows.Forms.Button RemoveDeviceButton;
         private System.Windows.Forms.Button ConnectionButton;
         private System.Windows.Forms.Button PreferencesButton;
+        private System.Windows.Forms.ToolStripMenuItem removeDeviceToolStripMenuItem;
     }
 }
 

@@ -42,20 +42,28 @@ namespace ProfileBackupTool
                     DirectoryTools.CalculateProfileSizes(target + Properties.Settings.Default.SourceDirectory, DirectoryTools.ProcessDirectorySizes);
                 }
 
-                if (Properties.Settings.Default.ForceUserLogoff)
+                try
                 {
-                    using (RemoteSessionTerminator = new Process())
+                    if (Properties.Settings.Default.ForceUserLogoff)
                     {
-                        RemoteSessionTerminator.StartInfo.FileName = "powershell";
-                        RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
-                        RemoteSessionTerminator.StartInfo.UseShellExecute = false;
-                        RemoteSessionTerminator.StartInfo.Arguments = "Reset Session Console /Server:" + target;
-                        RemoteSessionTerminator.Start();
+                        using (RemoteSessionTerminator = new Process())
+                        {
+                            RemoteSessionTerminator.StartInfo.FileName = "powershell";
+                            RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
+                            RemoteSessionTerminator.StartInfo.UseShellExecute = false;
+                            RemoteSessionTerminator.StartInfo.Arguments = "Reset Session Console /Server:" + target;
+                            RemoteSessionTerminator.Start();
+                        }
                     }
                 }
 
-                RemoteSessionTerminator.Close();
-                RemoteSessionTerminator.Dispose();
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+           //     RemoteSessionTerminator.Close();
+           //     RemoteSessionTerminator.Dispose();
 
                 StatusBar.Text = "Performing backup...";
 
@@ -277,6 +285,11 @@ namespace ProfileBackupTool
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void removeDeviceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeviceList.Items.Remove(DeviceList.SelectedItem);
         }
     }
 }
