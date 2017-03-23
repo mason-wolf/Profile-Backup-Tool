@@ -35,7 +35,6 @@ namespace ProfileBackupTool
 
             foreach (string target in targets)
             {
-                // If CalculateProfileSizes setting is enabled, determine transfer size before initiating backup.
 
                 try
                 {
@@ -43,19 +42,23 @@ namespace ProfileBackupTool
                     {
                         using (RemoteSessionTerminator = new Process())
                         {
-                            RemoteSessionTerminator.StartInfo.FileName = "powershell";
+                            RemoteSessionTerminator.StartInfo.FileName = "reset";
                             RemoteSessionTerminator.StartInfo.CreateNoWindow = true;
                             RemoteSessionTerminator.StartInfo.UseShellExecute = false;
-                            RemoteSessionTerminator.StartInfo.Arguments = "Reset Session Console /Server:" + target.Remove(0, 2);
+                            RemoteSessionTerminator.StartInfo.Arguments = "Session Console /Server:" + target.Remove(0, 2);
                             RemoteSessionTerminator.Start();
                         }
+
+                        RemoteSessionTerminator.Close();
+                        RemoteSessionTerminator.Dispose();
                     }
                 }
-
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show(ex.ToString());
+
                 }
+
+                // If CalculateProfileSizes setting is enabled, determine transfer size before initiating backup.
 
                 if (Properties.Settings.Default.CalculateProfileSizes)
                 {

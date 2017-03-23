@@ -2061,3 +2061,35 @@ Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\Start Menu\Program
 Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\Start Menu\Programs\Blend for Visual Studio 2015.lnk
 Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\Start Menu\Programs\Blend for Visual Studio 2015.lnk
 Access Denied: \\WOLFDEN\c$\Users\All Users\Microsoft\Windows\Start Menu\Programs\Blend for Visual Studio 2015.lnk
+Access Denied: \\WOLFDEN\c$\Users\All Users\Apple Computer\iTunes\SC Info\SC Info.txt
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\10\1d\101d752b8fdcafcc0f4e752e6746dc8a394b074ae7b49bbd2e9c770f350bd712.s2mi
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\10\1d\101d752b8fdcafcc0f4e752e6746dc8a394b074ae7b49bbd2e9c770f350bd712.s2mi
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\10\1d\101d752b8fdcafcc0f4e752e6746dc8a394b074ae7b49bbd2e9c770f350bd712.s2mi
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\10\1d\101d752b8fdcafcc0f4e752e6746dc8a394b074ae7b49bbd2e9c770f350bd712.s2mi
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\10\1d\101d752b8fdcafcc0f4e752e6746dc8a394b074ae7b49bbd2e9c770f350bd712.s2mi
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\10\1d\101d752b8fdcafcc0f4e752e6746dc8a394b074ae7b49bbd2e9c770f350bd712.s2mi
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\10\1d\101d752b8fdcafcc0f4e752e6746dc8a394b074ae7b49bbd2e9c770f350bd712.s2mi
+Access Denied: \\WOLFDEN\c$\Users\All Users\Apple Computer\iTunes\SC Info\SC Info.txt
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\f1\72\f1726e83f73d31bd3009b0a02ed815eea5470e0885298e0414ea02bd9192ec7d.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\f1\72\f1726e83f73d31bd3009b0a02ed815eea5470e0885298e0414ea02bd9192ec7d.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\f1\72\f1726e83f73d31bd3009b0a02ed815eea5470e0885298e0414ea02bd9192ec7d.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\f1\72\f1726e83f73d31bd3009b0a02ed815eea5470e0885298e0414ea02bd9192ec7d.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\f1\72\f1726e83f73d31bd3009b0a02ed815eea5470e0885298e0414ea02bd9192ec7d.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\f1\72\f1726e83f73d31bd3009b0a02ed815eea5470e0885298e0414ea02bd9192ec7d.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\f1\72\f1726e83f73d31bd3009b0a02ed815eea5470e0885298e0414ea02bd9192ec7d.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Apple Computer\iTunes\SC Info\SC Info.txt
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\39\3d\393dea5772f3f9111b0e729c5c4b65f67f4c0862d4f1dfee8bc9d84e202a909d.s2mv
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\39\3d\393dea5772f3f9111b0e729c5c4b65f67f4c0862d4f1dfee8bc9d84e202a909d.s2mv
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\39\3d\393dea5772f3f9111b0e729c5c4b65f67f4c0862d4f1dfee8bc9d84e202a909d.s2mv
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\39\3d\393dea5772f3f9111b0e729c5c4b65f67f4c0862d4f1dfee8bc9d84e202a909d.s2mv
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\39\3d\393dea5772f3f9111b0e729c5c4b65f67f4c0862d4f1dfee8bc9d84e202a909d.s2mv
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\39\3d\393dea5772f3f9111b0e729c5c4b65f67f4c0862d4f1dfee8bc9d84e202a909d.s2mv
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\39\3d\393dea5772f3f9111b0e729c5c4b65f67f4c0862d4f1dfee8bc9d84e202a909d.s2mv
+Access Denied: \\WOLFDEN\c$\Users\All Users\Apple Computer\iTunes\SC Info\SC Info.txt
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\63\0b\630b96ab8d82f5e109e7f15e6f439ee4e2f2461224f0a53ef370f3b4d82cf370.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\63\0b\630b96ab8d82f5e109e7f15e6f439ee4e2f2461224f0a53ef370f3b4d82cf370.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\63\0b\630b96ab8d82f5e109e7f15e6f439ee4e2f2461224f0a53ef370f3b4d82cf370.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\63\0b\630b96ab8d82f5e109e7f15e6f439ee4e2f2461224f0a53ef370f3b4d82cf370.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\63\0b\630b96ab8d82f5e109e7f15e6f439ee4e2f2461224f0a53ef370f3b4d82cf370.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\63\0b\630b96ab8d82f5e109e7f15e6f439ee4e2f2461224f0a53ef370f3b4d82cf370.s2ml
+Access Denied: \\WOLFDEN\c$\Users\All Users\Blizzard Entertainment\Battle.net\Cache\63\0b\630b96ab8d82f5e109e7f15e6f439ee4e2f2461224f0a53ef370f3b4d82cf370.s2ml
