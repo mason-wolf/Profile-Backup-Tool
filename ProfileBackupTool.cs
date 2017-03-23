@@ -39,20 +39,14 @@ namespace ProfileBackupTool
                 using (Process p = new Process())
                 {
 
-                    p.StartInfo.FileName = @"C:\Windows\System32\reset.exe";
+                    p.StartInfo.FileName = "reset";
                     p.StartInfo.Arguments = "Session Console Server:/" + target.Remove(0, 2);
                     p.StartInfo.CreateNoWindow = true;
                     p.StartInfo.RedirectStandardInput = true;
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
-                    try
-                    {
-                        p.Start();
-                    }
-                    catch
-                    {
 
-                    }
+                        p.Start();
 
                     using (StreamReader sr = p.StandardOutput)
                     {
