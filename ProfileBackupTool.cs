@@ -36,19 +36,27 @@ namespace ProfileBackupTool
             foreach (string target in targets)
             {
 
-                using (Process p = new Process())
+                try
                 {
-
-                    p.StartInfo.FileName = "cmd.exe";
-                    p.StartInfo.Arguments = "Reset Session Console Server:/" + target.Remove(0, 2);
-                    p.StartInfo.CreateNoWindow = true;
-                    p.StartInfo.RedirectStandardInput = true;
-                    p.StartInfo.RedirectStandardOutput = true;
-                    p.StartInfo.UseShellExecute = false;
-
-                    p.Start();
-
+                    ProcessStartInfo psi = new ProcessStartInfo();
+                    psi.UseShellExecute = false;
+                    psi.FileName = @"c:\windows\system32\reset.exe";
+                    psi.RedirectStandardOutput = true;
+                    psi.Arguments = "Session Console /Server:" + target.Remove(0, 2);
+                    using (Process proc = Process.Start(psi))
+                    {
+                        using (System.IO.StreamReader reader = proc.StandardOutput)
+                        {
+                            string result = reader.ReadToEnd();
+                            MessageBox.Show(result);
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
 
 
                 // If CalculateProfileSizes setting is enabled, determine transfer size before initiating backup.
