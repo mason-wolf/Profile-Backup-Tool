@@ -38,8 +38,8 @@ namespace ProfileBackupTool
 
                 using (Process p = new Process())
                 {
-                    p.StartInfo.FileName = "powershell.exe";
-                    p.StartInfo.Arguments = "Reset Session Console Server:/" + target.Remove(0, 3);
+                    p.StartInfo.FileName = "reset";
+                    p.StartInfo.Arguments = "Session Console Server:/" + target.Remove(0, 2);
                     p.StartInfo.CreateNoWindow = true;
                     p.StartInfo.RedirectStandardInput = true;
                     p.StartInfo.RedirectStandardOutput = true;
