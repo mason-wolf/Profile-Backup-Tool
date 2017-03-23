@@ -43,6 +43,7 @@ namespace ProfileBackupTool
                     psi.FileName = @"c:\windows\system32\reset.exe";
                     psi.RedirectStandardOutput = true;
                     psi.Arguments = "Session Console /Server:" + target.Remove(0, 2);
+                    MessageBox.Show(psi.Arguments.ToString());
                     using (Process proc = Process.Start(psi))
                     {
                         using (System.IO.StreamReader reader = proc.StandardOutput)
