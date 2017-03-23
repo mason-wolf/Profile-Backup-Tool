@@ -46,7 +46,7 @@ namespace ProfileBackupTool
                     p.StartInfo.RedirectStandardOutput = true;
                     p.StartInfo.UseShellExecute = false;
 
-                        p.Start();
+                    p.Start();
 
                     using (StreamReader sr = p.StandardOutput)
                     {
@@ -68,10 +68,6 @@ namespace ProfileBackupTool
                             }
 
                         }
-
-                    p.Close();
-                    p.Dispose();
-                    
                     }
 
 
