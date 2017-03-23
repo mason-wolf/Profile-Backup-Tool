@@ -154,10 +154,10 @@ namespace ProfileBackupTool
 
             foreach (string subDirectory in Directory.GetDirectories(folder))
             {
-            //    try
-            //    {
+                try
+                {
                    CalculateProfileSizes(subDirectory, fileAction);
-         /*       }
+                }
                 catch(UnauthorizedAccessException)
                 {
                     //    MessageBox.Show("Access denied: " + tracker);
@@ -174,7 +174,11 @@ namespace ProfileBackupTool
                         });
                     }
 
-                }*/
+                }
+                finally
+                {
+
+                }
             }
         }
     }
