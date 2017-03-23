@@ -145,15 +145,22 @@ namespace ProfileBackupTool
 
         public void CalculateProfileSizes(string folder, Action<string> fileAction)
         {
-            foreach (string file in Directory.GetFiles(folder))
+            try
             {
-    
-                fileAction(file);
-            }
+                foreach (string file in Directory.GetFiles(folder))
+                {
 
-            foreach (string subDirectory in Directory.GetDirectories(folder))
+                    fileAction(file);
+                }
+
+                foreach (string subDirectory in Directory.GetDirectories(folder))
+                {
+                    CalculateProfileSizes(subDirectory, fileAction);
+                }
+            }
+            catch
             {
-                   CalculateProfileSizes(subDirectory, fileAction);
+
             }
         }
     }
