@@ -45,12 +45,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BackupDirectoryField = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ForceUserLogoffOption = new System.Windows.Forms.CheckBox();
             this.ShowErrorsOption = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.year = new System.Windows.Forms.TextBox();
+            this.dd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.mm = new System.Windows.Forms.TextBox();
             this.ApplyTransferSettingsButton = new System.Windows.Forms.Button();
             this.CalculateProfileSizesOption = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
@@ -214,12 +215,13 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.ForceUserLogoffOption);
             this.tabPage2.Controls.Add(this.ShowErrorsOption);
             this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.year);
+            this.tabPage2.Controls.Add(this.dd);
             this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.mm);
             this.tabPage2.Controls.Add(this.ApplyTransferSettingsButton);
             this.tabPage2.Controls.Add(this.CalculateProfileSizesOption);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -230,10 +232,21 @@
             this.tabPage2.Text = "Transfer Settings";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // ForceUserLogoffOption
+            // 
+            this.ForceUserLogoffOption.AutoSize = true;
+            this.ForceUserLogoffOption.Location = new System.Drawing.Point(22, 121);
+            this.ForceUserLogoffOption.Name = "ForceUserLogoffOption";
+            this.ForceUserLogoffOption.Size = new System.Drawing.Size(111, 17);
+            this.ForceUserLogoffOption.TabIndex = 9;
+            this.ForceUserLogoffOption.Text = "Force User Logoff";
+            this.ForceUserLogoffOption.UseVisualStyleBackColor = true;
+            this.ForceUserLogoffOption.CheckedChanged += new System.EventHandler(this.ForceUserLogoffOption_CheckedChanged);
+            // 
             // ShowErrorsOption
             // 
             this.ShowErrorsOption.AutoSize = true;
-            this.ShowErrorsOption.Location = new System.Drawing.Point(174, 24);
+            this.ShowErrorsOption.Location = new System.Drawing.Point(22, 75);
             this.ShowErrorsOption.Name = "ShowErrorsOption";
             this.ShowErrorsOption.Size = new System.Drawing.Size(83, 17);
             this.ShowErrorsOption.TabIndex = 8;
@@ -244,41 +257,44 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(171, 89);
+            this.label4.Location = new System.Drawing.Point(171, 161);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "mm-dd-yyy";
+            this.label4.Text = "mm-dd-yyyy";
             // 
-            // textBox3
+            // year
             // 
-            this.textBox3.Location = new System.Drawing.Point(217, 105);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(21, 20);
-            this.textBox3.TabIndex = 6;
+            this.year.Location = new System.Drawing.Point(214, 177);
+            this.year.MaxLength = 4;
+            this.year.Name = "year";
+            this.year.Size = new System.Drawing.Size(38, 20);
+            this.year.TabIndex = 6;
             // 
-            // textBox2
+            // dd
             // 
-            this.textBox2.Location = new System.Drawing.Point(190, 105);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(21, 20);
-            this.textBox2.TabIndex = 5;
+            this.dd.Location = new System.Drawing.Point(187, 177);
+            this.dd.MaxLength = 2;
+            this.dd.Name = "dd";
+            this.dd.Size = new System.Drawing.Size(21, 20);
+            this.dd.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 108);
+            this.label3.Location = new System.Drawing.Point(19, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Transfer files no older than:";
             // 
-            // textBox1
+            // mm
             // 
-            this.textBox1.Location = new System.Drawing.Point(163, 105);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(21, 20);
-            this.textBox1.TabIndex = 3;
+            this.mm.Location = new System.Drawing.Point(160, 177);
+            this.mm.MaxLength = 2;
+            this.mm.Name = "mm";
+            this.mm.Size = new System.Drawing.Size(21, 20);
+            this.mm.TabIndex = 3;
             // 
             // ApplyTransferSettingsButton
             // 
@@ -344,10 +360,11 @@
         private System.Windows.Forms.Button AddExclusionButton;
         private System.Windows.Forms.TextBox ExclusionField;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox year;
+        private System.Windows.Forms.TextBox dd;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox mm;
         private System.Windows.Forms.CheckBox ShowErrorsOption;
+        private System.Windows.Forms.CheckBox ForceUserLogoffOption;
     }
 }

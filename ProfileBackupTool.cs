@@ -25,6 +25,7 @@ namespace ProfileBackupTool
 
         Thread DirectorySizeCalculator;
         Stopwatch StopWatch;
+        ProcessStartInfo RemoteSessionTerminator;
 
         System.Windows.Forms.Timer Timer;
 
@@ -33,31 +34,38 @@ namespace ProfileBackupTool
         {
             DirectoryTools DirectoryTools = new DirectoryTools(TotalSizeContainer, FileTransferContainer, ProcessedFilesContainer);
 
+
             foreach (string target in targets)
             {
 
-                try
+                // If ForceUserLogOff option is enabled, terminate the remote sessions before calculating profile sizes
+
+                if (Properties.Settings.Default.ForceUserLogoff)
                 {
-                    ProcessStartInfo psi = new ProcessStartInfo();
-                    psi.UseShellExecute = false;
-                    psi.FileName = @"c:\windows\system32\reset.exe";
-                    psi.RedirectStandardError = true;
-                    psi.Arguments = "Session Console /Server:" + target.Remove(0, 2);
-                    MessageBox.Show(psi.Arguments.ToString());
-                    using (Process proc = Process.Start(psi))
+                    try
                     {
-                        using (System.IO.StreamReader reader = proc.StandardError)
+                        RemoteSessionTerminator = new ProcessStartInfo();
+                        RemoteSessionTerminator.UseShellExecute = false;
+                        RemoteSessionTerminator.FileName = @"c:\windows\system32\reset.exe";
+                        RemoteSessionTerminator.RedirectStandardError = true;
+                        RemoteSessionTerminator.Arguments = "Session Console /Server:" + target.Remove(0, 2);
+
+                        using (Process proc = Process.Start(RemoteSessionTerminator))
                         {
-                            string result = reader.ReadToEnd();
-                            MessageBox.Show(result);
+                            using (System.IO.StreamReader reader = proc.StandardError)
+                            {
+                                string result = reader.ReadToEnd();
+                                MessageBox.Show(result);
+                            }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+ 
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Remote session termination is not supported on this system.");
+                    }
 
+                }
 
 
                 // If CalculateProfileSizes setting is enabled, determine transfer size before initiating backup.
@@ -292,6 +300,12 @@ namespace ProfileBackupTool
         private void removeDeviceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeviceList.Items.Remove(DeviceList.SelectedItem);
+        }
+
+        private void disconnectRemoteSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoteSessionTerminator rst = new RemoteSessionTerminator();
+            rst.Show();
         }
     }
 }

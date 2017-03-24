@@ -9,3 +9,5 @@ C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBac
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.csproj.GenerateResource.Cache
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.exe
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.pdb
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.csprojResolveAssemblyReference.cache
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.RemoteSessionTerminator.resources

@@ -91,7 +91,8 @@ namespace ProfileBackupTool
                 p.StartInfo.RedirectStandardOutput = true;
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardInput = true;
-                string profileExemptionDate = "/d:01-01-2016";
+                string profileExemptionDate = Properties.Settings.Default.TransferDateThreshold;
+
                 string exclusionList = "/EXCLUDE:config\\exclusions.txt";
 
                 // If CopyAll option is enabled, the exclusion list will not be read.

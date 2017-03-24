@@ -106,5 +106,29 @@ namespace ProfileBackupTool.Properties {
                 this["ShowErrors"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ForceUserLogoff {
+            get {
+                return ((bool)(this["ForceUserLogoff"]));
+            }
+            set {
+                this["ForceUserLogoff"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TransferDateThreshold {
+            get {
+                return ((string)(this["TransferDateThreshold"]));
+            }
+            set {
+                this["TransferDateThreshold"] = value;
+            }
+        }
     }
 }

@@ -29,6 +29,13 @@ namespace ProfileBackupTool
             BackupDirectoryField.Text = Properties.Settings.Default.SourceDirectory;
             DestinationDirectoryField.Text = Properties.Settings.Default.DestinationDirectory;
 
+            string TransferDateThreshold = Properties.Settings.Default.TransferDateThreshold.Remove(0, 3);
+            string[] MonthDayYear = TransferDateThreshold.Split(new[] { "-" }, StringSplitOptions.None);
+
+            mm.Text = MonthDayYear[0];
+            dd.Text = MonthDayYear[1];
+            year.Text = MonthDayYear[2];
+
             if (Properties.Settings.Default.UseCustomDestination == true)
             {
                 DestinationDirectoryField.Enabled = true;
@@ -41,6 +48,11 @@ namespace ProfileBackupTool
                 ExclusionsList.Enabled = false;
                 AddExclusionButton.Enabled = false;
                 RemoveExclusionButton.Enabled = false;
+            }
+
+            if (Properties.Settings.Default.ForceUserLogoff == true)
+            {
+                ForceUserLogoffOption.Checked = true;
             }
 
             List<string> lines = new List<string>();
@@ -71,6 +83,10 @@ namespace ProfileBackupTool
 
         private void ApplyTransferSettingsButton_Click(object sender, EventArgs e)
         {
+
+            Properties.Settings.Default.TransferDateThreshold = "/d:" + mm.Text + "-" + dd.Text + "-" + year.Text;
+            Properties.Settings.Default.Save();
+
             this.Close();
         }
 
@@ -186,5 +202,18 @@ namespace ProfileBackupTool
             }
         }
 
+        private void ForceUserLogoffOption_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ForceUserLogoffOption.Checked)
+            {
+                Properties.Settings.Default.ForceUserLogoff = true;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.ForceUserLogoff = false;
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }

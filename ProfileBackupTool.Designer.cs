@@ -43,6 +43,7 @@
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backupHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restorationHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +68,8 @@
             this.RemoveDeviceButton = new System.Windows.Forms.Button();
             this.ConnectionButton = new System.Windows.Forms.Button();
             this.PreferencesButton = new System.Windows.Forms.Button();
-            this.removeDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disconnectRemoteSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -172,7 +174,9 @@
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addDeviceToolStripMenuItem,
-            this.removeDeviceToolStripMenuItem});
+            this.removeDeviceToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.disconnectRemoteSessionToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(47, 20);
             this.toolStripMenuItem1.Text = "Tools";
@@ -180,9 +184,16 @@
             // addDeviceToolStripMenuItem
             // 
             this.addDeviceToolStripMenuItem.Name = "addDeviceToolStripMenuItem";
-            this.addDeviceToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.addDeviceToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.addDeviceToolStripMenuItem.Text = "Add Device";
             this.addDeviceToolStripMenuItem.Click += new System.EventHandler(this.addDeviceToolStripMenuItem_Click_1);
+            // 
+            // removeDeviceToolStripMenuItem
+            // 
+            this.removeDeviceToolStripMenuItem.Name = "removeDeviceToolStripMenuItem";
+            this.removeDeviceToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.removeDeviceToolStripMenuItem.Text = "Remove Device";
+            this.removeDeviceToolStripMenuItem.Click += new System.EventHandler(this.removeDeviceToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -432,12 +443,17 @@
             this.PreferencesButton.UseVisualStyleBackColor = true;
             this.PreferencesButton.Click += new System.EventHandler(this.PreferencesButton_Click);
             // 
-            // removeDeviceToolStripMenuItem
+            // disconnectRemoteSessionToolStripMenuItem
             // 
-            this.removeDeviceToolStripMenuItem.Name = "removeDeviceToolStripMenuItem";
-            this.removeDeviceToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.removeDeviceToolStripMenuItem.Text = "Remove Device";
-            this.removeDeviceToolStripMenuItem.Click += new System.EventHandler(this.removeDeviceToolStripMenuItem_Click);
+            this.disconnectRemoteSessionToolStripMenuItem.Name = "disconnectRemoteSessionToolStripMenuItem";
+            this.disconnectRemoteSessionToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.disconnectRemoteSessionToolStripMenuItem.Text = "Disconnect Remote Session";
+            this.disconnectRemoteSessionToolStripMenuItem.Click += new System.EventHandler(this.disconnectRemoteSessionToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(216, 6);
             // 
             // ProfileBackupTool
             // 
@@ -522,6 +538,8 @@
         private System.Windows.Forms.Button ConnectionButton;
         private System.Windows.Forms.Button PreferencesButton;
         private System.Windows.Forms.ToolStripMenuItem removeDeviceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem disconnectRemoteSessionToolStripMenuItem;
     }
 }
 
