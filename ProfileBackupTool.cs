@@ -46,6 +46,7 @@ namespace ProfileBackupTool
                     {
                         RemoteSessionTerminator = new ProcessStartInfo();
                         RemoteSessionTerminator.UseShellExecute = false;
+                        RemoteSessionTerminator.CreateNoWindow = true;
                         RemoteSessionTerminator.FileName = @"c:\windows\system32\reset.exe";
                         RemoteSessionTerminator.RedirectStandardError = true;
                         RemoteSessionTerminator.Arguments = "Session Console /Server:" + target.Remove(0, 2);
