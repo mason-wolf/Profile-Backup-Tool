@@ -35,12 +35,11 @@ namespace ProfileBackupTool
                     using (System.IO.StreamReader reader = proc.StandardError)
                     {
                         string result = reader.ReadToEnd();
-                        MessageBox.Show(result);
                     }
                 }
             }
 
-            catch (Exception ex)
+            catch 
             {
                 MessageBox.Show("Remote session termination is not supported on this system.");
             }

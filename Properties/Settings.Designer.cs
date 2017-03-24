@@ -130,5 +130,17 @@ namespace ProfileBackupTool.Properties {
                 this["TransferDateThreshold"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RestoreMode {
+            get {
+                return ((bool)(this["RestoreMode"]));
+            }
+            set {
+                this["RestoreMode"] = value;
+            }
+        }
     }
 }

@@ -44,6 +44,7 @@ namespace ProfileBackupTool
                 {
                     try
                     {
+                        StatusBar.Text = "Disconnecting remote sessions..";
                         RemoteSessionTerminator = new ProcessStartInfo();
                         RemoteSessionTerminator.UseShellExecute = false;
                         RemoteSessionTerminator.CreateNoWindow = true;
@@ -56,12 +57,11 @@ namespace ProfileBackupTool
                             using (System.IO.StreamReader reader = proc.StandardError)
                             {
                                 string result = reader.ReadToEnd();
-                                MessageBox.Show(result);
                             }
                         }
                     }
  
-                    catch (Exception ex)
+                    catch 
                     {
                         MessageBox.Show("Remote session termination is not supported on this system.");
                     }
@@ -73,10 +73,9 @@ namespace ProfileBackupTool
 
                 if (Properties.Settings.Default.CalculateProfileSizes)
                 {
+                    StatusBar.Text = "Calculating size of profile(s)...";
                     DirectoryTools.CalculateProfileSizes(target + Properties.Settings.Default.SourceDirectory, DirectoryTools.ProcessDirectorySizes);
                 }
-
-                StatusBar.Text = "Performing backup...";
 
                 // Select the first item in the target panel, increments after each thread is finished to indicate
                 // which target is being worked on.
@@ -89,15 +88,27 @@ namespace ProfileBackupTool
                 // By default the destination in the backup location is the target's host name.
                 // Optionally a custom destination can be specified. 
 
-                if(Properties.Settings.Default.UseCustomDestination == true)
+
+                if (Properties.Settings.Default.RestoreMode == true)
                 {
-                    DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
+                    StatusBar.Text = "Restoring...";
+
+                    DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + target.Remove(0, 2), target + Properties.Settings.Default.SourceDirectory);
                 }
                 else
                 {
-                    DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + target.Remove(0, 2));
-                }
+                    StatusBar.Text = "Performing backup...";
 
+                    if (Properties.Settings.Default.UseCustomDestination == true)
+                    {
+                        DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
+
+                    }
+                    else
+                    {
+                        DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + target.Remove(0, 2));
+                    }
+                }
                 StatusBar.Text = "Complete.";
 
                 // Show progress after each task is performed, move on to the next item in the panel.
@@ -141,14 +152,13 @@ namespace ProfileBackupTool
         private void StartTransferButton_Click(object sender, EventArgs e)
         {
             FileTransferContainer.Clear();
-                StatusBar.Text = "Calculating size of profile(s)...";
-                StatusBar.Visible = true;
-                StopButton.Enabled = true;
-                StartTransferButton.Enabled = false;
+            StatusBar.Visible = true;
+            StopButton.Enabled = true;
+            StartTransferButton.Enabled = false;
+            ProgressBar.Value = 0;
+            ProcessedFilesContainer.Text = "0";
 
-                ProcessedFilesContainer.Text = "0";
-
-                int profileCount = 0;
+            int profileCount = 0;
 
             // Count how many directories are found.
 
@@ -281,7 +291,7 @@ namespace ProfileBackupTool
             RemoveDeviceButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             ConnectionButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             PreferencesButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
-
+            DisconnectSessionButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255);
 
             ToolTip AddMachineToolTip = new ToolTip();
             AddMachineToolTip.SetToolTip(AddMachineButton, "Add new target machine.");
@@ -291,6 +301,12 @@ namespace ProfileBackupTool
 
             ToolTip ConnectionsToolTip = new ToolTip();
             ConnectionsToolTip.SetToolTip(ConnectionButton, "Modify backup server connection settings.");
+
+            ToolTip PreferencesToolTip = new ToolTip();
+            PreferencesToolTip.SetToolTip(PreferencesButton, "Edit application preferences.");
+
+            ToolTip DisconnectSessionToolip = new ToolTip();
+            DisconnectSessionToolip.SetToolTip(DisconnectSessionButton, "Disconnect users from remote workstation.");
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -307,6 +323,30 @@ namespace ProfileBackupTool
         {
             RemoteSessionTerminator rst = new RemoteSessionTerminator();
             rst.Show();
+        }
+
+        private void DisconnectSessionButton_Click(object sender, EventArgs e)
+        {
+            RemoteSessionTerminator rst = new RemoteSessionTerminator();
+            rst.Show();
+        }
+
+        private void restorationModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            backupModeToolStripMenuItem.Checked = false;
+            restorationModeToolStripMenuItem.Checked = true;
+            this.Text = "Profile Backup Tool - Restoration Mode";
+            Properties.Settings.Default.RestoreMode = true;
+            Properties.Settings.Default.Save();
+        }
+
+        private void backupModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            backupModeToolStripMenuItem.Checked = true;
+            restorationModeToolStripMenuItem.Checked = false;
+            this.Text = "Profile Backup Tool - Backup Mode";
+            Properties.Settings.Default.RestoreMode = false;
+            Properties.Settings.Default.Save();
         }
     }
 }

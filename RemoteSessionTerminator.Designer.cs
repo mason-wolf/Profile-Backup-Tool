@@ -37,7 +37,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 20);
+            this.label1.Location = new System.Drawing.Point(29, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 39);
             this.label1.TabIndex = 3;
@@ -47,14 +47,14 @@
             // DeviceName
             // 
             this.DeviceName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.DeviceName.Location = new System.Drawing.Point(90, 74);
+            this.DeviceName.Location = new System.Drawing.Point(32, 74);
             this.DeviceName.Name = "DeviceName";
             this.DeviceName.Size = new System.Drawing.Size(310, 20);
             this.DeviceName.TabIndex = 4;
             // 
             // DisconnectButton
             // 
-            this.DisconnectButton.Location = new System.Drawing.Point(325, 100);
+            this.DisconnectButton.Location = new System.Drawing.Point(267, 110);
             this.DisconnectButton.Name = "DisconnectButton";
             this.DisconnectButton.Size = new System.Drawing.Size(75, 23);
             this.DisconnectButton.TabIndex = 5;
@@ -66,7 +66,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 135);
+            this.ClientSize = new System.Drawing.Size(364, 145);
             this.Controls.Add(this.DisconnectButton);
             this.Controls.Add(this.DeviceName);
             this.Controls.Add(this.label1);

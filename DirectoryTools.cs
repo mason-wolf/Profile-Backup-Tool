@@ -97,14 +97,14 @@ namespace ProfileBackupTool
 
                 // If CopyAll option is enabled, the exclusion list will not be read.
 
-                if(Properties.Settings.Default.CopyAll == true)
-                {
-                    p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c "  + profileExemptionDate;
-                }
-                else
-                {
-                    p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + exclusionList + profileExemptionDate;
-                }
+                    if (Properties.Settings.Default.CopyAll == true)
+                    {
+                        p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + profileExemptionDate;
+                    }
+                    else
+                    {
+                        p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + exclusionList + profileExemptionDate;
+                    }
 
                 p.Start();
 

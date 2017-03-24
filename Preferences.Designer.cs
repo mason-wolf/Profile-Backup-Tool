@@ -229,17 +229,17 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(428, 341);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Transfer Settings";
+            this.tabPage2.Text = "Transfers";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // ForceUserLogoffOption
             // 
             this.ForceUserLogoffOption.AutoSize = true;
-            this.ForceUserLogoffOption.Location = new System.Drawing.Point(22, 121);
+            this.ForceUserLogoffOption.Location = new System.Drawing.Point(22, 126);
             this.ForceUserLogoffOption.Name = "ForceUserLogoffOption";
-            this.ForceUserLogoffOption.Size = new System.Drawing.Size(111, 17);
+            this.ForceUserLogoffOption.Size = new System.Drawing.Size(105, 17);
             this.ForceUserLogoffOption.TabIndex = 9;
-            this.ForceUserLogoffOption.Text = "Force User Logoff";
+            this.ForceUserLogoffOption.Text = "Force user logoff";
             this.ForceUserLogoffOption.UseVisualStyleBackColor = true;
             this.ForceUserLogoffOption.CheckedChanged += new System.EventHandler(this.ForceUserLogoffOption_CheckedChanged);
             // 
@@ -248,9 +248,9 @@
             this.ShowErrorsOption.AutoSize = true;
             this.ShowErrorsOption.Location = new System.Drawing.Point(22, 75);
             this.ShowErrorsOption.Name = "ShowErrorsOption";
-            this.ShowErrorsOption.Size = new System.Drawing.Size(83, 17);
+            this.ShowErrorsOption.Size = new System.Drawing.Size(82, 17);
             this.ShowErrorsOption.TabIndex = 8;
-            this.ShowErrorsOption.Text = "Show Errors";
+            this.ShowErrorsOption.Text = "Show errors";
             this.ShowErrorsOption.UseVisualStyleBackColor = true;
             this.ShowErrorsOption.CheckedChanged += new System.EventHandler(this.ShowErrorsOption_CheckedChanged);
             // 
@@ -329,7 +329,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Preferences";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Preferences";
+            this.Text = " Preferences";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
