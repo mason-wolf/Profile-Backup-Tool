@@ -121,7 +121,7 @@ namespace ProfileBackupTool.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("01-01-2015")]
+        [global::System.Configuration.DefaultSettingValueAttribute("/d:01-01-2015")]
         public string TransferDateThreshold {
             get {
                 return ((string)(this["TransferDateThreshold"]));
