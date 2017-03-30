@@ -20,7 +20,7 @@ namespace ProfileBackupTool
 
         private void DisconnectButton_Click(object sender, EventArgs e)
         {
-            // TODO: Modularize multiple appearances of the following operations
+
             try
             {
                 ProcessStartInfo RemoteSessionTerminator = new ProcessStartInfo();

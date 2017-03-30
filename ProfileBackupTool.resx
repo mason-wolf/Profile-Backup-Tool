@@ -138,6 +138,42 @@
         ViVF1A0xHfCnHXC6AWwlCfX8fz70AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="ConnectionButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAINJREFUOE9jQAbfvn37TwyGKscEIEknJye8mH4GfHj/EQWTbAAuPIRcgAsPRwO+
+        f/+eABLEhX19ffEbABR4n5KSAlcA0rB582YwDRIHacAbjQ8ePABLgDSdPHny/5w5c8Ds5cuXg8VBYjDN
+        WA2AuQDZZphimAvwGkAoDLBhqFYgYGAAAFMd0furxZnJAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="PreferencesButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAANlJREFUOE+lkrsRgzAQRCmBEijBNZDTgwNqIacCQkIHFEAJJBRATkBGer6nQTYS
+        4mffzBv9dhchKRKRvwhO3uHb8Wqe50R5KbKCcbJI9gNUFCtTWZaSpqkhyzIZx5GQSXmgOwqofHPf985O
+        0B0FfMxgzbSE0Ud3OaAoChmGwZgZs64kwQBd4P+dALBmYB3tJmAxd03TOOY1nI1qtmdww8wtmKv0A1rf
+        zFjn11RK+B1wSAFzp8SLflNOAF/I89yY67o+NVN+wJMQdqJte2amnABbV4y2nIDfkOgNgPkt6Gl+jn4A
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="DisconnectSessionButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAANJJREFUOE9j+Pbt23og/g/E7798+WLAAARfv36dDxVDxiB1MLVgPkgtyID/C9V4
+        /x8sSfn/+fPn+yDNz86f+r8tyh2s0NfXF4xB7NevX6PwYQa8B2kGGXKmr+n/tRXz/69x0Pr/8eVzsCIn
+        JycwhhmAzAcbAHI2yOZjjcVgQ5YZy/wHuQDokgJ0A9D5eA2AaSCEsXpho68l2Asgv8JsxIZhBuANRGwa
+        QRgkBzMAbzRi0wzCIDlwGOADg8MAfBiqjDAAKSbJZnQwTAxAxlBhIGBgAAATnOdP5p/G9AAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="AddBatchButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAGxJREFUOE+tkD0OwCAIRnuoDp05npdtu7BqaIrhx0ZpMHkDIO8zbnwQsUre9vqh
+        paPsDyGBTJWCVVSyhWYA8EmegJGLzGiRobn6B5t8nXdnVDuBJCygRhQnsAmzOl8QJf8F9sKsdoIoSvAP
+        rA0q8oZ17c9xRwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="RemoveDeviceButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -196,34 +232,6 @@
         Dl16HvEi7ZXrBm6kXa1Bp0YDfPW77372VtF9kf+SBRly0+TQsrtSoUJ5tgpiFicbsRimDqnU1pBaDbxp
         871eba2nqyX8HQUbzGFpWFUMrCMOwXwh9NBsan5gZmuNV5cN/mndQy4uO+DN4eDTcvCzKv6DzQy05AtI
         Fhtxr9iIv19IrJH0VKqoAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="ConnectionButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAINJREFUOE9jQAbfvn37TwyGKscEIEknJye8mH4GfHj/EQWTbAAuPIRcgAsPRwO+
-        f/+eABLEhX19ffEbABR4n5KSAlcA0rB582YwDRIHacAbjQ8ePABLgDSdPHny/5w5c8Ds5cuXg8VBYjDN
-        WA2AuQDZZphimAvwGkAoDLBhqFYgYGAAAFMd0furxZnJAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="PreferencesButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAANlJREFUOE+lkrsRgzAQRCmBEijBNZDTgwNqIacCQkIHFEAJJBRATkBGer6nQTYS
-        4mffzBv9dhchKRKRvwhO3uHb8Wqe50R5KbKCcbJI9gNUFCtTWZaSpqkhyzIZx5GQSXmgOwqofHPf985O
-        0B0FfMxgzbSE0Ud3OaAoChmGwZgZs64kwQBd4P+dALBmYB3tJmAxd03TOOY1nI1qtmdww8wtmKv0A1rf
-        zFjn11RK+B1wSAFzp8SLflNOAF/I89yY67o+NVN+wJMQdqJte2amnABbV4y2nIDfkOgNgPkt6Gl+jn4A
-        AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="DisconnectSessionButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAANJJREFUOE9j+Pbt23og/g/E7798+WLAAARfv36dDxVDxiB1MLVgPkgtyID/C9V4
-        /x8sSfn/+fPn+yDNz86f+r8tyh2s0NfXF4xB7NevX6PwYQa8B2kGGXKmr+n/tRXz/69x0Pr/8eVzsCIn
-        JycwhhmAzAcbAHI2yOZjjcVgQ5YZy/wHuQDokgJ0A9D5eA2AaSCEsXpho68l2Asgv8JsxIZhBuANRGwa
-        QRgkBzMAbzRi0wzCIDlwGOADg8MAfBiqjDAAKSbJZnQwTAxAxlBhIGBgAAATnOdP5p/G9AAAAABJRU5E
-        rkJggg==
 </value>
   </data>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

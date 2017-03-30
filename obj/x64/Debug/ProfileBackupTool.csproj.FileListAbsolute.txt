@@ -2,12 +2,13 @@ C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBac
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\bin\x64\Debug\ProfileBackupTool.exe
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\bin\x64\Debug\ProfileBackupTool.pdb
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.AddDevice.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.AddDevices.resources
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.Connections.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.Preferences.resources
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.ProfileBackupTool.resources
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.Properties.Resources.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.RemoteSessionTerminator.resources
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.csproj.GenerateResource.Cache
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.exe
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.pdb
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.csprojResolveAssemblyReference.cache
-C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.RemoteSessionTerminator.resources
-C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\ProfileBackupTool\obj\x64\Debug\ProfileBackupTool.Preferences.resources

@@ -30,6 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileBackupTool));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fIleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.backupModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.restorationModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectionsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferencesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addDeviceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addDeviceToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.disconnectRemoteSessionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupHistoryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupHistoryToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.restorationHistoryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,21 +87,179 @@
             this.ElapsedTimeLabel = new System.Windows.Forms.Label();
             this.ElapsedTimeContainer = new System.Windows.Forms.Label();
             this.AddMachineButton = new System.Windows.Forms.Button();
-            this.RemoveDeviceButton = new System.Windows.Forms.Button();
             this.ConnectionButton = new System.Windows.Forms.Button();
             this.PreferencesButton = new System.Windows.Forms.Button();
             this.DisconnectSessionButton = new System.Windows.Forms.Button();
+            this.AddBatchButton = new System.Windows.Forms.Button();
+            this.RemoveDeviceButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.editToolStripMenuItem1,
+            this.addDeviceToolStripMenuItem1,
+            this.backupHistoryToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(737, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fIleToolStripMenuItem1,
+            this.saveReportToolStripMenuItem1,
+            this.toolStripSeparator4,
+            this.backupModeToolStripMenuItem1,
+            this.restorationModeToolStripMenuItem1,
+            this.toolStripSeparator5,
+            this.exitToolStripMenuItem1});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(37, 20);
+            this.toolStripMenuItem2.Text = "File";
+            // 
+            // fIleToolStripMenuItem1
+            // 
+            this.fIleToolStripMenuItem1.Name = "fIleToolStripMenuItem1";
+            this.fIleToolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
+            this.fIleToolStripMenuItem1.Text = "New Session";
+            this.fIleToolStripMenuItem1.Click += new System.EventHandler(this.fIleToolStripMenuItem1_Click);
+            // 
+            // saveReportToolStripMenuItem1
+            // 
+            this.saveReportToolStripMenuItem1.Enabled = false;
+            this.saveReportToolStripMenuItem1.Name = "saveReportToolStripMenuItem1";
+            this.saveReportToolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
+            this.saveReportToolStripMenuItem1.Text = "Save Report";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(165, 6);
+            // 
+            // backupModeToolStripMenuItem1
+            // 
+            this.backupModeToolStripMenuItem1.CheckOnClick = true;
+            this.backupModeToolStripMenuItem1.Name = "backupModeToolStripMenuItem1";
+            this.backupModeToolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
+            this.backupModeToolStripMenuItem1.Text = "Backup Mode";
+            this.backupModeToolStripMenuItem1.Click += new System.EventHandler(this.backupModeToolStripMenuItem1_Click);
+            // 
+            // restorationModeToolStripMenuItem1
+            // 
+            this.restorationModeToolStripMenuItem1.CheckOnClick = true;
+            this.restorationModeToolStripMenuItem1.Name = "restorationModeToolStripMenuItem1";
+            this.restorationModeToolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
+            this.restorationModeToolStripMenuItem1.Text = "Restoration Mode";
+            this.restorationModeToolStripMenuItem1.Click += new System.EventHandler(this.restorationModeToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(165, 6);
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
+            // 
+            // editToolStripMenuItem1
+            // 
+            this.editToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectionsToolStripMenuItem1,
+            this.preferencesToolStripMenuItem1});
+            this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem1.Text = "Edit";
+            // 
+            // connectionsToolStripMenuItem1
+            // 
+            this.connectionsToolStripMenuItem1.Name = "connectionsToolStripMenuItem1";
+            this.connectionsToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
+            this.connectionsToolStripMenuItem1.Text = "Connections";
+            this.connectionsToolStripMenuItem1.Click += new System.EventHandler(this.connectionsToolStripMenuItem1_Click);
+            // 
+            // preferencesToolStripMenuItem1
+            // 
+            this.preferencesToolStripMenuItem1.Name = "preferencesToolStripMenuItem1";
+            this.preferencesToolStripMenuItem1.Size = new System.Drawing.Size(141, 22);
+            this.preferencesToolStripMenuItem1.Text = "Preferences";
+            this.preferencesToolStripMenuItem1.Click += new System.EventHandler(this.preferencesToolStripMenuItem1_Click);
+            // 
+            // addDeviceToolStripMenuItem1
+            // 
+            this.addDeviceToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addDeviceToolStripMenuItem2,
+            this.addBatchToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.toolStripSeparator6,
+            this.disconnectRemoteSessionToolStripMenuItem1});
+            this.addDeviceToolStripMenuItem1.Name = "addDeviceToolStripMenuItem1";
+            this.addDeviceToolStripMenuItem1.Size = new System.Drawing.Size(47, 20);
+            this.addDeviceToolStripMenuItem1.Text = "Tools";
+            // 
+            // addDeviceToolStripMenuItem2
+            // 
+            this.addDeviceToolStripMenuItem2.Name = "addDeviceToolStripMenuItem2";
+            this.addDeviceToolStripMenuItem2.Size = new System.Drawing.Size(219, 22);
+            this.addDeviceToolStripMenuItem2.Text = "Add Device";
+            this.addDeviceToolStripMenuItem2.Click += new System.EventHandler(this.addDeviceToolStripMenuItem2_Click);
+            // 
+            // addBatchToolStripMenuItem
+            // 
+            this.addBatchToolStripMenuItem.Name = "addBatchToolStripMenuItem";
+            this.addBatchToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.addBatchToolStripMenuItem.Text = "Add Batch";
+            this.addBatchToolStripMenuItem.Click += new System.EventHandler(this.addBatchToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(219, 22);
+            this.toolStripMenuItem3.Text = "Remove Device";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(216, 6);
+            // 
+            // disconnectRemoteSessionToolStripMenuItem1
+            // 
+            this.disconnectRemoteSessionToolStripMenuItem1.Name = "disconnectRemoteSessionToolStripMenuItem1";
+            this.disconnectRemoteSessionToolStripMenuItem1.Size = new System.Drawing.Size(219, 22);
+            this.disconnectRemoteSessionToolStripMenuItem1.Text = "Disconnect Remote Session";
+            this.disconnectRemoteSessionToolStripMenuItem1.Click += new System.EventHandler(this.disconnectRemoteSessionToolStripMenuItem1_Click);
+            // 
+            // backupHistoryToolStripMenuItem1
+            // 
+            this.backupHistoryToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backupHistoryToolStripMenuItem2,
+            this.restorationHistoryToolStripMenuItem1});
+            this.backupHistoryToolStripMenuItem1.Name = "backupHistoryToolStripMenuItem1";
+            this.backupHistoryToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+            this.backupHistoryToolStripMenuItem1.Text = "View";
+            // 
+            // backupHistoryToolStripMenuItem2
+            // 
+            this.backupHistoryToolStripMenuItem2.Enabled = false;
+            this.backupHistoryToolStripMenuItem2.Name = "backupHistoryToolStripMenuItem2";
+            this.backupHistoryToolStripMenuItem2.Size = new System.Drawing.Size(175, 22);
+            this.backupHistoryToolStripMenuItem2.Text = "Backup History";
+            // 
+            // restorationHistoryToolStripMenuItem1
+            // 
+            this.restorationHistoryToolStripMenuItem1.Enabled = false;
+            this.restorationHistoryToolStripMenuItem1.Name = "restorationHistoryToolStripMenuItem1";
+            this.restorationHistoryToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
+            this.restorationHistoryToolStripMenuItem1.Text = "Restoration History";
             // 
             // fileToolStripMenuItem
             // 
@@ -102,7 +280,6 @@
             this.newSessionToolStripMenuItem.Name = "newSessionToolStripMenuItem";
             this.newSessionToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.newSessionToolStripMenuItem.Text = "New Session";
-            this.newSessionToolStripMenuItem.Click += new System.EventHandler(this.newSessionToolStripMenuItem_Click);
             // 
             // saveReportToolStripMenuItem
             // 
@@ -123,14 +300,14 @@
             this.backupModeToolStripMenuItem.Name = "backupModeToolStripMenuItem";
             this.backupModeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.backupModeToolStripMenuItem.Text = "Backup Mode";
-            this.backupModeToolStripMenuItem.Click += new System.EventHandler(this.backupModeToolStripMenuItem_Click);
+            this.backupModeToolStripMenuItem.Click += new System.EventHandler(this.backupModeToolStripMenuItem1_Click);
             // 
             // restorationModeToolStripMenuItem
             // 
             this.restorationModeToolStripMenuItem.Name = "restorationModeToolStripMenuItem";
             this.restorationModeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.restorationModeToolStripMenuItem.Text = "Restoration Mode";
-            this.restorationModeToolStripMenuItem.Click += new System.EventHandler(this.restorationModeToolStripMenuItem_Click);
+            this.restorationModeToolStripMenuItem.Click += new System.EventHandler(this.restorationModeToolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
@@ -141,8 +318,6 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -156,16 +331,12 @@
             // connectionsToolStripMenuItem
             // 
             this.connectionsToolStripMenuItem.Name = "connectionsToolStripMenuItem";
-            this.connectionsToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.connectionsToolStripMenuItem.Text = "Connections";
-            this.connectionsToolStripMenuItem.Click += new System.EventHandler(this.connectionsToolStripMenuItem_Click);
+            this.connectionsToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.preferencesToolStripMenuItem.Text = "Preferences";
-            this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             // 
             // toolStripMenuItem1
             // 
@@ -182,8 +353,6 @@
             // 
             this.addDeviceToolStripMenuItem.Name = "addDeviceToolStripMenuItem";
             this.addDeviceToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.addDeviceToolStripMenuItem.Text = "Add Device";
-            this.addDeviceToolStripMenuItem.Click += new System.EventHandler(this.addDeviceToolStripMenuItem_Click_1);
             // 
             // removeDeviceToolStripMenuItem
             // 
@@ -399,7 +568,7 @@
             this.AddMachineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddMachineButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.AddMachineButton.Image = ((System.Drawing.Image)(resources.GetObject("AddMachineButton.Image")));
-            this.AddMachineButton.Location = new System.Drawing.Point(519, 27);
+            this.AddMachineButton.Location = new System.Drawing.Point(569, 27);
             this.AddMachineButton.Name = "AddMachineButton";
             this.AddMachineButton.Size = new System.Drawing.Size(27, 23);
             this.AddMachineButton.TabIndex = 17;
@@ -408,28 +577,13 @@
             this.AddMachineButton.UseVisualStyleBackColor = true;
             this.AddMachineButton.Click += new System.EventHandler(this.AddMachineButton_Click);
             // 
-            // RemoveDeviceButton
-            // 
-            this.RemoveDeviceButton.FlatAppearance.BorderSize = 0;
-            this.RemoveDeviceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveDeviceButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.RemoveDeviceButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveDeviceButton.Image")));
-            this.RemoveDeviceButton.Location = new System.Drawing.Point(552, 29);
-            this.RemoveDeviceButton.Name = "RemoveDeviceButton";
-            this.RemoveDeviceButton.Size = new System.Drawing.Size(27, 23);
-            this.RemoveDeviceButton.TabIndex = 18;
-            this.RemoveDeviceButton.TabStop = false;
-            this.RemoveDeviceButton.Tag = "";
-            this.RemoveDeviceButton.UseVisualStyleBackColor = true;
-            this.RemoveDeviceButton.Click += new System.EventHandler(this.RemoveDeviceButton_Click_1);
-            // 
             // ConnectionButton
             // 
             this.ConnectionButton.FlatAppearance.BorderSize = 0;
             this.ConnectionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConnectionButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ConnectionButton.Image = ((System.Drawing.Image)(resources.GetObject("ConnectionButton.Image")));
-            this.ConnectionButton.Location = new System.Drawing.Point(585, 27);
+            this.ConnectionButton.Location = new System.Drawing.Point(632, 27);
             this.ConnectionButton.Name = "ConnectionButton";
             this.ConnectionButton.Size = new System.Drawing.Size(27, 23);
             this.ConnectionButton.TabIndex = 19;
@@ -444,7 +598,7 @@
             this.PreferencesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PreferencesButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.PreferencesButton.Image = ((System.Drawing.Image)(resources.GetObject("PreferencesButton.Image")));
-            this.PreferencesButton.Location = new System.Drawing.Point(617, 27);
+            this.PreferencesButton.Location = new System.Drawing.Point(665, 27);
             this.PreferencesButton.Name = "PreferencesButton";
             this.PreferencesButton.Size = new System.Drawing.Size(27, 23);
             this.PreferencesButton.TabIndex = 20;
@@ -459,7 +613,7 @@
             this.DisconnectSessionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DisconnectSessionButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.DisconnectSessionButton.Image = ((System.Drawing.Image)(resources.GetObject("DisconnectSessionButton.Image")));
-            this.DisconnectSessionButton.Location = new System.Drawing.Point(650, 28);
+            this.DisconnectSessionButton.Location = new System.Drawing.Point(698, 27);
             this.DisconnectSessionButton.Name = "DisconnectSessionButton";
             this.DisconnectSessionButton.Size = new System.Drawing.Size(27, 23);
             this.DisconnectSessionButton.TabIndex = 21;
@@ -468,15 +622,46 @@
             this.DisconnectSessionButton.UseVisualStyleBackColor = true;
             this.DisconnectSessionButton.Click += new System.EventHandler(this.DisconnectSessionButton_Click);
             // 
+            // AddBatchButton
+            // 
+            this.AddBatchButton.FlatAppearance.BorderSize = 0;
+            this.AddBatchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddBatchButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AddBatchButton.Image = ((System.Drawing.Image)(resources.GetObject("AddBatchButton.Image")));
+            this.AddBatchButton.Location = new System.Drawing.Point(543, 27);
+            this.AddBatchButton.Name = "AddBatchButton";
+            this.AddBatchButton.Size = new System.Drawing.Size(27, 23);
+            this.AddBatchButton.TabIndex = 22;
+            this.AddBatchButton.TabStop = false;
+            this.AddBatchButton.Tag = "";
+            this.AddBatchButton.UseVisualStyleBackColor = true;
+            this.AddBatchButton.Click += new System.EventHandler(this.AddBatchButton_Click);
+            // 
+            // RemoveDeviceButton
+            // 
+            this.RemoveDeviceButton.FlatAppearance.BorderSize = 0;
+            this.RemoveDeviceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveDeviceButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.RemoveDeviceButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveDeviceButton.Image")));
+            this.RemoveDeviceButton.Location = new System.Drawing.Point(599, 27);
+            this.RemoveDeviceButton.Name = "RemoveDeviceButton";
+            this.RemoveDeviceButton.Size = new System.Drawing.Size(27, 23);
+            this.RemoveDeviceButton.TabIndex = 23;
+            this.RemoveDeviceButton.TabStop = false;
+            this.RemoveDeviceButton.Tag = "";
+            this.RemoveDeviceButton.UseVisualStyleBackColor = true;
+            this.RemoveDeviceButton.Click += new System.EventHandler(this.RemoveDeviceButton_Click);
+            // 
             // ProfileBackupTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 492);
+            this.Controls.Add(this.RemoveDeviceButton);
+            this.Controls.Add(this.AddBatchButton);
             this.Controls.Add(this.DisconnectSessionButton);
             this.Controls.Add(this.PreferencesButton);
             this.Controls.Add(this.ConnectionButton);
-            this.Controls.Add(this.RemoveDeviceButton);
             this.Controls.Add(this.AddMachineButton);
             this.Controls.Add(this.ElapsedTimeContainer);
             this.Controls.Add(this.ElapsedTimeLabel);
@@ -548,13 +733,34 @@
         private System.Windows.Forms.Label ElapsedTimeLabel;
         private System.Windows.Forms.Label ElapsedTimeContainer;
         private System.Windows.Forms.Button AddMachineButton;
-        private System.Windows.Forms.Button RemoveDeviceButton;
         private System.Windows.Forms.Button ConnectionButton;
         private System.Windows.Forms.Button PreferencesButton;
         private System.Windows.Forms.ToolStripMenuItem removeDeviceToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem disconnectRemoteSessionToolStripMenuItem;
         private System.Windows.Forms.Button DisconnectSessionButton;
+        private System.Windows.Forms.Button AddBatchButton;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem fIleToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem saveReportToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem backupModeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem restorationModeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem connectionsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem addDeviceToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem addDeviceToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem addBatchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem disconnectRemoteSessionToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem backupHistoryToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem backupHistoryToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem restorationHistoryToolStripMenuItem1;
+        private System.Windows.Forms.Button RemoveDeviceButton;
     }
 }
 

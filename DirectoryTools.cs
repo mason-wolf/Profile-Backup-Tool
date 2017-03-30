@@ -115,7 +115,13 @@ namespace ProfileBackupTool
                                         FileTransfers.SelectionStart = FileTransfers.Text.Length;
                                         FileTransfers.ScrollToCaret();
                                         processedFiles++;
+
                                         ProcessedFiles.Text = processedFiles.ToString();
+
+                                        if(processedFiles > 10000)
+                                        {
+                                            FileTransfers.Clear();
+                                        }
                                     }
                                 }
                                 else

@@ -32,6 +32,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.FolderContainer = new System.Windows.Forms.GroupBox();
+            this.MusicOption = new System.Windows.Forms.CheckBox();
             this.PicturesOption = new System.Windows.Forms.CheckBox();
             this.FavoritesOption = new System.Windows.Forms.CheckBox();
             this.DownloadsOption = new System.Windows.Forms.CheckBox();
@@ -55,7 +56,6 @@
             this.mm = new System.Windows.Forms.TextBox();
             this.ApplyTransferSettingsButton = new System.Windows.Forms.Button();
             this.CalculateProfileSizesOption = new System.Windows.Forms.CheckBox();
-            this.MusicOption = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.FolderContainer.SuspendLayout();
@@ -105,6 +105,19 @@
             this.FolderContainer.TabIndex = 13;
             this.FolderContainer.TabStop = false;
             this.FolderContainer.Text = "Folders";
+            // 
+            // MusicOption
+            // 
+            this.MusicOption.AutoSize = true;
+            this.MusicOption.Checked = true;
+            this.MusicOption.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MusicOption.Location = new System.Drawing.Point(35, 134);
+            this.MusicOption.Name = "MusicOption";
+            this.MusicOption.Size = new System.Drawing.Size(54, 17);
+            this.MusicOption.TabIndex = 17;
+            this.MusicOption.Text = "Music";
+            this.MusicOption.UseVisualStyleBackColor = true;
+            this.MusicOption.CheckedChanged += new System.EventHandler(this.MusicOption_CheckedChanged);
             // 
             // PicturesOption
             // 
@@ -354,19 +367,6 @@
             this.CalculateProfileSizesOption.UseVisualStyleBackColor = true;
             this.CalculateProfileSizesOption.CheckedChanged += new System.EventHandler(this.CalculateProfileSizesOption_CheckedChanged);
             // 
-            // MusicOption
-            // 
-            this.MusicOption.AutoSize = true;
-            this.MusicOption.Checked = true;
-            this.MusicOption.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MusicOption.Location = new System.Drawing.Point(35, 134);
-            this.MusicOption.Name = "MusicOption";
-            this.MusicOption.Size = new System.Drawing.Size(54, 17);
-            this.MusicOption.TabIndex = 17;
-            this.MusicOption.Text = "Music";
-            this.MusicOption.UseVisualStyleBackColor = true;
-            this.MusicOption.CheckedChanged += new System.EventHandler(this.MusicOption_CheckedChanged);
-            // 
             // Preferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,6 +375,8 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Preferences";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Preferences";

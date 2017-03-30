@@ -15,9 +15,7 @@ using System.Windows.Forms;
 
 namespace ProfileBackupTool
 {
-    // TODO: Ensure transfer process continues even if connection to target machine fails.
-    // TODO: When assigned the migration server, if the list is empty automatically set it as default.
-    // TODO: Correct directory preferences to save settings, load default options on first time start-up.
+
     // TODO: Include administrator short-cut within the Restoration tool to configure server settings, dialogs etc.
 
     public partial class ProfileBackupTool : Form
@@ -86,7 +84,10 @@ namespace ProfileBackupTool
 
                 this.Invoke((MethodInvoker)delegate {
                     DeviceList.SelectedIndex = 0;
-                    ProgressBar.Visible = true;
+                    if(DeviceList.Items.Count > 1)
+                    {
+                        ProgressBar.Visible = true;
+                    }
                 });
 
                 // By default the destination in the backup location is the target's host name.
@@ -272,12 +273,6 @@ namespace ProfileBackupTool
 
         }
 
-        private void addDeviceToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            AddDevice AddDeviceTool = new AddDevice(this);
-            AddDeviceTool.Show();
-        }
-
         private void AddMachineButton_Click(object sender, EventArgs e)
         {
             AddDevice AddDeviceTool = new AddDevice(this);
@@ -285,44 +280,10 @@ namespace ProfileBackupTool
         }
 
 
-        private void newSessionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var NewSessionConfirmation = MessageBox.Show("Start a new session? All current operations will be interrupted.",
-                "New Session", MessageBoxButtons.YesNo);
-
-            if (NewSessionConfirmation == DialogResult.Yes)
-            {
-                ProfileBackupTool ProfileBackupTool = new ProfileBackupTool();
-                ProfileBackupTool.Show();
-                this.Close();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void connectionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Connections Connections = new Connections();
-            Connections.Show();
-        }
-
-        private void RemoveDeviceButton_Click_1(object sender, EventArgs e)
-        {
-            DeviceList.Items.Remove(DeviceList.SelectedItem);
-        }
-
         private void ConnectionButton_Click(object sender, EventArgs e)
         {
             Connections Connections = new Connections();
             Connections.Show();
-        }
-
-        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Preferences Preferences = new Preferences();
-            Preferences.Show();
         }
 
         private void PreferencesButton_Click(object sender, EventArgs e)
@@ -339,6 +300,18 @@ namespace ProfileBackupTool
             ConnectionButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             PreferencesButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             DisconnectSessionButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255);
+            AddBatchButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255);
+
+            if(Properties.Settings.Default.RestoreMode)
+            {
+                restorationModeToolStripMenuItem1.Checked = true;
+                backupModeToolStripMenuItem1.Checked = false;
+            }
+            else
+            {
+                restorationModeToolStripMenuItem1.Checked = false;
+                backupModeToolStripMenuItem1.Checked = true;
+            }
 
             ToolTip AddMachineToolTip = new ToolTip();
             AddMachineToolTip.SetToolTip(AddMachineButton, "Add new target machine.");
@@ -354,11 +327,9 @@ namespace ProfileBackupTool
 
             ToolTip DisconnectSessionToolip = new ToolTip();
             DisconnectSessionToolip.SetToolTip(DisconnectSessionButton, "Disconnect users from remote workstation.");
-        }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            ToolTip AddMachinesToolTip = new ToolTip();
+            AddMachinesToolTip.SetToolTip(AddBatchButton, "Add batch of devices.");
         }
 
         private void removeDeviceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -378,22 +349,90 @@ namespace ProfileBackupTool
             rst.Show();
         }
 
-        private void restorationModeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddBatchButton_Click(object sender, EventArgs e)
         {
-            backupModeToolStripMenuItem.Checked = false;
-            restorationModeToolStripMenuItem.Checked = true;
-            this.Text = "Profile Backup Tool - Restoration Mode";
-            Properties.Settings.Default.RestoreMode = true;
-            Properties.Settings.Default.Save();
+            AddDevices AddDevices = new AddDevices(DeviceList);
+            AddDevices.Show();
         }
 
-        private void backupModeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void backupModeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            backupModeToolStripMenuItem.Checked = true;
-            restorationModeToolStripMenuItem.Checked = false;
-            this.Text = "Profile Backup Tool - Backup Mode";
+            backupModeToolStripMenuItem1.Checked = true;
+            restorationModeToolStripMenuItem1.Checked = false;
             Properties.Settings.Default.RestoreMode = false;
             Properties.Settings.Default.Save();
+            Text = "Profile Backup Tool - Backup Mode";
+        }
+
+        private void restorationModeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            backupModeToolStripMenuItem1.Checked = false;
+            restorationModeToolStripMenuItem1.Checked = true;
+            Properties.Settings.Default.RestoreMode = true;
+            Properties.Settings.Default.Save();
+            Text = "Profile Backup Tool - Restoration Mode";
+        }
+
+        private void fIleToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var NewSessionConfirmation = MessageBox.Show("Start a new session? All current operations will be interrupted.",
+    "New Session", MessageBoxButtons.YesNo);
+
+            if (NewSessionConfirmation == DialogResult.Yes)
+            {
+                ProfileBackupTool ProfileBackupTool = new ProfileBackupTool();
+                ProfileBackupTool.Show();
+                this.Close();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void connectionsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Connections Connections = new Connections();
+            Connections.Show();
+        }
+
+        private void preferencesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Preferences Preferences = new Preferences();
+            Preferences.Show();
+        }
+
+        private void addDeviceToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AddDevice AddDevice = new AddDevice();
+            AddDevice.Show();
+        }
+
+        private void addBatchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddDevices AddDevices = new AddDevices( DeviceList);
+            AddDevices.Show();
+        }
+
+        private void RemoveDeviceButton_Click(object sender, EventArgs e)
+        {
+            DeviceList.Items.Remove(DeviceList.SelectedItem);
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            DeviceList.Items.Remove(DeviceList.SelectedItem);
+        }
+
+        private void disconnectRemoteSessionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            RemoteSessionTerminator rst = new RemoteSessionTerminator();
+            rst.Show();
         }
     }
 }

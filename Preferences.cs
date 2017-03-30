@@ -45,11 +45,12 @@ namespace ProfileBackupTool
 
             if (Properties.Settings.Default.CopyAll == true)
             {
-                FolderContainer.Enabled = true;
+                FolderContainer.Enabled = false;
+                CopyAllOption.Checked = true;
             }
             else
             {
-                FolderContainer.Enabled = false;
+                FolderContainer.Enabled = true;
             }
 
             if (Properties.Settings.Default.ForceUserLogoff == true)
@@ -93,7 +94,7 @@ namespace ProfileBackupTool
 
         private void SetDefaultDirectoriesButton_Click(object sender, EventArgs e)
         {
-            BackupDirectoryField.Text = "\\c$\\Users";
+            BackupDirectoryField.Text = "\\C$\\Users";
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -111,31 +112,7 @@ namespace ProfileBackupTool
                 Properties.Settings.Default.Save();
             }
         }
-        /*
-        private void CopyAllOption_CheckedChanged(object sender, EventArgs e)
-        {
-            if(CopyAllOption.Checked)
-            {
-                Properties.Settings.Default.CopyAll = true;
-                Properties.Settings.Default.Save();
-                ExclusionField.Enabled = false;
-                ExclusionsList.Enabled = false;
-                ExclusionsLabel.Enabled = false;
-                AddExclusionButton.Enabled = false;
-                RemoveExclusionButton.Enabled = false;
-            }
-            else
-            {
-                Properties.Settings.Default.CopyAll = false;
-                Properties.Settings.Default.Save();
-                ExclusionField.Enabled = true;
-                ExclusionsList.Enabled = true;
-                AddExclusionButton.Enabled = true;
-                RemoveExclusionButton.Enabled = true;
-                ExclusionsLabel.Enabled = true;
-            }
-        }
-        */
+
 
         private void ShowErrorsOption_CheckedChanged(object sender, EventArgs e)
         {
