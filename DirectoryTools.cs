@@ -77,8 +77,13 @@ namespace ProfileBackupTool
 
             }
         }
-
-        public void PerformTransfer(string SolutionDirectory, string TargetDirectory)
+        /// <summary>
+        /// Initiates transfer from solution directory to target directory.
+        /// </summary>
+        /// <param name="SolutionDirectory">Source</param>
+        /// <param name="TargetDirectory">Destination</param>
+        /// <param name="Exemptions">Include Transfer Date Threshold</param>
+        public void PerformTransfer(string SolutionDirectory, string TargetDirectory, bool CreationDate_ThresholdEnabled)
         {
             StreamReader reader;
             int processedFiles = 0;
@@ -91,9 +96,16 @@ namespace ProfileBackupTool
                 p.StartInfo.RedirectStandardOutput = true;
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardInput = true;
-                string profileExemptionDate = Properties.Settings.Default.TransferDateThreshold;
+                string ExemptionDate = Properties.Settings.Default.TransferDateThreshold;
 
-               p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c "  + profileExemptionDate;
+                if (CreationDate_ThresholdEnabled)
+                {
+                    p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + ExemptionDate;
+                }
+                else
+                {
+                    p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c ";
+                }
 
                 p.Start();
 

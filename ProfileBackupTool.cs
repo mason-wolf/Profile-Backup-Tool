@@ -62,8 +62,8 @@ namespace ProfileBackupTool
                             }
                         }
                     }
- 
-                    catch 
+
+                    catch
                     {
                         MessageBox.Show("Remote session termination is not supported on this system.");
                     }
@@ -82,9 +82,11 @@ namespace ProfileBackupTool
                 // Select the first item in the target panel, increments after each thread is finished to indicate
                 // which target is being worked on.
 
-                this.Invoke((MethodInvoker)delegate {
+                this.Invoke((MethodInvoker)delegate
+                {
                     DeviceList.SelectedIndex = 0;
-                    if(DeviceList.Items.Count > 1)
+
+                    if (DeviceList.Items.Count > 1)
                     {
                         ProgressBar.Visible = true;
                     }
@@ -93,98 +95,92 @@ namespace ProfileBackupTool
                 // By default the destination in the backup location is the target's host name.
                 // Optionally a custom destination can be specified. 
 
+                // If restore mode is enabled, reverse the operation.
 
                 if (Properties.Settings.Default.RestoreMode == true)
                 {
                     StatusBar.Text = "Restoring...";
 
-                    DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + target.Remove(0, 2), target + Properties.Settings.Default.SourceDirectory);
+                    DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + target.Remove(0, 2), target + Properties.Settings.Default.SourceDirectory, false);
                 }
                 else
                 {
                     StatusBar.Text = "Performing backup...";
 
+                    // If using custom destination, copy to specified directory rather than creating workstation directory with profiles as subdirectories.
+
                     if (Properties.Settings.Default.UseCustomDestination == true)
                     {
-                        if (Properties.Settings.Default.CopyAll == true)
-                        {
-                            DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
-                        }
-                        else
-                        {
-                            try
-                            {
-                                string[] users = Directory.GetDirectories(target + Properties.Settings.Default.SourceDirectory);
-
-                                foreach (string user in users)
-                                {
-                                    foreach (string folder in Properties.Settings.Default.Folders)
-                                    {
-                                        var userName = new DirectoryInfo(user).Name;
-                                        DirectoryTools.PerformTransfer(user + "\\" + folder, Properties.Settings.Default.DefaultServer + "\\" + Properties.Settings.Default.DestinationDirectory + "\\" + userName + "\\" + folder);
-                                    }
-                                }
-
-                            }
-                            catch { }
-
-                        }
+                        Transfer(target, Properties.Settings.Default.DestinationDirectory, DirectoryTools);
                     }
                     else
                     {
-                        if (Properties.Settings.Default.CopyAll == true)
-                        {
-                            DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + target.Remove(0, 2));
-                        }
-                        else
-                        {
-                            try
-                            {
-
-                                foreach (var user in Directory.GetDirectories(target + Properties.Settings.Default.SourceDirectory))
-                                {
-                                    foreach (string folder in Properties.Settings.Default.Folders)
-                                    {
-                                        var userName = new DirectoryInfo(user).Name;
-                                        DirectoryTools.PerformTransfer(user + "\\" + folder, Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + "\\" + userName + "\\" + folder);
-                                    }
-                                }
-
-                            }
-                            catch { }
-
-                        }
+                        Transfer(target, target.Remove(0, 2), DirectoryTools);
                     }
+
+                    StatusBar.Text = "Complete.";
+
+                    // Show progress after each task is performed, move on to the next item in the panel.
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        try
+                        {
+                            StopButton.Enabled = false;
+                            StartTransferButton.Enabled = true;
+                            ProgressBar.Maximum = DeviceList.Items.Count;
+                            ProgressBar.Value += 1;
+                            if (DeviceList.SelectedIndex < DeviceList.Items.Count - 1)
+                            {
+                                DeviceList.SelectedIndex = DeviceList.SelectedIndex + 1;
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                    });
+
                 }
 
-                StatusBar.Text = "Complete.";
+                StopWatch.Stop();
+                Timer.Stop();
+            }
+        }
 
-                // Show progress after each task is performed, move on to the next item in the panel.
-
-                this.Invoke((MethodInvoker)delegate
+        private void Transfer(string Source, string Destination, DirectoryTools DirectoryTool)
+        {
+            if (Properties.Settings.Default.CopyAll == true)
+            {   
+                if (Properties.Settings.Default.UseCustomDestination)
                 {
-                    try
-                    {
-                        StopButton.Enabled = false;
-                        StartTransferButton.Enabled = true;
-                        ProgressBar.Maximum = DeviceList.Items.Count;
-                        ProgressBar.Value += 1;
-                        if (DeviceList.SelectedIndex < DeviceList.Items.Count - 1)
-                        {
-                            DeviceList.SelectedIndex = DeviceList.SelectedIndex + 1;
-                        }
-                    }
-                    catch
-                    {
-
-                    }
-                });
+                    DirectoryTool.PerformTransfer(Source + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory, false);
+                }
+                else
+                {
+                    DirectoryTool.PerformTransfer(Source + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Source.Remove(0, 2), false);
+                }
 
             }
+            else
+            {
+                try
+                {
+                    string[] users = Directory.GetDirectories(Source + Properties.Settings.Default.SourceDirectory);
 
-            StopWatch.Stop();
-            Timer.Stop();
+                    foreach (string user in users)
+                    {
+                        foreach (string folder in Properties.Settings.Default.Folders)
+                        {
+                            var userName = new DirectoryInfo(user).Name;
+                            DirectoryTool.PerformTransfer(user + "\\" + folder, Properties.Settings.Default.DefaultServer + "\\" + Destination + "\\" + userName + "\\" + folder, false);
+                        }
+                    }
 
+                }
+                catch { }
+
+            }
         }
 
         private string[] RetrieveDeviceList()

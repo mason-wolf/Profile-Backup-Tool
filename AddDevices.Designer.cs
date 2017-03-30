@@ -98,7 +98,7 @@
 
         private System.Windows.Forms.RichTextBox Devices;
         private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Button CancelButton;
+        private new System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label label1;
     }
 }
