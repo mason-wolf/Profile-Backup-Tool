@@ -93,18 +93,7 @@ namespace ProfileBackupTool
                 p.StartInfo.RedirectStandardInput = true;
                 string profileExemptionDate = Properties.Settings.Default.TransferDateThreshold;
 
-                string exclusionList = "/EXCLUDE:config\\exclusions.txt";
-
-                // If CopyAll option is enabled, the exclusion list will not be read.
-
-                    if (Properties.Settings.Default.CopyAll == true)
-                    {
-                        p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + profileExemptionDate;
-                    }
-                    else
-                    {
-                        p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + exclusionList + profileExemptionDate;
-                    }
+               p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c "  + profileExemptionDate;
 
                 p.Start();
 

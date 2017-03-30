@@ -37,7 +37,7 @@ namespace ProfileBackupTool.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\C$\\Users")]
         public string SourceDirectory {
             get {
                 return ((string)(this["SourceDirectory"]));
@@ -140,6 +140,26 @@ namespace ProfileBackupTool.Properties {
             }
             set {
                 this["RestoreMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>Desktop</string>
+  <string>Documents</string>
+  <string>Downloads</string>
+  <string>Favorites</string>
+  <string>Pictures</string>
+  <string>Music</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection Folders {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Folders"]));
+            }
+            set {
+                this["Folders"] = value;
             }
         }
     }

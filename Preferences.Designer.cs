@@ -31,12 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Preferences));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ExclusionField = new System.Windows.Forms.TextBox();
+            this.FolderContainer = new System.Windows.Forms.GroupBox();
+            this.PicturesOption = new System.Windows.Forms.CheckBox();
+            this.FavoritesOption = new System.Windows.Forms.CheckBox();
+            this.DownloadsOption = new System.Windows.Forms.CheckBox();
+            this.DocumentsOption = new System.Windows.Forms.CheckBox();
+            this.DesktopOption = new System.Windows.Forms.CheckBox();
             this.CopyAllOption = new System.Windows.Forms.CheckBox();
-            this.RemoveExclusionButton = new System.Windows.Forms.Button();
-            this.AddExclusionButton = new System.Windows.Forms.Button();
-            this.ExclusionsLabel = new System.Windows.Forms.Label();
-            this.ExclusionsList = new System.Windows.Forms.ListBox();
             this.CustomDirectoryOption = new System.Windows.Forms.CheckBox();
             this.SetDefaultDirectoriesButton = new System.Windows.Forms.Button();
             this.DestinationDirectoryField = new System.Windows.Forms.TextBox();
@@ -54,8 +55,10 @@
             this.mm = new System.Windows.Forms.TextBox();
             this.ApplyTransferSettingsButton = new System.Windows.Forms.Button();
             this.CalculateProfileSizesOption = new System.Windows.Forms.CheckBox();
+            this.MusicOption = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.FolderContainer.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,12 +74,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.ExclusionField);
+            this.tabPage1.Controls.Add(this.FolderContainer);
             this.tabPage1.Controls.Add(this.CopyAllOption);
-            this.tabPage1.Controls.Add(this.RemoveExclusionButton);
-            this.tabPage1.Controls.Add(this.AddExclusionButton);
-            this.tabPage1.Controls.Add(this.ExclusionsLabel);
-            this.tabPage1.Controls.Add(this.ExclusionsList);
             this.tabPage1.Controls.Add(this.CustomDirectoryOption);
             this.tabPage1.Controls.Add(this.SetDefaultDirectoriesButton);
             this.tabPage1.Controls.Add(this.DestinationDirectoryField);
@@ -92,17 +91,90 @@
             this.tabPage1.Text = "Directories";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // ExclusionField
+            // FolderContainer
             // 
-            this.ExclusionField.Location = new System.Drawing.Point(226, 205);
-            this.ExclusionField.Name = "ExclusionField";
-            this.ExclusionField.Size = new System.Drawing.Size(175, 20);
-            this.ExclusionField.TabIndex = 13;
+            this.FolderContainer.Controls.Add(this.MusicOption);
+            this.FolderContainer.Controls.Add(this.PicturesOption);
+            this.FolderContainer.Controls.Add(this.FavoritesOption);
+            this.FolderContainer.Controls.Add(this.DownloadsOption);
+            this.FolderContainer.Controls.Add(this.DocumentsOption);
+            this.FolderContainer.Controls.Add(this.DesktopOption);
+            this.FolderContainer.Location = new System.Drawing.Point(13, 113);
+            this.FolderContainer.Name = "FolderContainer";
+            this.FolderContainer.Size = new System.Drawing.Size(155, 169);
+            this.FolderContainer.TabIndex = 13;
+            this.FolderContainer.TabStop = false;
+            this.FolderContainer.Text = "Folders";
+            // 
+            // PicturesOption
+            // 
+            this.PicturesOption.AutoSize = true;
+            this.PicturesOption.Checked = true;
+            this.PicturesOption.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PicturesOption.Location = new System.Drawing.Point(35, 111);
+            this.PicturesOption.Name = "PicturesOption";
+            this.PicturesOption.Size = new System.Drawing.Size(64, 17);
+            this.PicturesOption.TabIndex = 13;
+            this.PicturesOption.Text = "Pictures";
+            this.PicturesOption.UseVisualStyleBackColor = true;
+            this.PicturesOption.CheckedChanged += new System.EventHandler(this.PicturesOption_CheckedChanged);
+            // 
+            // FavoritesOption
+            // 
+            this.FavoritesOption.AutoSize = true;
+            this.FavoritesOption.Checked = true;
+            this.FavoritesOption.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.FavoritesOption.Location = new System.Drawing.Point(35, 88);
+            this.FavoritesOption.Name = "FavoritesOption";
+            this.FavoritesOption.Size = new System.Drawing.Size(69, 17);
+            this.FavoritesOption.TabIndex = 16;
+            this.FavoritesOption.Text = "Favorites";
+            this.FavoritesOption.UseVisualStyleBackColor = true;
+            this.FavoritesOption.CheckedChanged += new System.EventHandler(this.FavoritesOption_CheckedChanged);
+            // 
+            // DownloadsOption
+            // 
+            this.DownloadsOption.AutoSize = true;
+            this.DownloadsOption.Checked = true;
+            this.DownloadsOption.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DownloadsOption.Location = new System.Drawing.Point(35, 65);
+            this.DownloadsOption.Name = "DownloadsOption";
+            this.DownloadsOption.Size = new System.Drawing.Size(79, 17);
+            this.DownloadsOption.TabIndex = 15;
+            this.DownloadsOption.Text = "Downloads";
+            this.DownloadsOption.UseVisualStyleBackColor = true;
+            this.DownloadsOption.CheckedChanged += new System.EventHandler(this.DownloadsOption_CheckedChanged);
+            // 
+            // DocumentsOption
+            // 
+            this.DocumentsOption.AutoSize = true;
+            this.DocumentsOption.Checked = true;
+            this.DocumentsOption.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DocumentsOption.Location = new System.Drawing.Point(35, 42);
+            this.DocumentsOption.Name = "DocumentsOption";
+            this.DocumentsOption.Size = new System.Drawing.Size(80, 17);
+            this.DocumentsOption.TabIndex = 14;
+            this.DocumentsOption.Text = "Documents";
+            this.DocumentsOption.UseVisualStyleBackColor = true;
+            this.DocumentsOption.CheckedChanged += new System.EventHandler(this.DocumentsOption_CheckedChanged);
+            // 
+            // DesktopOption
+            // 
+            this.DesktopOption.AutoSize = true;
+            this.DesktopOption.Checked = true;
+            this.DesktopOption.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DesktopOption.Location = new System.Drawing.Point(35, 19);
+            this.DesktopOption.Name = "DesktopOption";
+            this.DesktopOption.Size = new System.Drawing.Size(66, 17);
+            this.DesktopOption.TabIndex = 13;
+            this.DesktopOption.Text = "Desktop";
+            this.DesktopOption.UseVisualStyleBackColor = true;
+            this.DesktopOption.CheckedChanged += new System.EventHandler(this.DesktopOption_CheckedChanged);
             // 
             // CopyAllOption
             // 
             this.CopyAllOption.AutoSize = true;
-            this.CopyAllOption.Location = new System.Drawing.Point(238, 139);
+            this.CopyAllOption.Location = new System.Drawing.Point(229, 155);
             this.CopyAllOption.Name = "CopyAllOption";
             this.CopyAllOption.Size = new System.Drawing.Size(64, 17);
             this.CopyAllOption.TabIndex = 12;
@@ -110,49 +182,12 @@
             this.CopyAllOption.UseVisualStyleBackColor = true;
             this.CopyAllOption.CheckedChanged += new System.EventHandler(this.CopyAllOption_CheckedChanged);
             // 
-            // RemoveExclusionButton
-            // 
-            this.RemoveExclusionButton.Location = new System.Drawing.Point(275, 231);
-            this.RemoveExclusionButton.Name = "RemoveExclusionButton";
-            this.RemoveExclusionButton.Size = new System.Drawing.Size(59, 23);
-            this.RemoveExclusionButton.TabIndex = 11;
-            this.RemoveExclusionButton.Text = "Remove";
-            this.RemoveExclusionButton.UseVisualStyleBackColor = true;
-            this.RemoveExclusionButton.Click += new System.EventHandler(this.RemoveExclusionButton_Click);
-            // 
-            // AddExclusionButton
-            // 
-            this.AddExclusionButton.Location = new System.Drawing.Point(226, 231);
-            this.AddExclusionButton.Name = "AddExclusionButton";
-            this.AddExclusionButton.Size = new System.Drawing.Size(43, 23);
-            this.AddExclusionButton.TabIndex = 10;
-            this.AddExclusionButton.Text = "Add";
-            this.AddExclusionButton.UseVisualStyleBackColor = true;
-            this.AddExclusionButton.Click += new System.EventHandler(this.AddExclusionButton_Click);
-            // 
-            // ExclusionsLabel
-            // 
-            this.ExclusionsLabel.AutoSize = true;
-            this.ExclusionsLabel.Location = new System.Drawing.Point(226, 189);
-            this.ExclusionsLabel.Name = "ExclusionsLabel";
-            this.ExclusionsLabel.Size = new System.Drawing.Size(60, 13);
-            this.ExclusionsLabel.TabIndex = 9;
-            this.ExclusionsLabel.Text = "Exclusions:";
-            // 
-            // ExclusionsList
-            // 
-            this.ExclusionsList.FormattingEnabled = true;
-            this.ExclusionsList.Location = new System.Drawing.Point(13, 113);
-            this.ExclusionsList.Name = "ExclusionsList";
-            this.ExclusionsList.Size = new System.Drawing.Size(196, 212);
-            this.ExclusionsList.TabIndex = 8;
-            // 
             // CustomDirectoryOption
             // 
             this.CustomDirectoryOption.AutoSize = true;
             this.CustomDirectoryOption.Checked = true;
             this.CustomDirectoryOption.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CustomDirectoryOption.Location = new System.Drawing.Point(238, 113);
+            this.CustomDirectoryOption.Location = new System.Drawing.Point(229, 113);
             this.CustomDirectoryOption.Name = "CustomDirectoryOption";
             this.CustomDirectoryOption.Size = new System.Drawing.Size(172, 17);
             this.CustomDirectoryOption.TabIndex = 7;
@@ -319,6 +354,19 @@
             this.CalculateProfileSizesOption.UseVisualStyleBackColor = true;
             this.CalculateProfileSizesOption.CheckedChanged += new System.EventHandler(this.CalculateProfileSizesOption_CheckedChanged);
             // 
+            // MusicOption
+            // 
+            this.MusicOption.AutoSize = true;
+            this.MusicOption.Checked = true;
+            this.MusicOption.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MusicOption.Location = new System.Drawing.Point(35, 134);
+            this.MusicOption.Name = "MusicOption";
+            this.MusicOption.Size = new System.Drawing.Size(54, 17);
+            this.MusicOption.TabIndex = 17;
+            this.MusicOption.Text = "Music";
+            this.MusicOption.UseVisualStyleBackColor = true;
+            this.MusicOption.CheckedChanged += new System.EventHandler(this.MusicOption_CheckedChanged);
+            // 
             // Preferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +381,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.FolderContainer.ResumeLayout(false);
+            this.FolderContainer.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
@@ -353,12 +403,7 @@
         private System.Windows.Forms.Button ApplyTransferSettingsButton;
         private System.Windows.Forms.CheckBox CalculateProfileSizesOption;
         private System.Windows.Forms.CheckBox CustomDirectoryOption;
-        private System.Windows.Forms.Label ExclusionsLabel;
-        private System.Windows.Forms.ListBox ExclusionsList;
         private System.Windows.Forms.CheckBox CopyAllOption;
-        private System.Windows.Forms.Button RemoveExclusionButton;
-        private System.Windows.Forms.Button AddExclusionButton;
-        private System.Windows.Forms.TextBox ExclusionField;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox year;
         private System.Windows.Forms.TextBox dd;
@@ -366,5 +411,12 @@
         private System.Windows.Forms.TextBox mm;
         private System.Windows.Forms.CheckBox ShowErrorsOption;
         private System.Windows.Forms.CheckBox ForceUserLogoffOption;
+        private System.Windows.Forms.GroupBox FolderContainer;
+        private System.Windows.Forms.CheckBox PicturesOption;
+        private System.Windows.Forms.CheckBox FavoritesOption;
+        private System.Windows.Forms.CheckBox DownloadsOption;
+        private System.Windows.Forms.CheckBox DocumentsOption;
+        private System.Windows.Forms.CheckBox DesktopOption;
+        private System.Windows.Forms.CheckBox MusicOption;
     }
 }

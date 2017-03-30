@@ -15,6 +15,10 @@ using System.Windows.Forms;
 
 namespace ProfileBackupTool
 {
+    // TODO: Ensure transfer process continues even if connection to target machine fails.
+    // TODO: When assigned the migration server, if the list is empty automatically set it as default.
+    // TODO: Correct directory preferences to save settings, load default options on first time start-up.
+    // TODO: Include administrator short-cut within the Restoration tool to configure server settings, dialogs etc.
 
     public partial class ProfileBackupTool : Form
     {
@@ -101,14 +105,57 @@ namespace ProfileBackupTool
 
                     if (Properties.Settings.Default.UseCustomDestination == true)
                     {
-                        DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
+                        if (Properties.Settings.Default.CopyAll == true)
+                        {
+                            DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
+                        }
+                        else
+                        {
+                            try
+                            {
+                                string[] users = Directory.GetDirectories(target + Properties.Settings.Default.SourceDirectory);
 
+                                foreach (string user in users)
+                                {
+                                    foreach (string folder in Properties.Settings.Default.Folders)
+                                    {
+                                        var userName = new DirectoryInfo(user).Name;
+                                        DirectoryTools.PerformTransfer(user + "\\" + folder, Properties.Settings.Default.DefaultServer + "\\" + Properties.Settings.Default.DestinationDirectory + "\\" + userName + "\\" + folder);
+                                    }
+                                }
+
+                            }
+                            catch { }
+
+                        }
                     }
                     else
                     {
-                        DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + target.Remove(0, 2));
+                        if (Properties.Settings.Default.CopyAll == true)
+                        {
+                            DirectoryTools.PerformTransfer(target + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + target.Remove(0, 2));
+                        }
+                        else
+                        {
+                            try
+                            {
+
+                                foreach (var user in Directory.GetDirectories(target + Properties.Settings.Default.SourceDirectory))
+                                {
+                                    foreach (string folder in Properties.Settings.Default.Folders)
+                                    {
+                                        var userName = new DirectoryInfo(user).Name;
+                                        DirectoryTools.PerformTransfer(user + "\\" + folder, Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + "\\" + userName + "\\" + folder);
+                                    }
+                                }
+
+                            }
+                            catch { }
+
+                        }
                     }
                 }
+
                 StatusBar.Text = "Complete.";
 
                 // Show progress after each task is performed, move on to the next item in the panel.

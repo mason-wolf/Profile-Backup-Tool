@@ -6,7 +6,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="SourceDirectory" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">\C$\Users</Value>
     </Setting>
     <Setting Name="DestinationDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -31,6 +31,17 @@
     </Setting>
     <Setting Name="RestoreMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Folders" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;Desktop&lt;/string&gt;
+  &lt;string&gt;Documents&lt;/string&gt;
+  &lt;string&gt;Downloads&lt;/string&gt;
+  &lt;string&gt;Favorites&lt;/string&gt;
+  &lt;string&gt;Pictures&lt;/string&gt;
+  &lt;string&gt;Music&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

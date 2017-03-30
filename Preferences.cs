@@ -26,6 +26,7 @@ namespace ProfileBackupTool
                 CalculateProfileSizesOption.Checked = false;
             }
 
+
             BackupDirectoryField.Text = Properties.Settings.Default.SourceDirectory;
             DestinationDirectoryField.Text = Properties.Settings.Default.DestinationDirectory;
 
@@ -44,10 +45,13 @@ namespace ProfileBackupTool
 
             if (Properties.Settings.Default.CopyAll == true)
             {
+                // TODO: Create option to copy all rather than copying default directories
+                /*
                 ExclusionField.Enabled = false;
                 ExclusionsList.Enabled = false;
                 AddExclusionButton.Enabled = false;
                 RemoveExclusionButton.Enabled = false;
+                */
             }
 
             if (Properties.Settings.Default.ForceUserLogoff == true)
@@ -55,22 +59,7 @@ namespace ProfileBackupTool
                 ForceUserLogoffOption.Checked = true;
             }
 
-            List<string> lines = new List<string>();
-
-                using (StreamReader r = new StreamReader("config\\exclusions.txt"))
-                {
-                    string line;
-                    while ((line = r.ReadLine()) != null)
-                    {
-                        lines.Add(line);
-                    }
-                }
-
-                foreach (string line in lines)
-                {
-                    ExclusionsList.Items.Add(line);
-                }
-            }
+        }
 
 
         private void ApplyDirectoriesButton_Click(object sender, EventArgs e)
@@ -92,7 +81,7 @@ namespace ProfileBackupTool
 
         private void CalculateProfileSizesOption_CheckedChanged(object sender, EventArgs e)
         {
-            if(CalculateProfileSizesOption.Checked)
+            if (CalculateProfileSizesOption.Checked)
             {
                 Properties.Settings.Default.CalculateProfileSizes = true;
                 Properties.Settings.Default.Save();
@@ -124,46 +113,7 @@ namespace ProfileBackupTool
                 Properties.Settings.Default.Save();
             }
         }
-
-        private void AddExclusionButton_Click(object sender, EventArgs e)
-        {
-            string Exclusion = ExclusionField.Text;
-            ExclusionsList.Items.Add(Exclusion);
-            File.AppendAllText("config\\exclusions.txt", Exclusion + Environment.NewLine);
-        }
-
-        private void RemoveExclusionButton_Click(object sender, EventArgs e)
-        {
-            string item = ExclusionsList.SelectedItem.ToString();
-            string tempFile = Path.GetTempFileName();
-            string filePath = "config\\exclusions.txt";
-            try
-            {
-                using (var sr = new StreamReader(filePath))
-                {
-                    using (var sw = new StreamWriter(tempFile))
-                    {
-                        string line;
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            if (line != item)
-                            {
-                                sw.WriteLine(line);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception we)
-            {
-                MessageBox.Show(we.ToString());
-            }
-
-            File.Delete(filePath);
-            File.Move(tempFile, filePath);
-            ExclusionsList.Items.Remove(ExclusionsList.SelectedItem);
-        }
-
+        /*
         private void CopyAllOption_CheckedChanged(object sender, EventArgs e)
         {
             if(CopyAllOption.Checked)
@@ -187,6 +137,7 @@ namespace ProfileBackupTool
                 ExclusionsLabel.Enabled = true;
             }
         }
+        */
 
         private void ShowErrorsOption_CheckedChanged(object sender, EventArgs e)
         {
@@ -212,6 +163,109 @@ namespace ProfileBackupTool
             else
             {
                 Properties.Settings.Default.ForceUserLogoff = false;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void DesktopOption_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DesktopOption.Checked)
+            {
+                Properties.Settings.Default.Folders.Add("Desktop");
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.Folders.Remove("Desktop");
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void DocumentsOption_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DocumentsOption.Checked)
+            {
+                Properties.Settings.Default.Folders.Add("Documents");
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.Folders.Remove("Documents");
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void DownloadsOption_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DownloadsOption.Checked)
+            {
+                Properties.Settings.Default.Folders.Add("Downloads");
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.Folders.Remove("Downloads");
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void FavoritesOption_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FavoritesOption.Checked)
+            {
+                Properties.Settings.Default.Folders.Add("Favorites");
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.Folders.Remove("Favorites");
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void PicturesOption_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PicturesOption.Checked)
+            {
+                Properties.Settings.Default.Folders.Add("Pictures");
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.Folders.Remove("Pictures");
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Properties.Settings.Default.CopyAll.ToString());
+        }
+
+        private void MusicOption_CheckedChanged(object sender, EventArgs e)
+        {
+            if (MusicOption.Checked)
+            {
+                Properties.Settings.Default.Folders.Add("Music");
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.Folders.Remove("Music");
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void CopyAllOption_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CopyAllOption.Checked)
+            {
+                Properties.Settings.Default.CopyAll = true;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.CopyAll = false;
                 Properties.Settings.Default.Save();
             }
         }
