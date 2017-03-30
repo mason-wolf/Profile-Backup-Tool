@@ -16,7 +16,6 @@ using System.Windows.Forms;
 namespace ProfileBackupTool
 {
 
-    // TODO: Include administrator short-cut within the Restoration tool to configure server settings, dialogs etc.
 
     public partial class ProfileBackupTool : Form
     {
@@ -150,6 +149,10 @@ namespace ProfileBackupTool
 
         private void Transfer(string Source, string Destination, DirectoryTools DirectoryTool)
         {
+            // Set creation date threshold to true to copy older directories to root of drive. 
+
+            DirectoryTool.PerformTransfer(Source + Properties.Settings.Default.SourceDirectory, Source + @"\C$\Old Profiles", true);
+
             if (Properties.Settings.Default.CopyAll == true)
             {   
                 if (Properties.Settings.Default.UseCustomDestination)
