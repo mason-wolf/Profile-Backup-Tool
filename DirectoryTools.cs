@@ -109,11 +109,14 @@ namespace ProfileBackupTool
                             {
                                 if (result != null)
                                 {
-                                    FileTransfers.AppendText(result + "\n");
-                                    FileTransfers.SelectionStart = FileTransfers.Text.Length;
-                                    FileTransfers.ScrollToCaret();
-                                    processedFiles++;
-                                    ProcessedFiles.Text = processedFiles.ToString();
+                                    if (!result.Contains("copied"))
+                                    {
+                                        FileTransfers.AppendText(result + "\n");
+                                        FileTransfers.SelectionStart = FileTransfers.Text.Length;
+                                        FileTransfers.ScrollToCaret();
+                                        processedFiles++;
+                                        ProcessedFiles.Text = processedFiles.ToString();
+                                    }
                                 }
                                 else
                                 {

@@ -55,22 +55,29 @@ namespace ProfileBackupTool
         {
             if(ValidateAccessCheckBox.Checked)
             {
-                ValidateAccesibility();
+                AddConnection(true);
             }
-
-            // TODO: add server without verifying
+            else
+            {
+                AddConnection(false);
+            }
         }
 
-        public void ValidateAccesibility()
+        /// <summary>
+        /// Adds connection to the server bank.
+        /// </summary>
+        /// <param name="ValidateConnection"></param>
+        public void AddConnection(bool ValidateConnection)
         {
 
             string ServerAddress = ServerAddressField.Text;
 
             try
             {
+                if (ValidateConnection) { 
                 File.Open(ServerAddress + "dummy.txt", FileMode.Create).Close();
                 File.Delete(ServerAddress + "dummy.txt");
-
+            }
                 if (ServerAddress != "")
                 {
 

@@ -77,11 +77,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(737, 24);
@@ -234,6 +229,7 @@
             // 
             // FileTransferContainer
             // 
+            this.FileTransferContainer.DetectUrls = false;
             this.FileTransferContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FileTransferContainer.Location = new System.Drawing.Point(12, 55);
             this.FileTransferContainer.Name = "FileTransferContainer";

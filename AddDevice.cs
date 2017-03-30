@@ -32,8 +32,6 @@ namespace ProfileBackupTool
             ConnectionStatus.Show();
             try
             {
-                /// TODO: Change test directory name
-
                 File.Open(ComputerName + "\\c$\\users\\public\\dummy.txt", FileMode.Create).Close();
                 main.DeviceList.Items.Add(ComputerName);
                 main.StartTransferButton.Enabled = true;

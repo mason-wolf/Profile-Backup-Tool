@@ -45,13 +45,11 @@ namespace ProfileBackupTool
 
             if (Properties.Settings.Default.CopyAll == true)
             {
-                // TODO: Create option to copy all rather than copying default directories
-                /*
-                ExclusionField.Enabled = false;
-                ExclusionsList.Enabled = false;
-                AddExclusionButton.Enabled = false;
-                RemoveExclusionButton.Enabled = false;
-                */
+                FolderContainer.Enabled = true;
+            }
+            else
+            {
+                FolderContainer.Enabled = false;
             }
 
             if (Properties.Settings.Default.ForceUserLogoff == true)
@@ -261,11 +259,13 @@ namespace ProfileBackupTool
             if (CopyAllOption.Checked)
             {
                 Properties.Settings.Default.CopyAll = true;
+                FolderContainer.Enabled = false;
                 Properties.Settings.Default.Save();
             }
             else
             {
                 Properties.Settings.Default.CopyAll = false;
+                FolderContainer.Enabled = true;
                 Properties.Settings.Default.Save();
             }
         }
