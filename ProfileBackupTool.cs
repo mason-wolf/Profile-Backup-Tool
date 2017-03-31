@@ -182,7 +182,6 @@ namespace ProfileBackupTool
                         
                         if (created < CreationDateThreshold)
                         {
-                            MessageBox.Show("User: " + user + "\nLast Modified Date: " + lastModifiedDate);
                             ExemptionList.Add(user);
                         }
                       
