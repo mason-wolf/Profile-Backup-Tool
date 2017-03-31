@@ -177,15 +177,7 @@ namespace ProfileBackupTool
                         
                         if (created < CreationDateThreshold)
                         {
-                            try
-                            {
-                                DirectoryInfo Directory = new DirectoryInfo(user);
-                                Directory.MoveTo(@"C:\Old Profiles");
-                            }
-                            catch
-                            {
-
-                            }
+                            MessageBox.Show(user);
                         }
                       
                         foreach (string folder in Properties.Settings.Default.Folders)
