@@ -30,12 +30,17 @@ namespace ProfileBackupTool
             BackupDirectoryField.Text = Properties.Settings.Default.SourceDirectory;
             DestinationDirectoryField.Text = Properties.Settings.Default.DestinationDirectory;
 
-            string TransferDateThreshold = Properties.Settings.Default.TransferDateThreshold.Remove(0, 3);
-            string[] MonthDayYear = TransferDateThreshold.Split(new[] { "-" }, StringSplitOptions.None);
+            string TransferDateThreshold = Properties.Settings.Default.TransferDateThreshold.ToString();
+            DateTime Date = (Convert.ToDateTime(TransferDateThreshold));
 
-            mm.Text = MonthDayYear[0];
-            dd.Text = MonthDayYear[1];
-            year.Text = MonthDayYear[2];
+            string day = Date.Day.ToString();
+            string month = Date.Month.ToString();
+            string year = Date.Year.ToString();
+
+
+            mm.Text = month;
+            dd.Text = day;
+            yyyy.Text = year;
 
             if (Properties.Settings.Default.UseCustomDestination == true)
             {
@@ -71,8 +76,11 @@ namespace ProfileBackupTool
 
         private void ApplyTransferSettingsButton_Click(object sender, EventArgs e)
         {
+            int day = Convert.ToInt32(dd.Text);
+            int month = Convert.ToInt32(mm.Text);
+            int year = Convert.ToInt32(yyyy.Text);
 
-            Properties.Settings.Default.TransferDateThreshold = "/d:" + mm.Text + "-" + dd.Text + "-" + year.Text;
+            Properties.Settings.Default.TransferDateThreshold = new DateTime(year, month, day);
             Properties.Settings.Default.Save();
 
             this.Close();

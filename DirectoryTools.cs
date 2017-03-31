@@ -83,7 +83,7 @@ namespace ProfileBackupTool
         /// <param name="SolutionDirectory">Source</param>
         /// <param name="TargetDirectory">Destination</param>
         /// <param name="Exemptions">Include Transfer Date Threshold</param>
-        public void PerformTransfer(string SolutionDirectory, string TargetDirectory, bool CreationDate_ThresholdEnabled)
+        public void PerformTransfer(string SolutionDirectory, string TargetDirectory)
         {
             StreamReader reader;
             int processedFiles = 0;
@@ -96,16 +96,10 @@ namespace ProfileBackupTool
                 p.StartInfo.RedirectStandardOutput = true;
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardInput = true;
-                string ExemptionDate = Properties.Settings.Default.TransferDateThreshold;
 
-                if (CreationDate_ThresholdEnabled)
-                {
-                    p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c " + ExemptionDate;
-                }
-                else
-                {
-                    p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c ";
-                }
+
+                p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c ";
+
 
                 p.Start();
 

@@ -50,7 +50,7 @@
             this.ForceUserLogoffOption = new System.Windows.Forms.CheckBox();
             this.ShowErrorsOption = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.year = new System.Windows.Forms.TextBox();
+            this.yyyy = new System.Windows.Forms.TextBox();
             this.dd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.mm = new System.Windows.Forms.TextBox();
@@ -266,7 +266,7 @@
             this.tabPage2.Controls.Add(this.ForceUserLogoffOption);
             this.tabPage2.Controls.Add(this.ShowErrorsOption);
             this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.year);
+            this.tabPage2.Controls.Add(this.yyyy);
             this.tabPage2.Controls.Add(this.dd);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.mm);
@@ -311,13 +311,13 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "mm-dd-yyyy";
             // 
-            // year
+            // yyyy
             // 
-            this.year.Location = new System.Drawing.Point(214, 177);
-            this.year.MaxLength = 4;
-            this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(38, 20);
-            this.year.TabIndex = 6;
+            this.yyyy.Location = new System.Drawing.Point(214, 177);
+            this.yyyy.MaxLength = 4;
+            this.yyyy.Name = "yyyy";
+            this.yyyy.Size = new System.Drawing.Size(38, 20);
+            this.yyyy.TabIndex = 6;
             // 
             // dd
             // 
@@ -407,7 +407,7 @@
         private System.Windows.Forms.CheckBox CustomDirectoryOption;
         private System.Windows.Forms.CheckBox CopyAllOption;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox year;
+        private System.Windows.Forms.TextBox yyyy;
         private System.Windows.Forms.TextBox dd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox mm;

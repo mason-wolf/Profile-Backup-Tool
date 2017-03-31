@@ -443,6 +443,7 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 470);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(737, 22);
+            this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -650,7 +651,6 @@
             this.RemoveDeviceButton.TabStop = false;
             this.RemoveDeviceButton.Tag = "";
             this.RemoveDeviceButton.UseVisualStyleBackColor = true;
-            this.RemoveDeviceButton.Click += new System.EventHandler(this.RemoveDeviceButton_Click);
             // 
             // ProfileBackupTool
             // 

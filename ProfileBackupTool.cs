@@ -100,7 +100,7 @@ namespace ProfileBackupTool
                 {
                     StatusBar.Text = "Restoring...";
 
-                    DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + target.Remove(0, 2), target + Properties.Settings.Default.SourceDirectory, false);
+                    DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + target.Remove(0, 2), target + Properties.Settings.Default.SourceDirectory);
                 }
                 else
                 {
@@ -149,19 +149,16 @@ namespace ProfileBackupTool
 
         private void Transfer(string Source, string Destination, DirectoryTools DirectoryTool)
         {
-            // Set creation date threshold to true to copy older directories to root of drive. 
-
-            DirectoryTool.PerformTransfer(Source + Properties.Settings.Default.SourceDirectory, Source + @"\C$\Old Profiles", true);
 
             if (Properties.Settings.Default.CopyAll == true)
             {   
                 if (Properties.Settings.Default.UseCustomDestination)
                 {
-                    DirectoryTool.PerformTransfer(Source + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory, false);
+                    DirectoryTool.PerformTransfer(Source + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Properties.Settings.Default.DestinationDirectory);
                 }
                 else
                 {
-                    DirectoryTool.PerformTransfer(Source + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Source.Remove(0, 2), false);
+                    DirectoryTool.PerformTransfer(Source + Properties.Settings.Default.SourceDirectory, Properties.Settings.Default.DefaultServer + Source.Remove(0, 2));
                 }
 
             }
@@ -173,10 +170,28 @@ namespace ProfileBackupTool
 
                     foreach (string user in users)
                     {
+                        DateTime CreationDateThreshold = Properties.Settings.Default.TransferDateThreshold;
+
+                        var lastModifiedDate = new DirectoryInfo(user);
+                        DateTime created = lastModifiedDate.LastWriteTime;
+                        
+                        if (created < CreationDateThreshold)
+                        {
+                            try
+                            {
+                                DirectoryInfo Directory = new DirectoryInfo(user);
+                                Directory.MoveTo(@"C:\Old Profiles");
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                      
                         foreach (string folder in Properties.Settings.Default.Folders)
                         {
                             var userName = new DirectoryInfo(user).Name;
-                            DirectoryTool.PerformTransfer(user + "\\" + folder, Properties.Settings.Default.DefaultServer + "\\" + Destination + "\\" + userName + "\\" + folder, false);
+                            DirectoryTool.PerformTransfer(user + "\\" + folder, Properties.Settings.Default.DefaultServer + "\\" + Destination + "\\" + userName + "\\" + folder);
                         }
                     }
 
@@ -412,16 +427,7 @@ namespace ProfileBackupTool
             AddDevice.Show();
         }
 
-        private void addBatchToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddDevices AddDevices = new AddDevices( DeviceList);
-            AddDevices.Show();
-        }
 
-        private void RemoveDeviceButton_Click(object sender, EventArgs e)
-        {
-            DeviceList.Items.Remove(DeviceList.SelectedItem);
-        }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
@@ -432,6 +438,12 @@ namespace ProfileBackupTool
         {
             RemoteSessionTerminator rst = new RemoteSessionTerminator();
             rst.Show();
+        }
+
+        private void addBatchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddDevices AddDevices = new AddDevices(DeviceList);
+            AddDevices.Show();
         }
     }
 }
