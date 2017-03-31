@@ -119,6 +119,8 @@ namespace ProfileBackupTool
 
                     StatusBar.Text = "Complete.";
 
+                    saveReportToolStripMenuItem.Enabled = true;
+
                     // Show progress after each task is performed, move on to the next item in the panel.
 
                     this.Invoke((MethodInvoker)delegate
@@ -186,7 +188,7 @@ namespace ProfileBackupTool
                         {
                             foreach (string Exemption in ExemptionList)
                             {
-                                if (user != Exemption)
+                                if (!Exemption.Contains(user))
                                 {
                                     var userName = new DirectoryInfo(user).Name;
                                     DirectoryTool.PerformTransfer(user + "\\" + folder, Properties.Settings.Default.DefaultServer + "\\" + Destination + "\\" + userName + "\\" + folder);
@@ -445,6 +447,11 @@ namespace ProfileBackupTool
         {
             AddDevices AddDevices = new AddDevices(DeviceList);
             AddDevices.Show();
+        }
+
+        private void saveReportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

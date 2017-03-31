@@ -133,9 +133,9 @@
   <data name="AddMachineButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAHdJREFUOE/NkLEOgCAMRP0oB+d+nj+rLl0xJS00cI1CHLzkhaRw19LFxMzJo+X3
-        EtO2r5mhAN/VBxj6LJY3tvigiMcAIgopAYY3Gsh4Hlc+5V4/0i+xNSG6gBnUXiVF1A0xHQB3YPpkghHU
-        ViVF1A0xHfCnHXC6AWwlCfX8fz70AAAAAElFTkSuQmCC
+        wwAADsMBx2+oZAAAAGhJREFUOE9jwAe+ffv2nxCGKsUOQAqcnJxwYqIN+PD+IwYmyQBceJC4AEQQi3Ea
+        gC6BDRM0AJs/YRimGFkzTGxgDEAWo54LCGGQOmwYbAAyxqcJmjwwAbpGdIxXMwgg24ILQ5WiAQYGALz+
+        QJQWwU0YAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ConnectionButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -169,9 +169,9 @@
   <data name="AddBatchButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAGxJREFUOE+tkD0OwCAIRnuoDp05npdtu7BqaIrhx0ZpMHkDIO8zbnwQsUre9vqh
-        paPsDyGBTJWCVVSyhWYA8EmegJGLzGiRobn6B5t8nXdnVDuBJCygRhQnsAmzOl8QJf8F9sKsdoIoSvAP
-        rA0q8oZ17c9xRwAAAABJRU5ErkJggg==
+        wwAADsMBx2+oZAAAAHdJREFUOE/NkLEOgCAMRP0oB+d+nj+rLl0xJS00cI1CHLzkhaRw19LFxMzJo+X3
+        EtO2r5mhAN/VBxj6LJY3tvigiMcAIgopAYY3Gsh4Hlc+5V4/0i+xNSG6gBnUXiVF1A0xHQB3YPpkghHU
+        ViVF1A0xHfCnHXC6AWwlCfX8fz70AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="RemoveDeviceButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

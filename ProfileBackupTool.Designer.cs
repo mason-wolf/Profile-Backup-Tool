@@ -136,6 +136,7 @@
             this.saveReportToolStripMenuItem1.Name = "saveReportToolStripMenuItem1";
             this.saveReportToolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
             this.saveReportToolStripMenuItem1.Text = "Save Report";
+            this.saveReportToolStripMenuItem1.Click += new System.EventHandler(this.saveReportToolStripMenuItem1_Click);
             // 
             // toolStripSeparator4
             // 
