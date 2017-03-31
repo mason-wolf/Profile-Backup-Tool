@@ -177,10 +177,12 @@ namespace ProfileBackupTool
                         DateTime CreationDateThreshold = Properties.Settings.Default.TransferDateThreshold;
 
                         var lastModifiedDate = new DirectoryInfo(user);
+
                         DateTime created = lastModifiedDate.LastWriteTime;
                         
                         if (created < CreationDateThreshold)
                         {
+                            MessageBox.Show("User: " + user + "\nLast Modified Date: " + lastModifiedDate);
                             ExemptionList.Add(user);
                         }
                       
