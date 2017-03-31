@@ -168,6 +168,8 @@ namespace ProfileBackupTool
                 {
                     string[] users = Directory.GetDirectories(Source + Properties.Settings.Default.SourceDirectory);
 
+                    List<string> ExemptionList = new List<string>();
+
                     foreach (string user in users)
                     {
                         DateTime CreationDateThreshold = Properties.Settings.Default.TransferDateThreshold;
@@ -177,13 +179,20 @@ namespace ProfileBackupTool
                         
                         if (created < CreationDateThreshold)
                         {
-                            MessageBox.Show(user);
+                            ExemptionList.Add(user);
                         }
                       
                         foreach (string folder in Properties.Settings.Default.Folders)
                         {
-                            var userName = new DirectoryInfo(user).Name;
-                            DirectoryTool.PerformTransfer(user + "\\" + folder, Properties.Settings.Default.DefaultServer + "\\" + Destination + "\\" + userName + "\\" + folder);
+                            foreach (string Exemption in ExemptionList)
+                            {
+                                if (user != Exemption)
+                                {
+                                    var userName = new DirectoryInfo(user).Name;
+                                    DirectoryTool.PerformTransfer(user + "\\" + folder, Properties.Settings.Default.DefaultServer + "\\" + Destination + "\\" + userName + "\\" + folder);
+                                }
+                            }
+  
                         }
                     }
 
