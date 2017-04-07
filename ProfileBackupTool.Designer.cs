@@ -652,6 +652,7 @@
             this.RemoveDeviceButton.TabStop = false;
             this.RemoveDeviceButton.Tag = "";
             this.RemoveDeviceButton.UseVisualStyleBackColor = true;
+            this.RemoveDeviceButton.Click += new System.EventHandler(this.RemoveDeviceButton_Click);
             // 
             // ProfileBackupTool
             // 

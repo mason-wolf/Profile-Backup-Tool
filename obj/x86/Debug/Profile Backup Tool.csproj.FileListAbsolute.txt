@@ -1,0 +1,14 @@
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\bin\Debug\WindowsApplication.exe.config
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\bin\Debug\WindowsApplication.exe
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\bin\Debug\WindowsApplication.pdb
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\Profile Backup Tool.csprojResolveAssemblyReference.cache
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\ProfileBackupTool.AddDevice.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\ProfileBackupTool.AddDevices.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\ProfileBackupTool.Connections.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\ProfileBackupTool.Preferences.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\ProfileBackupTool.ProfileBackupTool.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\Profile_Backup_Tool.Properties.Resources.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\ProfileBackupTool.RemoteSessionTerminator.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\Profile Backup Tool.csproj.GenerateResource.Cache
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\WindowsApplication.exe
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x86\Debug\WindowsApplication.pdb

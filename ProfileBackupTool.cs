@@ -416,7 +416,7 @@ namespace ProfileBackupTool
 
         private void addDeviceToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            AddDevice AddDevice = new AddDevice();
+            AddDevice AddDevice = new AddDevice(this);
             AddDevice.Show();
         }
 
@@ -442,6 +442,11 @@ namespace ProfileBackupTool
         private void saveReportToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void RemoveDeviceButton_Click(object sender, EventArgs e)
+        {
+            DeviceList.Items.Remove(DeviceList.SelectedItem);
         }
     }
 }
