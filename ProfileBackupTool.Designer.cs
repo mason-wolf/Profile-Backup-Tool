@@ -132,7 +132,6 @@
             // 
             // saveReportToolStripMenuItem1
             // 
-            this.saveReportToolStripMenuItem1.Enabled = false;
             this.saveReportToolStripMenuItem1.Name = "saveReportToolStripMenuItem1";
             this.saveReportToolStripMenuItem1.Size = new System.Drawing.Size(168, 22);
             this.saveReportToolStripMenuItem1.Text = "Save Report";
@@ -250,10 +249,10 @@
             // 
             // backupHistoryToolStripMenuItem2
             // 
-            this.backupHistoryToolStripMenuItem2.Enabled = false;
             this.backupHistoryToolStripMenuItem2.Name = "backupHistoryToolStripMenuItem2";
             this.backupHistoryToolStripMenuItem2.Size = new System.Drawing.Size(175, 22);
             this.backupHistoryToolStripMenuItem2.Text = "Backup History";
+            this.backupHistoryToolStripMenuItem2.Click += new System.EventHandler(this.backupHistoryToolStripMenuItem2_Click);
             // 
             // restorationHistoryToolStripMenuItem1
             // 
@@ -539,9 +538,9 @@
             this.ProcessedFilesContainer.AutoSize = true;
             this.ProcessedFilesContainer.Location = new System.Drawing.Point(507, 371);
             this.ProcessedFilesContainer.Name = "ProcessedFilesContainer";
-            this.ProcessedFilesContainer.Size = new System.Drawing.Size(77, 13);
+            this.ProcessedFilesContainer.Size = new System.Drawing.Size(13, 13);
             this.ProcessedFilesContainer.TabIndex = 14;
-            this.ProcessedFilesContainer.Text = "processedFiles";
+            this.ProcessedFilesContainer.Text = "0";
             this.ProcessedFilesContainer.Visible = false;
             // 
             // ElapsedTimeLabel

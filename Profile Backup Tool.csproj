@@ -77,6 +77,12 @@
     <Compile Include="AddDevices.Designer.cs">
       <DependentUpon>AddDevices.cs</DependentUpon>
     </Compile>
+    <Compile Include="BackupHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackupHistory.Designer.cs">
+      <DependentUpon>BackupHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connections.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,7 @@
     <Compile Include="RemoteSessionTerminator.Designer.cs">
       <DependentUpon>RemoteSessionTerminator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddDevice.resx">
@@ -118,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddDevices.resx">
       <DependentUpon>AddDevices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackupHistory.resx">
+      <DependentUpon>BackupHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connections.resx">
       <DependentUpon>Connections.cs</DependentUpon>

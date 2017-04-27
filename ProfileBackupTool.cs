@@ -1,3 +1,4 @@
+using Profile_Backup_Tool;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,14 +71,6 @@ namespace ProfileBackupTool
                 }
 
 
-                // If CalculateProfileSizes setting is enabled, determine transfer size before initiating backup.
-
-                if (Properties.Settings.Default.CalculateProfileSizes)
-                {
-                    StatusBar.Text = "Calculating size of profile(s)...";
-                    DirectoryTools.CalculateProfileSizes(target + Properties.Settings.Default.SourceDirectory, DirectoryTools.ProcessDirectorySizes);
-                }
-
                 // Select the first item in the target panel, increments after each thread is finished to indicate
                 // which target is being worked on.
 
@@ -117,9 +110,64 @@ namespace ProfileBackupTool
                         Transfer(target, target.Remove(0, 2), DirectoryTools);
                     }
 
-                    StatusBar.Text = "Complete.";
+                    if (StatusBar.Text == "")
+                    {
+                        StatusBar.Text = "Transfer failed. Verify target is online and that you have sufficient privileges.";
+                        File.AppendAllText("logs\\" + Environment.UserName + ".txt", target + ": FAILED" + Environment.NewLine);
+                    }
+                    else
+                    {
+                        // If CalculateProfileSizes setting is enabled, determine transfer size after initiating backup.
 
-                    saveReportToolStripMenuItem.Enabled = true;
+                        if (Properties.Settings.Default.CalculateProfileSizes)
+                        {
+                            StatusBar.Text = "Calculating size of profile(s)...";
+                            DirectoryTools.CalculateProfileSizes(Properties.Settings.Default.DefaultServer + target, DirectoryTools.ProcessDirectorySizes);
+                        }
+
+                        int ProfilesTransfered = 0;
+
+                        try
+                        {
+                            string[] users = Directory.GetDirectories(Properties.Settings.Default.DefaultServer + target);
+
+                            foreach (string user in users)
+                            {
+                                DateTime CreationDateThreshold = Properties.Settings.Default.TransferDateThreshold;
+
+                                var lastModifiedDate = new DirectoryInfo(user);
+
+                                DateTime created = lastModifiedDate.LastWriteTime;
+
+                                if (created > CreationDateThreshold)
+                                {
+                                    foreach (string folder in Properties.Settings.Default.Folders)
+                                    {
+                                        ProfilesTransfered++;
+                                    }
+                                }
+                            }
+                        }
+                        catch { }
+
+                        StatusBar.Text = "Complete.";
+
+                        string LogFile = "logs\\" + Environment.UserName + ".txt";
+
+                        using (StreamWriter w = File.AppendText(LogFile))
+                        {
+                            w.Write(DateTime.Now);
+                            w.Write(Environment.NewLine);
+                            w.Write(target.Remove(0, 2) + Environment.NewLine);
+                            w.Write("Total Profiles Detected: " + ProfileCountContainer.Text + Environment.NewLine);
+                            w.Write("Size of Profiles Transfered: " + TotalSizeContainer.Text + Environment.NewLine);
+                            w.Write("Profiles Transfered: " + ProfilesTransfered + Environment.NewLine);
+                            w.Write("Processed Files: " + ProcessedFilesContainer.Text + Environment.NewLine);
+                            w.Write("Elapsed Time: " + ElapsedTimeContainer.Text + Environment.NewLine);
+                            w.Write("Backup Location: \\" + "\\" + Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + Environment.NewLine);
+                            w.Write(Environment.NewLine);
+                        }
+                    }
 
                     // Show progress after each task is performed, move on to the next item in the panel.
 
@@ -177,7 +225,7 @@ namespace ProfileBackupTool
                         var lastModifiedDate = new DirectoryInfo(user);
 
                         DateTime created = lastModifiedDate.LastWriteTime;
-                        
+
                         if (created > CreationDateThreshold)
                         {
                             foreach (string folder in Properties.Settings.Default.Folders)
@@ -441,12 +489,25 @@ namespace ProfileBackupTool
 
         private void saveReportToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            SaveFileDialog saveSession = new SaveFileDialog();
+            saveSession.DefaultExt = "*.txt";
+            saveSession.Filter = "txt|*.txt";
+            saveSession.FileName = Environment.UserName + "-Profile Backup Session";
+            if (saveSession.ShowDialog() == DialogResult.OK)
+            {
+                FileTransferContainer.SaveFile(saveSession.FileName, RichTextBoxStreamType.UnicodePlainText);
+            }
         }
 
         private void RemoveDeviceButton_Click(object sender, EventArgs e)
         {
             DeviceList.Items.Remove(DeviceList.SelectedItem);
+        }
+
+        private void backupHistoryToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            BackupHistory BackupHistory = new BackupHistory();
+            BackupHistory.Show();
         }
     }
 }

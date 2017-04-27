@@ -11,3 +11,5 @@ C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\bin\x64\De
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\bin\x64\Debug\AFNET Profile Backup Tool.pdb
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x64\Debug\AFNET Profile Backup Tool.exe
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x64\Debug\AFNET Profile Backup Tool.pdb
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x64\Debug\Profile Backup Tool.csprojResolveAssemblyReference.cache
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x64\Debug\Profile_Backup_Tool.BackupHistory.resources

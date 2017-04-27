@@ -102,14 +102,7 @@ namespace ProfileBackupTool
         private void SetAsDefaultCheckbox_CheckedChanged(object sender, EventArgs e)
         {
 
-            try
-            {
                     Properties.Settings.Default.DefaultServer = ConnectionsList.SelectedItem.ToString();
-            }
-            catch
-            {
-
-            }
         }
 
         private void RemoveConnectionButton_Click(object sender, EventArgs e)

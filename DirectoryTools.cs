@@ -83,10 +83,10 @@ namespace ProfileBackupTool
         /// <param name="SolutionDirectory">Source</param>
         /// <param name="TargetDirectory">Destination</param>
         /// <param name="Exemptions">Include Transfer Date Threshold</param>
+        /// 
         public void PerformTransfer(string SolutionDirectory, string TargetDirectory)
         {
             StreamReader reader;
-            int processedFiles = 0;
 
             using (Process p = new Process())
             {
@@ -96,12 +96,10 @@ namespace ProfileBackupTool
                 p.StartInfo.RedirectStandardOutput = true;
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardInput = true;
-
-
                 p.StartInfo.Arguments = "\"" + SolutionDirectory + "\"" + " " + "\"" + TargetDirectory + "\"" + @"/s /y /I /c ";
-
-
                 p.Start();
+
+                long processedFiles = Convert.ToInt64(ProcessedFiles.Text);
 
                 try
                 {
@@ -115,19 +113,14 @@ namespace ProfileBackupTool
                             {
                                 if (result != null)
                                 {
+                                    processedFiles++;
+                                    ProcessedFiles.Text = processedFiles.ToString();
+
                                     if (!result.Contains("copied"))
                                     {
                                         FileTransfers.AppendText(result + "\n");
                                         FileTransfers.SelectionStart = FileTransfers.Text.Length;
                                         FileTransfers.ScrollToCaret();
-                                        processedFiles++;
-
-                                        ProcessedFiles.Text = processedFiles.ToString();
-
-                                        if(processedFiles > 10000)
-                                        {
-                                            FileTransfers.Clear();
-                                        }
                                     }
                                 }
                                 else
