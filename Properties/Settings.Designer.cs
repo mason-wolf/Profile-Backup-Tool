@@ -162,5 +162,17 @@ namespace ProfileBackupTool.Properties {
                 this["Folders"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string test2 {
+            get {
+                return ((string)(this["test2"]));
+            }
+            set {
+                this["test2"] = value;
+            }
+        }
     }
 }

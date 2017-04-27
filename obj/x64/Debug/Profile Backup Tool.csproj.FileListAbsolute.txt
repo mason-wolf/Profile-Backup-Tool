@@ -13,3 +13,18 @@ C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x64\De
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x64\Debug\AFNET Profile Backup Tool.pdb
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x64\Debug\Profile Backup Tool.csprojResolveAssemblyReference.cache
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\Profile-Backup-Tool\obj\x64\Debug\Profile_Backup_Tool.BackupHistory.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\bin\x64\Debug\AFNET Profile Backup Tool.exe.config
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\AFNET Profile Backup Tool.exe
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\AFNET Profile Backup Tool.pdb
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\bin\x64\Debug\AFNET Profile Backup Tool.exe
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\bin\x64\Debug\AFNET Profile Backup Tool.pdb
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\Profile Backup Tool.csprojResolveAssemblyReference.cache
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.AddDevice.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.AddDevices.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\Profile_Backup_Tool.BackupHistory.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.Connections.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.Preferences.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.ProfileBackupTool.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.RemoteSessionTerminator.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\Profile Backup Tool.csproj.GenerateResource.Cache
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.Properties.Resources.resources

@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Profile_Backup_Tool.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ProfileBackupTool.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="DefaultServer" Type="System.String" Scope="User">
@@ -42,6 +42,9 @@
   &lt;string&gt;Pictures&lt;/string&gt;
   &lt;string&gt;Music&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="test2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
