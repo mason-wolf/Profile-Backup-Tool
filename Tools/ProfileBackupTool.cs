@@ -96,8 +96,7 @@ namespace ProfileBackupTool
 
                     foreach (string originalDevice in Properties.Settings.Default.OriginalDevices)
                     {
-                        Transfer(Properties.Settings.Default.DefaultServer + originalDevice, target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice, DirectoryTools);
-                  //          DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + originalDevice, target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice);
+                            DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + originalDevice, target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice);
                     }
 
                     StatusBar.Text = "Complete.";
