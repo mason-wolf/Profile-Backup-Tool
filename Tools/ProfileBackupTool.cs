@@ -93,18 +93,30 @@ namespace ProfileBackupTool
                 if (Properties.Settings.Default.RestoreMode == true)
                 {
                     StatusBar.Text = "Restoring...";
-                    // TODO: Properly restore profiles based on knowing old computer name and new computer name
+
                     foreach (string originalDevice in Properties.Settings.Default.OriginalDevices)
                     {
-                        try
-                        {
-                            DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + originalDevice, target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice);
-                        }
-                        catch (Exception e)
-                        {
-                            MessageBox.Show("Unable to reach new workstation.");
-                        }
+                        Transfer(Properties.Settings.Default.DefaultServer + originalDevice, target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice, DirectoryTools);
+                  //          DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + originalDevice, target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice);
                     }
+
+                    StatusBar.Text = "Complete.";
+
+                    string LogFile = "logs\\" + Environment.UserName + "-restoration.txt";
+
+                    using (StreamWriter w = File.AppendText(LogFile))
+                    {
+                        w.Write(DateTime.Now);
+                        w.Write(Environment.NewLine);
+                        w.Write(target.Remove(0, 2) + Environment.NewLine);
+                        w.Write("Total Profiles Detected: " + ProfileCountContainer.Text + Environment.NewLine);
+                        w.Write("Size of Profiles Transfered: " + TotalSizeContainer.Text + Environment.NewLine);
+                        w.Write("Processed Files: " + ProcessedFilesContainer.Text + Environment.NewLine);
+                        w.Write("Elapsed Time: " + ElapsedTimeContainer.Text + Environment.NewLine);
+                        w.Write("Backup Location: \\" + "\\" + Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + Environment.NewLine);
+                        w.Write(Environment.NewLine);
+                    }
+
                 }
                 else
                 {
