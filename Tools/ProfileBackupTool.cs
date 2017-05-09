@@ -396,14 +396,13 @@ namespace ProfileBackupTool
             RemoveDeviceButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             ConnectionButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             PreferencesButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
-            DisconnectSessionButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255);
             AddBatchButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255);
 
             if(Properties.Settings.Default.RestoreMode)
             {
                 restorationModeToolStripMenuItem1.Checked = true;
                 backupModeToolStripMenuItem1.Checked = false;
-                Text = "Profile Backup Tool - Restoration Mode";
+                Text = "Profile Backup Tool  v1.0.2 - Restoration Mode";
                 RestorationTargetsButton.Enabled = true;
                 AddBatchButton.Enabled = false;
                 AddMachineButton.Enabled = false;
@@ -413,7 +412,7 @@ namespace ProfileBackupTool
             {
                 restorationModeToolStripMenuItem1.Checked = false;
                 backupModeToolStripMenuItem1.Checked = true;
-                Text = "Profile Backup Tool - Backup Mode";
+                Text = "Profile Backup Tool  v1.0.2 - Backup Mode";
                 RestorationTargetsButton.Enabled = false;
                 AddBatchButton.Enabled = true;
                 AddMachineButton.Enabled = true;
@@ -431,9 +430,6 @@ namespace ProfileBackupTool
 
             ToolTip PreferencesToolTip = new ToolTip();
             PreferencesToolTip.SetToolTip(PreferencesButton, "Edit application preferences.");
-
-            ToolTip DisconnectSessionToolip = new ToolTip();
-            DisconnectSessionToolip.SetToolTip(DisconnectSessionButton, "Disconnect users from remote workstation.");
 
             ToolTip AddMachinesToolTip = new ToolTip();
             AddMachinesToolTip.SetToolTip(AddBatchButton, "Add batch of devices.");

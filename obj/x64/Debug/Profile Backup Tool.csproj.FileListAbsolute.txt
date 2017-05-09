@@ -18,7 +18,6 @@ C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x6
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\AFNET Profile Backup Tool.pdb
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\bin\x64\Debug\AFNET Profile Backup Tool.exe
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\bin\x64\Debug\AFNET Profile Backup Tool.pdb
-C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\Profile Backup Tool.csprojResolveAssemblyReference.cache
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.AddDevice.resources
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.AddDevices.resources
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\Profile_Backup_Tool.BackupHistory.resources
@@ -29,3 +28,8 @@ C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x6
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\Profile Backup Tool.csproj.GenerateResource.Cache
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.Properties.Resources.resources
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.DeviceManagement.RestorationQuery.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\Profile Backup Tool.csprojResolveAssemblyReference.cache
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\bin\x64\Debug\AFNET Profile Backup Tool.exe.manifest
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\bin\x64\Debug\AFNET Profile Backup Tool.application
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\AFNET Profile Backup Tool.exe.manifest
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\AFNET Profile Backup Tool.application

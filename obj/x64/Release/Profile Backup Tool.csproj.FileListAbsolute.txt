@@ -1,0 +1,13 @@
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\bin\x64\Release\AFNET Profile Backup Tool.exe.config
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\ProfileBackupTool.AddDevice.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\ProfileBackupTool.AddDevices.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\Profile_Backup_Tool.BackupHistory.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\ProfileBackupTool.Connections.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\ProfileBackupTool.Preferences.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\ProfileBackupTool.DeviceManagement.RestorationQuery.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\ProfileBackupTool.ProfileBackupTool.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\ProfileBackupTool.Properties.Resources.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\ProfileBackupTool.RemoteSessionTerminator.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\Profile Backup Tool.csproj.GenerateResource.Cache
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\AFNET Profile Backup Tool.exe
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Release\AFNET Profile Backup Tool.pdb
