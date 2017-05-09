@@ -92,10 +92,10 @@
     <Compile Include="DeviceManagement\AddDevices.Designer.cs">
       <DependentUpon>AddDevices.cs</DependentUpon>
     </Compile>
-    <Compile Include="BackupHistory.cs">
+    <Compile Include="Reports\BackupHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BackupHistory.Designer.cs">
+    <Compile Include="Reports\BackupHistory.Designer.cs">
       <DependentUpon>BackupHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="Configurations\Connections.cs">
@@ -103,6 +103,12 @@
     </Compile>
     <Compile Include="Configurations\Connections.Designer.cs">
       <DependentUpon>Connections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceManagement\RestorationQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceManagement\RestorationQuery.Designer.cs">
+      <DependentUpon>RestorationQuery.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\DirectoryTools.cs" />
     <Compile Include="Configurations\Preferences.cs">
@@ -140,7 +146,7 @@
     <EmbeddedResource Include="DeviceManagement\AddDevices.resx">
       <DependentUpon>AddDevices.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BackupHistory.resx">
+    <EmbeddedResource Include="Reports\BackupHistory.resx">
       <DependentUpon>BackupHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configurations\Connections.resx">
@@ -149,16 +155,23 @@
     <EmbeddedResource Include="Configurations\Preferences.resx">
       <DependentUpon>Preferences.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeviceManagement\RestorationQuery.resx">
+      <DependentUpon>RestorationQuery.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tools\ProfileBackupTool.resx">
       <DependentUpon>ProfileBackupTool.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeviceManagement\RemoteSessionTerminator.resx">
       <DependentUpon>RemoteSessionTerminator.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include=".vs\ProfileBackupTool\v14\.suo" />
+    <None Include="app.config" />
     <None Include="Configurations\App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

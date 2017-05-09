@@ -1,4 +1,5 @@
 using Profile_Backup_Tool;
+using ProfileBackupTool.DeviceManagement;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,8 +93,12 @@ namespace ProfileBackupTool
                 if (Properties.Settings.Default.RestoreMode == true)
                 {
                     StatusBar.Text = "Restoring...";
-
-                    DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + target.Remove(0, 2), target + Properties.Settings.Default.SourceDirectory);
+                    // TODO: Properly restore profiles based on knowing old computer name and new computer name
+                    foreach (string originalDevice in Properties.Settings.Default.OriginalDevices)
+                    {
+                        MessageBox.Show(Properties.Settings.Default.DefaultServer + @"\\" + originalDevice + " TO " + target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice);
+                   //     DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + @"\\" + originalDevice, target + Properties.Settings.Default.SourceDirectory + "\\" + originalDevice);
+                    }
                 }
                 else
                 {
@@ -361,11 +366,21 @@ namespace ProfileBackupTool
             {
                 restorationModeToolStripMenuItem1.Checked = true;
                 backupModeToolStripMenuItem1.Checked = false;
+                Text = "Profile Backup Tool - Restoration Mode";
+                RestorationTargetsButton.Enabled = true;
+                AddBatchButton.Enabled = false;
+                AddMachineButton.Enabled = false;
+
             }
             else
             {
                 restorationModeToolStripMenuItem1.Checked = false;
                 backupModeToolStripMenuItem1.Checked = true;
+                Text = "Profile Backup Tool - Backup Mode";
+                RestorationTargetsButton.Enabled = false;
+                AddBatchButton.Enabled = true;
+                AddMachineButton.Enabled = true;
+
             }
 
             ToolTip AddMachineToolTip = new ToolTip();
@@ -385,6 +400,7 @@ namespace ProfileBackupTool
 
             ToolTip AddMachinesToolTip = new ToolTip();
             AddMachinesToolTip.SetToolTip(AddBatchButton, "Add batch of devices.");
+
         }
 
         private void removeDeviceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -408,6 +424,7 @@ namespace ProfileBackupTool
         {
             AddDevices AddDevices = new AddDevices(DeviceList);
             AddDevices.Show();
+            StartTransferButton.Enabled = true;
         }
 
         private void backupModeToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -417,6 +434,9 @@ namespace ProfileBackupTool
             Properties.Settings.Default.RestoreMode = false;
             Properties.Settings.Default.Save();
             Text = "Profile Backup Tool - Backup Mode";
+            RestorationTargetsButton.Enabled = false;
+            AddBatchButton.Enabled = true;
+            AddMachineButton.Enabled = true;
         }
 
         private void restorationModeToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -426,6 +446,11 @@ namespace ProfileBackupTool
             Properties.Settings.Default.RestoreMode = true;
             Properties.Settings.Default.Save();
             Text = "Profile Backup Tool - Restoration Mode";
+            RestorationTargetsButton.Enabled = true;
+            AddBatchButton.Enabled = false;
+            AddMachineButton.Enabled = false;
+            RestorationQuery RestorationQuery = new RestorationQuery(DeviceList, StartTransferButton);
+            RestorationQuery.Show();
         }
 
         private void fIleToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -508,6 +533,12 @@ namespace ProfileBackupTool
         {
             BackupHistory BackupHistory = new BackupHistory();
             BackupHistory.Show();
+        }
+
+        private void RestorationTargetsButton_Click(object sender, EventArgs e)
+        {
+            RestorationQuery RestorationQuery = new RestorationQuery(DeviceList, StartTransferButton);
+            RestorationQuery.Show();
         }
     }
 }

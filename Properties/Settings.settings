@@ -43,7 +43,7 @@
   &lt;string&gt;Music&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
-    <Setting Name="test2" Type="System.String" Scope="User">
+    <Setting Name="OriginalDevices" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

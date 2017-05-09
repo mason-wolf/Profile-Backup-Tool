@@ -165,13 +165,12 @@ namespace ProfileBackupTool.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string test2 {
+        public global::System.Collections.Specialized.StringCollection OriginalDevices {
             get {
-                return ((string)(this["test2"]));
+                return ((global::System.Collections.Specialized.StringCollection)(this["OriginalDevices"]));
             }
             set {
-                this["test2"] = value;
+                this["OriginalDevices"] = value;
             }
         }
     }

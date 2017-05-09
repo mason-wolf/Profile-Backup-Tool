@@ -92,6 +92,7 @@
             this.DisconnectSessionButton = new System.Windows.Forms.Button();
             this.AddBatchButton = new System.Windows.Forms.Button();
             this.RemoveDeviceButton = new System.Windows.Forms.Button();
+            this.RestorationTargetsButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -569,7 +570,7 @@
             this.AddMachineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddMachineButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.AddMachineButton.Image = ((System.Drawing.Image)(resources.GetObject("AddMachineButton.Image")));
-            this.AddMachineButton.Location = new System.Drawing.Point(569, 27);
+            this.AddMachineButton.Location = new System.Drawing.Point(585, 27);
             this.AddMachineButton.Name = "AddMachineButton";
             this.AddMachineButton.Size = new System.Drawing.Size(27, 23);
             this.AddMachineButton.TabIndex = 17;
@@ -584,7 +585,7 @@
             this.ConnectionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConnectionButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ConnectionButton.Image = ((System.Drawing.Image)(resources.GetObject("ConnectionButton.Image")));
-            this.ConnectionButton.Location = new System.Drawing.Point(632, 27);
+            this.ConnectionButton.Location = new System.Drawing.Point(641, 27);
             this.ConnectionButton.Name = "ConnectionButton";
             this.ConnectionButton.Size = new System.Drawing.Size(27, 23);
             this.ConnectionButton.TabIndex = 19;
@@ -599,7 +600,7 @@
             this.PreferencesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PreferencesButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.PreferencesButton.Image = ((System.Drawing.Image)(resources.GetObject("PreferencesButton.Image")));
-            this.PreferencesButton.Location = new System.Drawing.Point(665, 27);
+            this.PreferencesButton.Location = new System.Drawing.Point(698, 27);
             this.PreferencesButton.Name = "PreferencesButton";
             this.PreferencesButton.Size = new System.Drawing.Size(27, 23);
             this.PreferencesButton.TabIndex = 20;
@@ -614,7 +615,7 @@
             this.DisconnectSessionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DisconnectSessionButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.DisconnectSessionButton.Image = ((System.Drawing.Image)(resources.GetObject("DisconnectSessionButton.Image")));
-            this.DisconnectSessionButton.Location = new System.Drawing.Point(698, 27);
+            this.DisconnectSessionButton.Location = new System.Drawing.Point(665, 27);
             this.DisconnectSessionButton.Name = "DisconnectSessionButton";
             this.DisconnectSessionButton.Size = new System.Drawing.Size(27, 23);
             this.DisconnectSessionButton.TabIndex = 21;
@@ -629,7 +630,7 @@
             this.AddBatchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddBatchButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.AddBatchButton.Image = ((System.Drawing.Image)(resources.GetObject("AddBatchButton.Image")));
-            this.AddBatchButton.Location = new System.Drawing.Point(543, 27);
+            this.AddBatchButton.Location = new System.Drawing.Point(552, 27);
             this.AddBatchButton.Name = "AddBatchButton";
             this.AddBatchButton.Size = new System.Drawing.Size(27, 23);
             this.AddBatchButton.TabIndex = 22;
@@ -644,7 +645,7 @@
             this.RemoveDeviceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveDeviceButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.RemoveDeviceButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveDeviceButton.Image")));
-            this.RemoveDeviceButton.Location = new System.Drawing.Point(599, 27);
+            this.RemoveDeviceButton.Location = new System.Drawing.Point(617, 27);
             this.RemoveDeviceButton.Name = "RemoveDeviceButton";
             this.RemoveDeviceButton.Size = new System.Drawing.Size(27, 23);
             this.RemoveDeviceButton.TabIndex = 23;
@@ -653,11 +654,28 @@
             this.RemoveDeviceButton.UseVisualStyleBackColor = true;
             this.RemoveDeviceButton.Click += new System.EventHandler(this.RemoveDeviceButton_Click);
             // 
+            // RestorationTargetsButton
+            // 
+            this.RestorationTargetsButton.Enabled = false;
+            this.RestorationTargetsButton.FlatAppearance.BorderSize = 0;
+            this.RestorationTargetsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RestorationTargetsButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.RestorationTargetsButton.Image = ((System.Drawing.Image)(resources.GetObject("RestorationTargetsButton.Image")));
+            this.RestorationTargetsButton.Location = new System.Drawing.Point(519, 27);
+            this.RestorationTargetsButton.Name = "RestorationTargetsButton";
+            this.RestorationTargetsButton.Size = new System.Drawing.Size(27, 23);
+            this.RestorationTargetsButton.TabIndex = 24;
+            this.RestorationTargetsButton.TabStop = false;
+            this.RestorationTargetsButton.Tag = "";
+            this.RestorationTargetsButton.UseVisualStyleBackColor = true;
+            this.RestorationTargetsButton.Click += new System.EventHandler(this.RestorationTargetsButton_Click);
+            // 
             // ProfileBackupTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 492);
+            this.Controls.Add(this.RestorationTargetsButton);
             this.Controls.Add(this.RemoveDeviceButton);
             this.Controls.Add(this.AddBatchButton);
             this.Controls.Add(this.DisconnectSessionButton);
@@ -762,6 +780,7 @@
         private System.Windows.Forms.ToolStripMenuItem backupHistoryToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem restorationHistoryToolStripMenuItem1;
         private System.Windows.Forms.Button RemoveDeviceButton;
+        private System.Windows.Forms.Button RestorationTargetsButton;
     }
 }
 

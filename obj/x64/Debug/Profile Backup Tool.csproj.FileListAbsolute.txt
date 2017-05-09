@@ -28,3 +28,4 @@ C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x6
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.RemoteSessionTerminator.resources
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\Profile Backup Tool.csproj.GenerateResource.Cache
 C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.Properties.Resources.resources
+C:\Users\Mason.LAPTOP-RJFK2H6N\Documents\PROJECTS\PROFILE BACKUP TOOL\pbt\obj\x64\Debug\ProfileBackupTool.DeviceManagement.RestorationQuery.resources
