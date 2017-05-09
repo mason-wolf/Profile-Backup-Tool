@@ -101,6 +101,9 @@ namespace ProfileBackupTool
 
                     StatusBar.Text = "Complete.";
 
+                    StartTransferButton.Enabled = true;
+                    StopButton.Enabled = false;
+
                     string LogFile = "logs\\" + Environment.UserName + "-restoration.txt";
 
                     using (StreamWriter w = File.AppendText(LogFile))
@@ -114,6 +117,11 @@ namespace ProfileBackupTool
                         w.Write("Elapsed Time: " + ElapsedTimeContainer.Text + Environment.NewLine);
                         w.Write("Backup Location: \\" + "\\" + Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + Environment.NewLine);
                         w.Write(Environment.NewLine);
+                    }
+
+                    if (FileTransferContainer.Text == "")
+                    {
+                        StatusBar.Text = "Restoration failed.";
                     }
 
                 }
@@ -132,7 +140,7 @@ namespace ProfileBackupTool
                         Transfer(target, target.Remove(0, 2), DirectoryTools);
                     }
 
-                    if (StatusBar.Text == "")
+                    if (FileTransferContainer.Text == "")
                     {
                         StatusBar.Text = "Transfer failed. Verify target is online and that you have sufficient privileges.";
                         File.AppendAllText("logs\\" + Environment.UserName + ".txt", target + ": FAILED" + Environment.NewLine);
