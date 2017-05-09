@@ -90,6 +90,7 @@
             // 
             // OriginalDevice
             // 
+            this.OriginalDevice.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.OriginalDevice.Location = new System.Drawing.Point(7, 347);
             this.OriginalDevice.Name = "OriginalDevice";
             this.OriginalDevice.Size = new System.Drawing.Size(133, 20);
@@ -130,6 +131,7 @@
             // 
             // NewDevice
             // 
+            this.NewDevice.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NewDevice.Location = new System.Drawing.Point(6, 344);
             this.NewDevice.Name = "NewDevice";
             this.NewDevice.Size = new System.Drawing.Size(133, 20);

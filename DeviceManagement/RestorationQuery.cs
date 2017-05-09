@@ -26,16 +26,20 @@ namespace ProfileBackupTool.DeviceManagement
 
         private void RestorationQuery_Load(object sender, EventArgs e)
         {
-            foreach(var item in Properties.Settings.Default.OriginalDevices)
+            try
             {
-                OriginalDeviceList.Items.Add(item);
+                foreach (var item in Properties.Settings.Default.OriginalDevices)
+                {
+                    OriginalDeviceList.Items.Add(item);
+                }
             }
+            catch { }
         }
 
         private void AddOriginalDevice_Click(object sender, EventArgs e)
         {
             string originalDevice = OriginalDevice.Text;
-            OriginalDeviceList.Items.Add(originalDevice);
+            OriginalDeviceList.Items.Add(originalDevice.Replace(@"\\", ""));
         }
 
         private void RemoveOriginal_Click(object sender, EventArgs e)
@@ -52,7 +56,14 @@ namespace ProfileBackupTool.DeviceManagement
         private void AddNewDevice_Click(object sender, EventArgs e)
         {
             string newDevice = NewDevice.Text;
-            NewDevices.Items.Add(newDevice);
+            if (!newDevice.Contains(@"\\"))
+            {
+                NewDevices.Items.Add(@"\\" + newDevice + @"\");
+            }
+            else
+            {
+                NewDevices.Items.Add(newDevice);
+            }
         }
 
         private void RemoveNew_Click(object sender, EventArgs e)
