@@ -96,8 +96,8 @@ namespace ProfileBackupTool
                     // TODO: Properly restore profiles based on knowing old computer name and new computer name
                     foreach (string originalDevice in Properties.Settings.Default.OriginalDevices)
                     {
-                        MessageBox.Show(Properties.Settings.Default.DefaultServer + @"\\" + originalDevice + " TO " + target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice);
-                   //     DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + @"\\" + originalDevice, target + Properties.Settings.Default.SourceDirectory + "\\" + originalDevice);
+
+                        DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer  + originalDevice, target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice);
                     }
                 }
                 else
