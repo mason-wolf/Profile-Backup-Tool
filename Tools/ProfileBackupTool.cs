@@ -101,8 +101,16 @@ namespace ProfileBackupTool
 
                     StatusBar.Text = "Complete.";
 
-                    StartTransferButton.Enabled = true;
-                    StopButton.Enabled = false;
+                    Invoke((MethodInvoker)delegate
+                    {
+                        if(FileTransferContainer.Text == "")
+                        {
+                            StatusBar.Text = "Restoration failed. Verify target device and migration storage is accessible.";
+                        }
+                        StartTransferButton.Enabled = true;
+                        StopButton.Enabled = false;
+                    });
+
 
                     string LogFile = "logs\\" + Environment.UserName + "-restoration.txt";
 
@@ -117,11 +125,6 @@ namespace ProfileBackupTool
                         w.Write("Elapsed Time: " + ElapsedTimeContainer.Text + Environment.NewLine);
                         w.Write("Backup Location: \\" + "\\" + Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + Environment.NewLine);
                         w.Write(Environment.NewLine);
-                    }
-
-                    if (FileTransferContainer.Text == "")
-                    {
-                        StatusBar.Text = "Restoration failed.";
                     }
 
                 }
@@ -295,11 +298,13 @@ namespace ProfileBackupTool
 
             // Count how many directories are found.
 
-            foreach (string target in DeviceList.Items)
-            { 
-                  string[] directories = Directory.GetDirectories(target + Properties.Settings.Default.SourceDirectory);
+            try
+            {
+                foreach (string target in DeviceList.Items)
+                {
+                    string[] directories = Directory.GetDirectories(target + Properties.Settings.Default.SourceDirectory);
 
-                foreach (string path in directories)
+                    foreach (string path in directories)
                     {
                         profileCount++;
                         ProfileCountContainer.Text = profileCount.ToString();
@@ -307,27 +312,34 @@ namespace ProfileBackupTool
 
                 }
 
-            DirectoryTools DirectoryTools = new DirectoryTools(TotalSizeContainer, FileTransferContainer, ProcessedFilesContainer);
+                DirectoryTools DirectoryTools = new DirectoryTools(TotalSizeContainer, FileTransferContainer, ProcessedFilesContainer);
 
-            ProfileLabel.Visible = true;
-            ProfileCountContainer.Visible = true;
-            TotalSizeLabel.Visible = true;
-            TotalSizeContainer.Visible = true;
-            ProcessedFilesContainer.Visible = true;
-            ProcessedFilesLabel.Visible = true;
-            ElapsedTimeContainer.Visible = true;
-            ElapsedTimeLabel.Visible = true;
+                ProfileLabel.Visible = true;
+                ProfileCountContainer.Visible = true;
+                TotalSizeLabel.Visible = true;
+                TotalSizeContainer.Visible = true;
+                ProcessedFilesContainer.Visible = true;
+                ProcessedFilesLabel.Visible = true;
+                ElapsedTimeContainer.Visible = true;
+                ElapsedTimeLabel.Visible = true;
 
-            Timer = new System.Windows.Forms.Timer();
-            Timer.Interval = 500;
-            Timer.Tick += Ticker;
-            Timer.Start();
+                Timer = new System.Windows.Forms.Timer();
+                Timer.Interval = 500;
+                Timer.Tick += Ticker;
+                Timer.Start();
 
-            StopWatch = new Stopwatch();
-            StopWatch.Start();
-            
-            DirectorySizeCalculator = new Thread(() => InitiateTransfer(RetrieveDeviceList()));
-            DirectorySizeCalculator.Start();
+                StopWatch = new Stopwatch();
+                StopWatch.Start();
+
+                DirectorySizeCalculator = new Thread(() => InitiateTransfer(RetrieveDeviceList()));
+                DirectorySizeCalculator.Start();
+            }
+            catch
+            {
+                StatusBar.Text = "Transfer failed. Ensure target device is accessible.";
+                StartTransferButton.Enabled = true;
+                StopButton.Enabled = false;
+            }
 
         }
 

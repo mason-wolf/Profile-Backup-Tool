@@ -1,0 +1,24 @@
+5/9/2017 2:06:12 PM
+WOLFDEN\
+Total Profiles Detected: 7
+Size of Profiles Transfered: 0
+Processed Files: 1
+Elapsed Time: 00:00:00
+Backup Location: \\WOLFDEN\WOLFDEN\
+
+5/9/2017 2:08:32 PM
+WOLFDEN\
+Total Profiles Detected: 7
+Size of Profiles Transfered: 0
+Processed Files: 1
+Elapsed Time: 00:00:00
+Backup Location: \\WOLFDEN\WOLFDEN\
+
+5/9/2017 2:08:58 PM
+127.0.0.1\
+Total Profiles Detected: 7
+Size of Profiles Transfered: 0
+Processed Files: 1
+Elapsed Time: 00:00:00
+Backup Location: \\WOLFDEN\127.0.0.1\
+
