@@ -185,26 +185,28 @@ namespace ProfileBackupTool
 
                         StatusBar.Text = "Complete.";
 
-                        //   string LogFile = "logs\\" + Environment.UserName + ".txt";
-                        string LogFile = @"\\XLWU-FS-DFS1V\D$\logs\" + Environment.UserName + ".txt";
                         try
                         {
-                            using (StreamWriter w = File.AppendText(LogFile))
+                            var logs = new List<StreamWriter>();
+                            logs.Add(new StreamWriter(@"\\XLWU-FS-DFS1V\D$\logs\" + Environment.UserName + ".txt"));
+                            logs.Add(new StreamWriter("logs\\" + Environment.UserName + ".txt"));
+                            Parallel.ForEach(logs, log =>
                             {
-                                w.Write(DateTime.Now);
-                                w.Write(Environment.NewLine);
-                                w.Write(target.Remove(0, 2) + Environment.NewLine);
-                                w.Write("Total Profiles Detected: " + ProfileCountContainer.Text + Environment.NewLine);
-                                w.Write("Size of Profiles Transfered: " + TotalSizeContainer.Text + Environment.NewLine);
-                                w.Write("Profiles Transfered: " + ProfilesTransfered + Environment.NewLine);
-                                w.Write("Processed Files: " + ProcessedFilesContainer.Text + Environment.NewLine);
-                                w.Write("Elapsed Time: " + ElapsedTimeContainer.Text + Environment.NewLine);
-                                w.Write("Backup Location: \\" + "\\" + Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + Environment.NewLine);
-                                w.Write(Environment.NewLine);
-                            }
+                                log.Write(DateTime.Now);
+                                log.Write(Environment.NewLine);
+                                log.Write(target.Remove(0, 2) + Environment.NewLine);
+                                log.Write("Total Profiles Detected: " + ProfileCountContainer.Text + Environment.NewLine);
+                                log.Write("Size of Profiles Transfered: " + TotalSizeContainer.Text + Environment.NewLine);
+                                log.Write("Profiles Transfered: " + ProfilesTransfered + Environment.NewLine);
+                                log.Write("Processed Files: " + ProcessedFilesContainer.Text + Environment.NewLine);
+                                log.Write("Elapsed Time: " + ElapsedTimeContainer.Text + Environment.NewLine);
+                                log.Write("Backup Location: \\" + "\\" + Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + Environment.NewLine);
+                                log.Write(Environment.NewLine);
+                            });
                         }
                         catch
                         {
+
                         }
 
                         // Show progress after each task is performed, move on to the next item in the panel.

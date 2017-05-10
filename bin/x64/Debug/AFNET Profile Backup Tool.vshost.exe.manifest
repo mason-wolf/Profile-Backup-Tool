@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AFNET Profile Backup Tool.exe" size="212480">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AFNET Profile Backup Tool.exe" size="213504">
       <assemblyIdentity name="AFNET Profile Backup Tool" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>HBc6ncYLpZWWTPPbj1fyHtP2iNY=</dsig:DigestValue>
+        <dsig:DigestValue>tpeCGhVXTisr2IqsQNfC0259o14=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
