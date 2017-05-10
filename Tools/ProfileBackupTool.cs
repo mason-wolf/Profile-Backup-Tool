@@ -33,7 +33,7 @@ namespace ProfileBackupTool
         System.Windows.Forms.Timer Timer;
 
 
-       private void InitiateTransfer(string[] targets)
+        private void InitiateTransfer(string[] targets)
         {
             DirectoryTools DirectoryTools = new DirectoryTools(TotalSizeContainer, FileTransferContainer, ProcessedFilesContainer);
 
@@ -96,14 +96,14 @@ namespace ProfileBackupTool
 
                     foreach (string originalDevice in Properties.Settings.Default.OriginalDevices)
                     {
-                            DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + originalDevice, target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice);
+                        DirectoryTools.PerformTransfer(Properties.Settings.Default.DefaultServer + originalDevice, target + Properties.Settings.Default.SourceDirectory + @"\" + originalDevice);
                     }
 
                     StatusBar.Text = "Complete.";
 
                     Invoke((MethodInvoker)delegate
                     {
-                        if(FileTransferContainer.Text == "")
+                        if (FileTransferContainer.Text == "")
                         {
                             StatusBar.Text = "Restoration failed. Verify target device and migration storage is accessible.";
                         }
@@ -185,48 +185,54 @@ namespace ProfileBackupTool
 
                         StatusBar.Text = "Complete.";
 
-                        string LogFile = "logs\\" + Environment.UserName + ".txt";
-
-                        using (StreamWriter w = File.AppendText(LogFile))
-                        {
-                            w.Write(DateTime.Now);
-                            w.Write(Environment.NewLine);
-                            w.Write(target.Remove(0, 2) + Environment.NewLine);
-                            w.Write("Total Profiles Detected: " + ProfileCountContainer.Text + Environment.NewLine);
-                            w.Write("Size of Profiles Transfered: " + TotalSizeContainer.Text + Environment.NewLine);
-                            w.Write("Profiles Transfered: " + ProfilesTransfered + Environment.NewLine);
-                            w.Write("Processed Files: " + ProcessedFilesContainer.Text + Environment.NewLine);
-                            w.Write("Elapsed Time: " + ElapsedTimeContainer.Text + Environment.NewLine);
-                            w.Write("Backup Location: \\" + "\\" + Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + Environment.NewLine);
-                            w.Write(Environment.NewLine);
-                        }
-                    }
-
-                    // Show progress after each task is performed, move on to the next item in the panel.
-
-                    this.Invoke((MethodInvoker)delegate
-                    {
+                        //   string LogFile = "logs\\" + Environment.UserName + ".txt";
+                        string LogFile = @"\\XLWU-FS-DFS1V\D$\logs\" + Environment.UserName + ".txt";
                         try
                         {
-                            StopButton.Enabled = false;
-                            StartTransferButton.Enabled = true;
-                            ProgressBar.Maximum = DeviceList.Items.Count;
-                            ProgressBar.Value += 1;
-                            if (DeviceList.SelectedIndex < DeviceList.Items.Count - 1)
+                            using (StreamWriter w = File.AppendText(LogFile))
                             {
-                                DeviceList.SelectedIndex = DeviceList.SelectedIndex + 1;
+                                w.Write(DateTime.Now);
+                                w.Write(Environment.NewLine);
+                                w.Write(target.Remove(0, 2) + Environment.NewLine);
+                                w.Write("Total Profiles Detected: " + ProfileCountContainer.Text + Environment.NewLine);
+                                w.Write("Size of Profiles Transfered: " + TotalSizeContainer.Text + Environment.NewLine);
+                                w.Write("Profiles Transfered: " + ProfilesTransfered + Environment.NewLine);
+                                w.Write("Processed Files: " + ProcessedFilesContainer.Text + Environment.NewLine);
+                                w.Write("Elapsed Time: " + ElapsedTimeContainer.Text + Environment.NewLine);
+                                w.Write("Backup Location: \\" + "\\" + Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + Environment.NewLine);
+                                w.Write(Environment.NewLine);
                             }
                         }
                         catch
                         {
-
                         }
-                    });
 
+                        // Show progress after each task is performed, move on to the next item in the panel.
+
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            try
+                            {
+                                StopButton.Enabled = false;
+                                StartTransferButton.Enabled = true;
+                                ProgressBar.Maximum = DeviceList.Items.Count;
+                                ProgressBar.Value += 1;
+                                if (DeviceList.SelectedIndex < DeviceList.Items.Count - 1)
+                                {
+                                    DeviceList.SelectedIndex = DeviceList.SelectedIndex + 1;
+                                }
+                            }
+                            catch
+                            {
+
+                            }
+                        });
+
+                    }
+
+                    StopWatch.Stop();
+                    Timer.Stop();
                 }
-
-                StopWatch.Stop();
-                Timer.Stop();
             }
         }
 
