@@ -202,6 +202,7 @@ namespace ProfileBackupTool
                                 log.Write("Elapsed Time: " + ElapsedTimeContainer.Text + Environment.NewLine);
                                 log.Write("Backup Location: \\" + "\\" + Properties.Settings.Default.DefaultServer + "\\" + target.Remove(0, 2) + Environment.NewLine);
                                 log.Write(Environment.NewLine);
+                                log.Dispose();
                             });
                         }
                         catch
